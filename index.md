@@ -2,11 +2,12 @@
 Dr. Donaldson's Lecture Notes
 
 ## Week 1
-- Lecture 1
+- [Lecture 1](lecture1)
 
 ## Week 2
-- Lecture 2
-- Lecture 3
+- [Lecture 1](lecture1)
+- [Lecture 2](lecture2)
+- [Lecture 3](lecture3)
 
 ## Week 3
 
