@@ -2,7 +2,7 @@
 Dr. Donaldson's Lecture Notes
 
 ## Week 1
-- [Lecture 1](lecture/lecture1)
+- [Lecture 1](lecture/lecture1/)
 - Only 1 lecture this week
 
 ## Week 2
