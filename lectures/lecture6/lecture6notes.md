@@ -247,3 +247,23 @@ to write `chatbot.say('Hello')` or `chatbot.set_name('Eliza')`.
 
 We won't go into any more details here since we haven't covered functions yet,
 but we will see modules again later.
+
+## Exercise: Random Product Names
+
+Write a Python progam that generates random product names, e.g.:
+
+```
+How many product names do you want? 5
+
+1. transparent electric coconut stretcher
+2. mega auto-tuned hamster treat curler
+3. super solar-powered dog toy dryer
+4. mini solar-powered hamster treat dryer
+5. super digital hamster treat dryer
+```
+
+The idea is to use `random.choice` to chose random words from different lists,
+and then to combine them in a grammatically plausible way to sound like a
+product name.
+
+See a sample solution in [random_products.py](random_products.py).
