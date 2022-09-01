@@ -1,1 +1,249 @@
-Notes will appear here as soon as they are ready.
+# Lecture 6 Notes
+
+## The turtle Module Documentation
+
+Python organizes related pieces code into **modules**. For example, `turtle`
+is a module that comes with [a lot of
+documentation](https://docs.python.org/3/library/turtle.html).
+
+You can find documentation for all of Python built-in commands and modules on
+the same website.
+
+
+## The math Module
+
+`math` is a useful Python that provides a number of standard math functions. A
+sometimes handy trick for seeing the functions in a module is to first import
+the module, and then to call `dir` on it:
+
+```python
+>>> import math
+>>> dir(math)
+['__doc__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ 'acos',
+ 'acosh',
+ 'asin',
+ 'asinh',
+ 'atan',
+ 'atan2',
+ 'atanh',
+ 'ceil',
+ 'copysign',
+ 'cos',
+ 'cosh',
+ 'degrees',
+ 'e',
+ 'erf',
+ 'erfc',
+ 'exp',
+ 'expm1',
+ 'fabs',
+ 'factorial',
+ 'floor',
+ 'fmod',
+ 'frexp',
+ 'fsum',
+ 'gamma',
+ 'gcd',
+ 'hypot',
+ 'inf',
+ 'isclose',
+ 'isfinite',
+ 'isinf',
+ 'isnan',
+ 'ldexp',
+ 'lgamma',
+ 'log',
+ 'log10',
+ 'log1p',
+ 'log2',
+ 'modf',
+ 'nan',
+ 'pi',
+ 'pow',
+ 'radians',
+ 'sin',
+ 'sinh',
+ 'sqrt',
+ 'tan',
+ 'tanh',
+ 'tau',
+ 'trunc']
+```
+
+That's a lot of functions. Let's look at a couple:
+
+```python
+>>> import math
+
+>>> math.sqrt(2)
+1.4142135623730951
+
+>>> math.factorial(52)
+80658175170943878571660636856403766975289505440883277824000000000000
+
+>>> math.sin(10)
+-0.5440211108893698
+
+>>> math.pi
+3.141592653589793
+
+>>> math.log10(2000)
+3.3010299956639813
+
+>>> math.gcd(1001, 777)
+7
+```
+
+A couple of notes:
+
+- `math.factorial(n)` returns the *factorial* of n, i.e. `1 * 2 * 3 * ... *
+  n`. This is an important function in computer science. Among other things,
+  it tells you exactly how many ways n distinct objects can be arranged in a
+  line. `math.factorial(52)` is the number of ways a deck of 52 cards can be
+  shuffled.
+- `math.pi` is a variable, not a function.
+
+
+## The random Module
+
+Another useful module is `random`, which provides various functions for
+generating random numbers:
+
+```python
+>>> import random
+>>> dir(random)
+['BPF',
+ 'LOG4',
+ 'NV_MAGICCONST',
+ 'RECIP_BPF',
+ 'Random',
+ 'SG_MAGICCONST',
+ 'SystemRandom',
+ 'TWOPI',
+ '_Sequence',
+ '_Set',
+ '__all__',
+ '__builtins__',
+ '__cached__',
+ '__doc__',
+ '__file__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__spec__',
+ '_accumulate',
+ '_acos',
+ '_bisect',
+ '_ceil',
+ '_cos',
+ '_e',
+ '_exp',
+ '_inst',
+ '_log',
+ '_os',
+ '_pi',
+ '_random',
+ '_repeat',
+ '_sha512',
+ '_sin',
+ '_sqrt',
+ '_test',
+ '_test_generator',
+ '_urandom',
+ '_warn',
+ 'betavariate',
+ 'choice',
+ 'choices',
+ 'expovariate',
+ 'gammavariate',
+ 'gauss',
+ 'getrandbits',
+ 'getstate',
+ 'lognormvariate',
+ 'normalvariate',
+ 'paretovariate',
+ 'randint',
+ 'random',
+ 'randrange',
+ 'sample',
+ 'seed',
+ 'setstate',
+ 'shuffle',
+ 'triangular',
+ 'uniform',
+ 'vonmisesvariate',
+ 'weibullvariate']
+```
+
+Here are a few useful functions. `random.randing(a, b)` returns a randomly
+chosen integer in the from `a` to `b` (including possibly `a` or `b`):
+
+```python
+>>> random.randint(1, 6)
+2
+>>> random.randint(1, 6)
+1
+>>> random.randint(1, 6)
+6
+>>> random.randint(1, 6)
+6
+>>> random.randint(1, 6)
+1
+>>> random.randint(1, 6)
+4
+```
+
+The function `random.random()` returns a floating point number from 0 to 1
+(but never exactly 1):
+
+```python
+>>> random.random()
+0.47745380693286654
+>>> random.random()
+0.922890294962554
+>>> random.random()
+0.1053133399211651
+```
+
+The function `random.shuffle` scrambles the elements of a list:
+
+```python
+>>> pets = ['dog', 'cat', 'bird', 'fish']
+>>> pets
+['dog', 'cat', 'bird', 'fish']
+>>> random.shuffle(pets)
+>>> pets
+['dog', 'fish', 'bird', 'cat']
+>>> random.shuffle(pets)
+>>> pets
+['bird', 'cat', 'fish', 'dog']
+```
+
+`random.choice` returns element chosen at random from the list:
+
+```python
+>>> pets = ['dog', 'cat', 'bird', 'fish']
+>>> random.choice(pets)
+'cat'
+>>> random.choice(pets)
+'bird'
+>>> random.choice(pets)
+'cat'
+```
+
+## Making Your Own Modules
+
+It's quite easy to make your own Python modules. For example, suppose you want
+to write a module that helps you create chatbots. First put your
+chatbot-related variables and functions in `chatbot.py`as usual. Then you can
+call them in another file using an `import chatbot` statement. As we saw
+above, you will need to use dot-notation, e.g. in the importing file you have
+to write `chatbot.say('Hello')` or `chatbot.set_name('Eliza')`.
+
+We won't go into any more details here since we haven't covered functions yet,
+but we will see modules again later.

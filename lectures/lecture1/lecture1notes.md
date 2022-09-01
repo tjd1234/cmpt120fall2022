@@ -1,3 +1,5 @@
+# Lecture 1
+
 - [Lecture 1 PowerPoint](lecture1.pptx)
 - **Save a link and browse** the [Canvas](https://canvas.sfu.ca/) course to
   see due dates and other useful course information.
