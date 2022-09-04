@@ -9,6 +9,10 @@ programs.
 ## Assignments
 
 - [Assignment 1](assignments/a1/a1.md)
+- Assignment 2
+- Assignment 3
+- Assignment 4
+- Assignment 5
 
 ## Dr. Donaldson's Lecture Notes
 
