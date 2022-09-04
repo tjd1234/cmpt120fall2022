@@ -1,7 +1,7 @@
 # CMPT 120 Surrey, Fall 2022
 
 Due dates, marks, discussions, etc. are all on
-[Canvas](https://canvas.sfu.ca/).
+[Canvas](https://canvas.sfu.ca/courses/73212).
 
 Please use [the Mu Python editor](https://codewith.mu/) to run your Python
 programs.
