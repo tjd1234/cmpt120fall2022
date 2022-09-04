@@ -12,9 +12,9 @@ the same website.
 
 ## The math Module
 
-`math` is a useful Python that provides a number of standard math functions. A
-sometimes handy trick for seeing the functions in a module is to first import
-the module, and then to call `dir` on it:
+`math` is a useful module that provides a number of standard math functions. A
+handy trick for seeing the functions in a module is to first import the
+module, and then to call `dir` on it:
 
 ```python
 >>> import math
@@ -101,11 +101,11 @@ That's a lot of functions. Let's look at a couple:
 
 A couple of notes:
 
-- `math.factorial(n)` returns the *factorial* of n, i.e. `1 * 2 * 3 * ... *
-  n`. This is an important function in computer science. Among other things,
-  it tells you exactly how many ways n distinct objects can be arranged in a
-  line. `math.factorial(52)` is the number of ways a deck of 52 cards can be
-  shuffled.
+- `math.factorial(n)` returns the *factorial* of $n$, i.e. $1 \cdot 2 \cdot 3
+  \cdot \ldots \cdot n$. This is an important function in computer science.
+  Among other things, it tells you exactly how many ways $n$ distinct objects
+  can be arranged in a line. `math.factorial(52)` is the number of ways a deck
+  of 52 cards can be shuffled.
 - `math.pi` is a variable, not a function.
 
 
@@ -240,7 +240,7 @@ The function `random.shuffle` scrambles the elements of a list:
 
 It's quite easy to make your own Python modules. For example, suppose you want
 to write a module that helps you create chatbots. First put your
-chatbot-related variables and functions in `chatbot.py`as usual. Then you can
+chatbot-related variables and functions in `chatbot.py` as usual. Then you can
 call them in another file using an `import chatbot` statement. As we saw
 above, you will need to use dot-notation, e.g. in the importing file you have
 to write `chatbot.say('Hello')` or `chatbot.set_name('Eliza')`.
@@ -250,7 +250,7 @@ but we will see modules again later.
 
 ## Exercise: Random Product Names
 
-Write a Python progam that generates random product names, e.g.:
+Write a Python program that generates random product names, e.g.:
 
 ```
 How many product names do you want? 5

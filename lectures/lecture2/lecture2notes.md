@@ -1,6 +1,6 @@
 # Lecture 2 Notes
 
-## Euclid's Greatest Common Divisor Algorithm
+## Euclid's Greatest Common Divisor (GCD) Algorithm
 
 - What's the GCD of 15 and 39?
 - What's the GCD of 7 and 5?
