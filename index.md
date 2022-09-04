@@ -1,4 +1,4 @@
-# CMPT 120, Fall 2022
+# CMPT 120 Surrey, Fall 2022
 
 Due dates, marks, discussions, etc. are all on
 [Canvas](https://canvas.sfu.ca/).
