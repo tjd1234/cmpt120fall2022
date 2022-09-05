@@ -3,8 +3,9 @@
 Due dates, marks, discussions, etc. are all on
 [Canvas](https://canvas.sfu.ca/courses/73212).
 
-Please use [the Mu Python editor](https://codewith.mu/) to run your Python
-programs.
+I recommend you use [the Mu Python editor](https://codewith.mu/) to run your
+Python programs. It's easy to use, and comes complete with all the libraries
+you'll need for this course.
 
 ## Assignments
 
@@ -28,7 +29,8 @@ programs.
 - Wed Sept 14: [lecture 4](lectures/lecture4/lecture4notes.md)
 
 ### Week 3
-- [Read chapter 4: Turtle graphics and for-loops (all)](https://runestone.academy/ns/books/published/120fall2022surrey/PythonTurtle/toctree.html), [Read chapter 5: Modules (all)](https://runestone.academy/ns/books/published/120fall2022surrey/PythonModules/toctree.html)
+- [Read chapter 4: Turtle graphics and for-loops (all)](https://runestone.academy/ns/books/published/120fall2022surrey/PythonTurtle/toctree.html)
+- [Read chapter 5: Modules (all)](https://runestone.academy/ns/books/published/120fall2022surrey/PythonModules/toctree.html)
 - Mon Sept 19: [lecture 5](lectures/lecture5/lecture5notes.md), 
                [lecture 6](lectures/lecture6/lecture6notes.md)
 - Wed Sept 21: [lecture 7](lectures/lecture7/lecture7notes.md)
@@ -84,7 +86,8 @@ programs.
 - Wed Nov 16: [lecture 27](lectures/lecture27/lecture27notes.md)
 
 ### Week 12
-- [Read chapter 11: Files (11.1 - 11.6, 11.8)](https://runestone.academy/ns/books/published/120fall2022surrey/Files/toctree.html), [Read chapter 12: Dictionaries (12.1 - 12.4)](https://runestone.academy/ns/books/published/120fall2022surrey/Dictionaries/toctree.html)
+- [Read chapter 11: Files (11.1 - 11.6, 11.8)](https://runestone.academy/ns/books/published/120fall2022surrey/Files/toctree.html)
+- [Read chapter 12: Dictionaries (12.1 - 12.4)](https://runestone.academy/ns/books/published/120fall2022surrey/Dictionaries/toctree.html)
 - Mon Nov 21: [lecture 28](lectures/lecture28/lecture28notes.md), 
               [lecture 29](lectures/lecture29/lecture29notes.md)
 - Wed Nov 23: [lecture 30](lectures/lecture30/lecture30notes.md)
@@ -103,5 +106,5 @@ programs.
 
 ## Exam Period: Wed Dec 7 to Mon December 19
 
-The day and time of the CMPT 120 final exam will be announced part way through
-the semester.
+The day and time of the CMPT 120 final exam will be announced by the
+university part way through the semester.
