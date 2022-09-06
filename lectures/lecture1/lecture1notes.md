@@ -6,5 +6,5 @@
 - **Download and install** [the Mu Python editor](https://codewith.mu/) on
   your computer.
 - **Save a link and browse** the course textbook: [How to Think Like a
-  Computer Scientist, Interactive Edition](https://runestone.academy/ns/books/published/thinkcspy/index.html?mode=browsing)
+  Computer Scientist, Interactive Edition](https://runestone.academy/ns/books/published/120fall2022surrey/index.html#)
   
