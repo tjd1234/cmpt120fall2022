@@ -80,7 +80,8 @@ you'll need for this course.
 - Friday Nov 11: SFU Closed ([Remembrance Day](https://en.wikipedia.org/wiki/Remembrance_Day))
 
 ### Week 11
-- Simple sorting and searching (see notes below)
+- Simple sorting, searching, and an introduction to algorithmic complexity
+  (see notes for this week)
 - Mon Nov 14: [lecture 25](lectures/lecture25/lecture25notes.md), 
               [lecture 26](lectures/lecture26/lecture26notes.md)
 - Wed Nov 16: [lecture 27](lectures/lecture27/lecture27notes.md)
