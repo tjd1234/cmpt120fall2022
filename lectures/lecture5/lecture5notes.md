@@ -117,7 +117,7 @@ previous exercise. Sample solution in [triangle2.py](triangle2.py).
 
 ## Other Kinds of for-loops
 
-For-loops an **iterate** through the elements of a list:
+For-loops **iterate** through the elements of a list:
 
 ```python
 colors = ['orange', 'black', 'green', 'yellow']

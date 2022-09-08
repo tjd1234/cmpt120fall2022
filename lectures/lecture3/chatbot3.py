@@ -1,13 +1,29 @@
 # chatbot3.py
 
-# You could can more questions in a similar way. Here the chatbot also asks
-# about their height.
+#
+# This chatbot choses a greeting at random. It uses lists and the
+# random.choice function to do this.
+#
+
+#
+# the random.choice function used below is in the random module, and so we
+# must import here
+#
+import random
+
+#
+# a list of possible greetings (one will be chosen at random later)
+#
+greetings = ['Hello', 'Bonjour', 'Hola', 'Konnichiwa',
+             'Guten tag', 'Asalaam alaikum'             
+            ]
 
 # ask the user for some input
 name = input("What's your name? ")
 
 # print something based on the input
-print('Greetings ' + name)
+greeting = random.choice(greetings)
+print(greeting + ' ' + name)
 
 # ask the user for some input
 height = input('How tall are you? ')

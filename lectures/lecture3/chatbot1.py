@@ -1,9 +1,11 @@
 # chatbot1.py
 
-# To start, we write comments describing what we want the program to do.
-# Nothing happens when you run this program.
+# Next we replace each comment with some simple code that does something.
+# Notice that we keep the comments: they help explain what the program is
+# doing.
 
 # ask the user for some input
+name = input("What's your name? ")
 
 # print something based on the input
-
+print('Greetings ' + name)

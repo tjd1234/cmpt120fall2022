@@ -160,8 +160,7 @@ Drawing this as a diagram (a flow chart) might help.
 
 Chatbot program:
 
-- [chatbot1.py](chatbot1.py): does nothing, but does it correctly!
-- [chatbot2.py](chatbot2.py): asks the user for their name and says hello
-- [chatbot3.py](chatbot3.py): also asks the user for their height
-- [chatbot4.py](chatbot4.py): uses a list of strings and imports `random` to
+- [chatbot1.py](chatbot1.py): asks the user for their name and says hello
+- [chatbot2.py](chatbot2.py): also asks the user for their height
+- [chatbot3.py](chatbot3.py): uses a list of strings and imports `random` to
   choose a random greeting

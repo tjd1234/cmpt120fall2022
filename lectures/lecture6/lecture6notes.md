@@ -12,9 +12,9 @@ the same website.
 
 ## The math Module
 
-`math` is a useful module that provides a number of standard math functions. A
-handy trick for seeing the functions in a module is to first import the
-module, and then to call `dir` on it:
+`math` is a useful module that provides many standard math functions. A handy
+trick for seeing the functions in a module is to first import the module, and
+then call `dir` on it:
 
 ```python
 >>> import math
@@ -104,8 +104,8 @@ A couple of notes:
 - `math.factorial(n)` returns the *factorial* of $n$, i.e. $1 \cdot 2 \cdot 3
   \cdot \ldots \cdot n$. This is an important function in computer science.
   Among other things, it tells you exactly how many ways $n$ distinct objects
-  can be arranged in a line. `math.factorial(52)` is the number of ways a deck
-  of 52 cards can be shuffled.
+  can be arranged in a line. For instance, `math.factorial(52)` is the number
+  of ways a deck of 52 cards can be shuffled.
 - `math.pi` is a variable, not a function.
 
 
@@ -180,8 +180,8 @@ generating random numbers:
  'weibullvariate']
 ```
 
-Here are a few useful functions. `random.randing(a, b)` returns a randomly
-chosen integer in the from `a` to `b` (including possibly `a` or `b`):
+Here are a few useful functions. `random.randint(a, b)` returns a randomly
+chosen integer from `a` to `b` (including possibly `a` or `b`):
 
 ```python
 >>> random.randint(1, 6)
@@ -262,8 +262,10 @@ How many product names do you want? 5
 5. super digital hamster treat dryer
 ```
 
-The idea is to use `random.choice` to chose random words from different lists,
-and then to combine them in a grammatically plausible way to sound like a
-product name.
+The idea is to make a template for the structure of a product name, e.g. each
+name in the example follows the template "<modifier1> <modifier2> <noun>
+<verb>". For each modifier, noun, and verb, create a list of interesting
+words. Then use `random.choice` to chose random words from the lists, and
+print the results using the template.
 
 See a sample solution in [random_products.py](random_products.py).

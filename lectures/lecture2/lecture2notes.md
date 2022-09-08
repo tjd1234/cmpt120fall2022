@@ -22,7 +22,7 @@ An algorithm written in English like above is called **pseudocode**.
 What are some questions computer scientists might ask about an algorithm?
 
 - how much memory does it use?
-- how many steps does it to find the GCD (running time)?
+- how many steps does it do to find the GCD (running time)?
 - how complicated is it? what sort of basic operations does it assume are
   possible?
 - does it always find the correct GCD?
