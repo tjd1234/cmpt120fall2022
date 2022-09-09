@@ -247,8 +247,8 @@ for c in ['orange', 'red', 'yellow', 'green']:
     turtle.left(90)
 ```
 
-The code in the for-loop body is run four times because there are four colors
-in the list. Furthermore, the color of each side is set to a different color.
+The code in the for-loop body runs four times because there are four colors in
+the list. Furthermore, the color of each side is set to a different color.
 
 
 ## Other Turtle Stuff

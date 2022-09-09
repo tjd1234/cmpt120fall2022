@@ -2,8 +2,8 @@
 
 ## The turtle Module Documentation
 
-Python organizes related pieces code into **modules**. For example, `turtle`
-is a module that comes with [a lot of
+Python organizes related pieces of code into **modules**. For example,
+`turtle` is a module that comes with [a lot of
 documentation](https://docs.python.org/3/library/turtle.html).
 
 You can find documentation for all of Python built-in commands and modules on
