@@ -14,12 +14,14 @@ What is the algorithm?
 4. go to step 2
 
 
-An **algorithm** is precise description of a step-by-step process that solves
-a problem.
+An **algorithm** is a precise description of a step-by-step process that
+solves a problem.
 
-An algorithm written in English like above is called **pseudocode**. 
+An algorithm described in English like above is called **pseudocode**.
+Pseudocode is a semi-formal English description of an algorithm meant to be
+read by people.
 
-What are some questions computer scientists might ask about an algorithm?
+What are some questions computer scientists might ask about this algorithm?
 
 - how much memory does it use?
 - how many steps does it do to find the GCD (running time)?
@@ -51,15 +53,26 @@ your program could crash (i.e. suddenly stop working) or behave strangely.
 Know these three categories of errors:
 
 - **syntax error**: a mistake in the spelling or grammar of your program
-  (Python catches some syntax errors *before* a program runs, but not all)
+  (Python catches some syntax errors *before* a program runs, but not all);
+  here's an example of a syntax error:
 
-- **runtime error**: an error that occurs while your program is running; if
-  you type the string `'five'` into [euclid.py](euclid.py) the program will
-  crash with a runtime error
+  ```python
+  print("Nothing to see here!)   # syntax error: missing final "
+  ```
 
-- **semantic error**: an error in the logic of your progam, e.g. you have an
-  incorrect algorithm; semantic errors may, or may not, syntax or runtime
-  errors
+- **runtime error**: an error that occurs while your program is running; for
+  example, if you type the string `'five'` into [euclid.py](euclid.py) the
+  program will crash with a runtime error
+
+- **semantic error**: an error in the logic of your program, e.g. you have an
+  incorrect algorithm; here's an example of a semantic error in a version of
+  the GCD algorithm:
+
+  1. start with two integers
+  2. if they are the same, stop: you've found their GCD
+  3. if they are different, replace the bigger number with the difference
+     between it and the smaller number
+  4. **go to step 3**  <-- **semantic error**! Should go to step 2.
 
 
 ## Practice exercises
@@ -67,4 +80,5 @@ Know these three categories of errors:
 - If you haven't already done so, copy [euclid.py](euclid.py) to your own
   computer and try running it in Mu/IDLE.
 
-- Modify [euclid.py](euclid.py) examples of syntax and runtime errors.
+- Modify [euclid.py](euclid.py) to demonstrate examples of syntax and runtime
+  errors.

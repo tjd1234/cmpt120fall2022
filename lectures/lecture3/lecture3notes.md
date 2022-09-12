@@ -2,7 +2,7 @@
 
 ## Introduction to Strings, Numbers, and Lists
 
-Here are some Python data types and example literals:
+Here are some Python **data types** and example **literals**:
 
 - *integers*, `int`s: `5`, `0`, `-47`, ...
 
@@ -86,7 +86,7 @@ print('GPA:', gpa)
 `=` means **assignment**. It's *not* equality, like in math. Python uses `==`
 for equality.
 
-`x = y` means assign a copy of the value of `y` to `x`. This examples is
+`x = y` means assign a *copy* of the value of `y` to `x`. This example is
 important:
 
 ```python
