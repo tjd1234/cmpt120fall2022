@@ -18,5 +18,3 @@ while a != b:
 
 # print the result
 print("greatest common divisor:", a)
-
-
