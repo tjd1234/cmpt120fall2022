@@ -38,8 +38,10 @@ interpreter will tell us the value of an expression:
 ```python
 >>> 2 * (3 + 1)
 8
+
 >>> "Hello" + " " + "there!"
 'Hello there!'
+
 >>> len('shoe')
 4
 ```
@@ -52,10 +54,13 @@ Some expressions don't evaluate to anything simpler:
 ```python
 >>> 5
 5
+
 >>> 4.009
 4.009
+
 >>> "moon"
 'moon'
+
 >>> [1,2,5]
 [1, 2, 5]
 ```
