@@ -31,7 +31,7 @@ you'll need for this course.
 ### Week 3
 - [Read chapter 4: Turtle graphics and for-loops (all)](https://runestone.academy/ns/books/published/120fall2022surrey/PythonTurtle/toctree.html)
 - [Read chapter 5: Modules (all)](https://runestone.academy/ns/books/published/120fall2022surrey/PythonModules/toctree.html)
-- Mon Sept 19: lectures cancelled (Queen's funeral)
+- Mon Sept 19: SFU closed, lectures cancelled (Queen's funeral)
 - Wed Sept 21: [lecture 5](lectures/lecture5/lecture5notes.md), 
                [lecture 6](lectures/lecture6/lecture6notes.md),
                [lecture 7](lectures/lecture7/lecture7notes.md)
