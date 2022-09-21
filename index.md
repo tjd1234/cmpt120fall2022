@@ -10,7 +10,7 @@ you'll need for this course.
 ## Assignments
 
 - [Assignment 1](assignments/a1/a1.md)
-- Assignment 2
+- [Assignment 2](assignments/a2/a2.md)
 - Assignment 3
 - Assignment 4
 - Assignment 5
