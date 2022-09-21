@@ -40,10 +40,20 @@ distance from it's starting point of (0, 0) in the center of the screen to the p
 where it stops.
 
 You can get (x, y)-position of the turtle using the functions `turtle.xcor()`
-and `turtle.ycor()`.
+and `turtle.ycor()`:
 
-The distance from point $$(0, 0)$$ to point $$(x, y)$$ is $$\sqrt{x^2 +
-y^2}$$.
+```python
+x = turtle.xcor()
+y = turtle.ycor()
+```
+
+Or you can do it like this:
+
+```python
+x, y = turtle.position()
+```
+
+The distance from point $(0, 0)$ to point $(x, y)$ is $\sqrt{x^2 + y^2}$.
 
 
 ## Sample Solutions
