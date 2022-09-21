@@ -263,8 +263,8 @@ How many product names do you want? 5
 ```
 
 The idea is to make a template for the structure of a product name, e.g. each
-name in the example follows the template "<modifier1> <modifier2> <noun>
-<verb>". For each modifier, noun, and verb, create a list of interesting
+name in the example follows the template "{modifier1} {modifier2} {noun}
+{verb}". For each modifier, noun, and verb, create a list of interesting
 words. Then use `random.choice` to chose random words from the lists, and
 print the results using the template.
 
