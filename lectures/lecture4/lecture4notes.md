@@ -117,7 +117,7 @@ want.
 See the following for some more examples of arithmetic:
 
 - [age_in_seconds.py](age_in_seconds.py); how many seconds old are you?
-- [cylinder_volume.py](cylinder_volume.py); calculate the volume and surface
+- [cylinder_info.py](cylinder_info.py); calculate the volume and surface
   area of a cylinder
 - [group_maker.py](group_maker.py); divide a big group of people into smaller
   groups
