@@ -8,7 +8,7 @@
 # to max while it's jumping. After the jump we reset its speed and make
 # it visible again.
 #
-# random.uniform(a, b) returns a randonly chosen float from a to b.
+# random.uniform(a, b) returns a randomly chosen float from a to b.
 #
 
 import turtle

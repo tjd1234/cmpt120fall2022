@@ -3,8 +3,8 @@
 ## The Accumulator Pattern
 
 Suppose you want to use Python to add the numbers $1 + 2 + 3 + \ldots + 100$.
-The fastest way would be to use the formula $\frac{n(n+1)}{2}$. But you could
-also do it this way:
+The fastest way is to use the formula $\frac{n(n+1)}{2}$. But you could also
+do it like this:
 
 ```python
 total = 0
@@ -14,8 +14,8 @@ for i in range(1, 101):
 print(total)
 ```
 
-We call the variable `total` an **accumulator**. It's starts out with the
-value 0, and every time through the loop we add `i` to it.
+We call the variable `total` an **accumulator**. It starts with the value 0,
+and every time through the loop we add `i` to it.
 
 Lets write this as a function so that it works with values other than 100:
 
@@ -62,6 +62,8 @@ def sum_squares(n):
 `a`, and an ending value `b` (assume `b` is bigger than `a`). It should return
 the sum of the squares from `a` to `b`. For example, `sum_squares(8, 11)`
 returns the value of $8^2 + 9^2 + 10^2 + 11^2$.
+
+See [sum_squares](sum_squares.py) for a sample solution.
 
 
 ## Functions Calling Functions

@@ -4,7 +4,7 @@
 # The turtle does a "random walk" across the screen. If it hits the edge of
 # the screen, it immediately jumps back to the center, position (0, 0).
 #
-# random.uniform(a, b) returns a randonly chosen float from a to b.
+# random.uniform(a, b) returns a randomly chosen float from a to b.
 #
 
 import turtle

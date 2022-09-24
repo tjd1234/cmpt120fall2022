@@ -50,9 +50,9 @@ does and how it works. For example:
 import turtle
 
 def square(n):
-    """ Draws a square with side of length n.
-    Assumes the turtle module has been imported.
-    """
+  """ Draws a square with side of length n.
+  Assumes the turtle module has been imported.
+  """
 	for i in range(4):
 		turtle.forward(n)
 		turtle.left(90)

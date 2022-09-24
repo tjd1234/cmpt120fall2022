@@ -172,4 +172,3 @@ else:
 
 Now the condition for a youth concession fare is precise, `elif 14 <= age <=
 18`.
-

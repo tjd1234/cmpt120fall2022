@@ -4,11 +4,11 @@ import turtle
 import random
 
 #
-# The turtle draws a random-looking curvy path.
+# The turtle draws a random-looking path made of straight lines.
 #
 
 # Try changing the numbers in this list.
-possible_angles = [0, -90, 90]
+possible_angles = [0, -90, 90, -45, 45, 17]
 
 for i in range(1, 100):
     step = random.randint(10, 20)

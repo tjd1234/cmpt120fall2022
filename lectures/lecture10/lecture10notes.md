@@ -2,16 +2,15 @@
 
 ## Calling a main() Function
 
-It's traditional in programming to call the first function of your program
-`main`. In C++ and Java, for example, you *must* have a function called `main`
-in every program.
+It's traditional to call the first function of your program `main`. In C++ and
+Java, for example, you *must* have a function called `main` in every program.
 
-Python doesn't require a `main()` function, but it's usually a good idea
-because it tells people who are reading your code where to start. Python
+Python doesn't *require* a `main()` function, but it's usually a good idea to
+have one because it tells people where to start reading your code. Python
 programs can consist of hundreds of functions, and agreeing that `main()` is
-the starting function makes it much easier to read.
+the first function called makes it easier to read.
 
-Here's a program from earlier in the course:
+Consider this program:
 
 ```main
 name = 'Bob'
@@ -27,13 +26,13 @@ Re-writing this using a `main()` function looks like this:
 
 ```main
 def main():
-	 name = 'Bob'
-	 age = 20
-	 gpa = 3.09
+    name = 'Bob'
+    age = 20
+    gpa = 3.09
 
-	 print('Student:', name)
-	 print('Age:', age)
-	 print('GPA:', gpa)
+    print('Student:', name)
+    print('Age:', age)
+    print('GPA:', gpa)
 ```
 
 To run this program you need to type `main()`.
@@ -41,8 +40,9 @@ To run this program you need to type `main()`.
 
 ## Example: Re-writing Euclid's GCD Algorithm
 
-Earlier in the course we saw this program for calculating the greatest common
-divisor of two numbers:
+Earlier in the course we saw this program for calculating the [greatest common
+divisor (GCD)](https://en.wikipedia.org/wiki/Greatest_common_divisor) of two
+numbers:
 
 ```python
 # euclid.py
@@ -70,10 +70,10 @@ print("greatest common divisor:", a)
 See [euclid.py](euclid.py).
 
 
-It works fine, but we lets re-structure it using functions.
+Lets re-structure it using functions.
 
-First, it asks the user to enter a number, which we read as a string and then
-convert to an `int`. Let's make a function to do that:
+First, it asks the user to enter a number, which is read as a string and then
+converted to an `int`. Let's make a function to do that:
 
 ```python
 def get_int(prompt):
@@ -158,6 +158,6 @@ def gcd(a, b):
 
 See [euclid2.py](euclid2.py).
 
-You read this code starting with `main()`, which is short and simple. And
-maybe that's all you need to read. If you need more details about `get_int` or
-`gcd` works, you can read those next.
+The `main()` function is short and simple, and in some cases that may be all
+you need to read. If you need more details about `get_int` or `gcd`, you can
+read those next.
