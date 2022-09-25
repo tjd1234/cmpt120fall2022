@@ -2,7 +2,8 @@
 
 ## If-statements
 
-**If-statements** are the main way of making decisions in Python. For example:
+**If-statements** are the main way of making decisions in Python and they come
+in a few different styles. For example:
 
 ```python
 name = input('Who are you? ')

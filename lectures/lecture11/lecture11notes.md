@@ -17,9 +17,10 @@ False
 
 Note the following:
 
-- Capitals matter: `True` is a boolean value, but `true` is the name of a
+- *Capitals matter*: `True` is a boolean value, but `true` is the name of a
   variable.
 - `True` and `False` are *not* strings (they don't begin/end with quotes).
+
 
 ## Building Boolean Expressions with Relational Operators
 

@@ -2,14 +2,14 @@
 
 ## The Accumulator Pattern
 
-Suppose you want to use Python to add the numbers $1 + 2 + 3 + \ldots + 100$.
-The fastest way is to use the formula $\frac{n(n+1)}{2}$. But you could also
-do it like this:
+Suppose you want to add the numbers $1 + 2 + 3 + \ldots + 100$. The fastest
+way is to use the formula $\frac{n(n+1)}{2}$. But you could also do it like
+this:
 
 ```python
 total = 0
 for i in range(1, 101):
-	total += i    # += means "add to"
+    total += i    # += means "add to"
 
 print(total)
 ```
@@ -21,14 +21,14 @@ Lets write this as a function so that it works with values other than 100:
 
 ```python
 def sum_to(n):
-	""" Returns the sum of the numbers from 1 to n.
-	Demonstrates the accumulator pattern.
-	"""
-	total = 0
-	for i in range(1, n + 1):
-		total += i    # += means "add to"
+    """ Returns the sum of the numbers from 1 to n.
+    Demonstrates the accumulator pattern.
+    """
+    total = 0
+    for i in range(1, n + 1):
+        total += i    # += means "add to"
 
-	return total
+    return total
 ```
 
 Notice the changes:
@@ -43,19 +43,19 @@ Notice the changes:
 - `total` is a local variable, and is automatically deleted when the function
   ends
 
-Now suppose you want to add the *squares* of the first $$n$$ numbers, i.e. $$1^2
-+ 2^2 + \ldots + n^2$$. There is [a formula for this](https://en.wikipedia.org/wiki/Square_pyramidal_number), but lets do it with the accumulator pattern:
+Now suppose you want to add the *squares* of the first $n$ numbers, i.e. $1^2
++ 2^2 + \ldots + n^2$. There is [a formula for this](https://en.wikipedia.org/wiki/Square_pyramidal_number), but lets do it with the accumulator pattern:
 
 ```python
 def sum_squares(n):
-	""" Returns the sum of the squares of the numbers from 1 to n.
-	Demonstrates the accumulator pattern.
-	"""
-	total = 0
-	for i in range(1, n + 1):
-		total += i ** 2    # += means "add to"
+    """ Returns the sum of the squares of the numbers from 1 to n.
+    Demonstrates the accumulator pattern.
+    """
+    total = 0
+    for i in range(1, n + 1):
+        total += i ** 2    # += means "add to"
 
-	return total
+    return total
 ```
 
 **Challenge** Modify `sum_squares` to take two input values: a starting value
@@ -74,9 +74,9 @@ Recall the square function:
 import turtle
 
 def square(n):
-	for i in range(4):
-		turtle.forward(n)
-		turtle.left(90)
+    for i in range(4):
+        turtle.forward(n)
+        turtle.left(90)
 ```
 
 This function draws a flower-like shape made from squares:
