@@ -34,14 +34,14 @@ def sum_to(n):
 Notice the changes:
 
 - We name the function `sum_to`. Python already has a built-in function called
-  `sum` (that works differently).
+  `sum` (that works differently: it sums numbers on a list).
 
 - Instead of `range(1, 101)`, it's `range(1, n + 1)`.
 
 - Instead of `print(total)` at the end, it's `return total`.
 
 - `total` is a local variable, and is automatically deleted when the function
-  ends
+  ends.
 
 Now suppose you want to add the *squares* of the first $n$ numbers, i.e. $1^2
 + 2^2 + \ldots + n^2$. There is [a formula for this](https://en.wikipedia.org/wiki/Square_pyramidal_number), but lets do it with the accumulator pattern:
@@ -58,12 +58,12 @@ def sum_squares(n):
     return total
 ```
 
-**Challenge** Modify `sum_squares` to take two input values: a starting value
-`a`, and an ending value `b` (assume `b` is bigger than `a`). It should return
-the sum of the squares from `a` to `b`. For example, `sum_squares(8, 11)`
-returns the value of $8^2 + 9^2 + 10^2 + 11^2$.
-
-See [sum_squares](sum_squares.py) for a sample solution.
+> **Challenge** Modify `sum_squares` to take two input values: a starting
+> value `a`, and an ending value `b` (assume `b` is bigger than `a`). It
+> should return the sum of the squares from `a` to `b`. For example,
+> `sum_squares(8, 11)` returns the value of $8^2 + 9^2 + 10^2 + 11^2$.
+> 
+> See [sum_squares](sum_squares.py) for a sample solution.
 
 
 ## Functions Calling Functions
@@ -117,5 +117,5 @@ def flower_garden(num_flowers):
         turtle.pendown()
 ```
 
-This examples shows a common programming pattern: build complex function (like
-`flower_garden`) from calls to smaller, simpler functions.
+This examples shows a common programming pattern: build a complex function
+(like `flower_garden`) from calls to smaller, simpler functions.

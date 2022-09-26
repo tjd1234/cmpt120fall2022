@@ -24,6 +24,7 @@ Note a few things:
 - `def` is short for *definition*.
 
 - The function's name is `square`, and it takes one input that it calls `n`.
+- 
   Function names follow essentially the same rules for variable names, e.g.
   they must consist of letters, digits, and underscores, and they *can't*
   start with a digit or be the same as a Python keyword.
@@ -31,14 +32,17 @@ Note a few things:
 - A function header always ends with a `:`.
 
 - The code in a function body must be consistently indented underneath the
-  header.
+  header. The indentation is how Python determine's what's in the function
+  body.
 
 - `square` takes one input value `n`, which is used in the statement
-  `turtle.forward(n)`. Thus `n` must be a number.
+  `turtle.forward(n)`. Thus `n` must be a number. If you call, say,
+  `square('two')`, then the function will crash with an error when it runs
+  `turtle.forward(n)`.
 
 - `square` does *not* return a value. Instead, it makes the turtle draw a
-  picture. So it is different than a mathematical function (which would always
-  return a value).
+  picture. This is quite different than a mathematical function, which would
+  always return a value.
 
 
 # Function Documentation
@@ -49,12 +53,12 @@ does and how it works. For example:
 ```python
 import turtle
 
-def square(n):
-    """ Draws a square with side of length n.
+def square(size):
+    """ Draws a square with sides of length size.
     Assumes the turtle module has been imported.
     """
     for i in range(4):
-        turtle.forward(n)
+        turtle.forward(size)
         turtle.left(90)
 ```
 
@@ -69,18 +73,24 @@ You can also put documentation before a function using source code comments:
 ```python
 import turtle
 
-# Draws a square with side of length n.
+# Draws a square with sides of length size.
 # Assumes the turtle module has been imported.
-def square(n):
+def square(size):
     for i in range(4):
-        turtle.forward(n)
+        turtle.forward(size)
         turtle.left(90)
 ```
 
+> **Practice** Write a function `triangle(size)` that, when called, draws an
+> equilateral triangle with all sides of length `size`.
+
+
 ## Functions that Return Values
 
-This function takes an input (the radius of a circle), and returns an output
-value (the area of the circle):
+As in mathematics, Python functions can return values.
+
+**Example** This function takes an input value (the radius of a circle), and
+returns an output value (the area of the circle):
 
 ```python
 def circle_area(radius):
@@ -88,10 +98,10 @@ def circle_area(radius):
 ```
 
 The `return` keyword causes the function to immediately stop, and the value of
-the return expression is the output of the function.
+the returned expression is the output of the function.
 
-This function returns the sum of the numbers from 1 to $n$ using the formula
-$\frac{n(n+1)}{2}$:
+**Example** This function returns the sum of the numbers from 1 to $n$ using
+the formula $\frac{n(n+1)}{2}$:
 
 ```python
 def add_nums(n):
@@ -100,8 +110,8 @@ def add_nums(n):
     return n * (n + 1) / 2
 ```
 
-This function takes two inputs and returns a single value (the area of the
-triangle):
+**Example** This function takes two inputs and returns a single value (the
+area of the triangle):
 
 ```python
 def triangle_area(base, height):
@@ -110,7 +120,7 @@ def triangle_area(base, height):
     return base * height / 2
 ```
 
-Here's a function that returns a string:
+**Example** Here's a function that returns a string:
 
 ```python
 def exclaim(s, n):
@@ -119,7 +129,7 @@ def exclaim(s, n):
   return s + '!' * n
 ```
 
-For example:
+For instance:
 
 ```python
 >>> exclaim('Yes', 5)
@@ -127,6 +137,8 @@ For example:
 >>> exclaim('No', 2)
 'No!!'
 ```
+
+### Local Variables
 
 You can create new variables inside functions:
 
@@ -139,6 +151,8 @@ def cube_surface_area(side):
 `face` is called a **local variable**, or sometimes a **temporary variable**.
 It is only used inside of `cube_surface_area`. When the function ends, Python
 automatically deletes `face`.
+
+### Functions that Take No Input
 
 Here's a function that returns a value, but doesn't take any input:
 
@@ -164,3 +178,10 @@ Every time you call `roll_die()` it returns a randomly chosen value form 1 to
 >>> roll_die()
 6
 ```
+
+> **Challenge** How many times would you expect to roll 5 6-sided dice before
+> until you roll all dice the same? Write a small Python program that
+> repeatedly rolls 5 6-sided dice until they are all the same. Keep count of
+> how many rolls are needed.
+> 
+> See [dice_experiment.py](dice_experiment.py) for a sample solution.
