@@ -187,3 +187,6 @@ Every time you call `roll_die()` it returns a randomly chosen value form 1 to
 > is then estimate for the answer to the question.
 > 
 > See [dice_experiment.py](dice_experiment.py) for a sample solution.
+
+
+See [scratch.py](scratch.py) for code written in the lecture (errors and all).

@@ -119,3 +119,5 @@ def flower_garden(num_flowers):
 
 This examples shows a common programming pattern: build a complex function
 (like `flower_garden`) from calls to smaller, simpler functions.
+
+See [scratch.py](scratch.py) for code written in the lecture (errors and all).
