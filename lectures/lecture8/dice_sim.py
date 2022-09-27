@@ -1,4 +1,4 @@
-# dice_experiment.py
+# dice_sim.py
 
 #
 # How many times would you expect to roll 5 6-sided dice until they are all
@@ -19,7 +19,7 @@ def run_experiment_once():
     num_rolls = 0
     done = False
     while not done:
-        num_rolls += 1
+        num_rolls += 1  # += means "add to"
         d1 = roll_die()
         d2 = roll_die()
         d3 = roll_die()

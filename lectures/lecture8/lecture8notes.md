@@ -179,9 +179,11 @@ Every time you call `roll_die()` it returns a randomly chosen value form 1 to
 6
 ```
 
-> **Challenge** How many times would you expect to roll 5 6-sided dice before
-> until you roll all dice the same? Write a small Python program that
-> repeatedly rolls 5 6-sided dice until they are all the same. Keep count of
-> how many rolls are needed.
+> **Challenge** If you roll 5 6-sided dice, what's the %-chance
+> that they are all the same? Write a Python program that
+> repeatedly rolls 5 6-sided dice and keeps count of
+> how many times they're all the same. The number of times
+> they are all the same divided the total number of rolls
+> is then estimate for the answer to the question.
 > 
 > See [dice_experiment.py](dice_experiment.py) for a sample solution.

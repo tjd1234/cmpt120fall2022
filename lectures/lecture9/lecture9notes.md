@@ -43,8 +43,8 @@ Notice the changes:
 - `total` is a local variable, and is automatically deleted when the function
   ends.
 
-Now suppose you want to add the *squares* of the first $n$ numbers, i.e. $1^2
-+ 2^2 + \ldots + n^2$. There is [a formula for this](https://en.wikipedia.org/wiki/Square_pyramidal_number), but lets do it with the accumulator pattern:
+Now suppose you want to add the *squares* of the first $$n$$ numbers, i.e. $$1^2
++ 2^2 + \ldots + n^2$$. There is [a formula for this](https://en.wikipedia.org/wiki/Square_pyramidal_number), but lets do it with the accumulator pattern:
 
 ```python
 def sum_squares(n):
