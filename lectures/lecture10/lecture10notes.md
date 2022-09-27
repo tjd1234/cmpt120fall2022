@@ -99,8 +99,8 @@ a = get_int('What is a? ')
 b = get_int('What is b? ')
 ```
 
-This is both shorter, and more readable (the names of the function say what is
-happening). Plus you can save `get_int` to re-use in other programs.
+This is both shorter, and more readable: the names of the function say what is
+happening. Plus you can save `get_int` to re-use in other programs.
 
 Second, let's put the GCD algorithm in its own function:
 
@@ -171,3 +171,37 @@ See [euclid2.py](euclid2.py).
 The `main()` function is short and simple, and in some cases that may be all
 you need to read. If you need more details about `get_int` or `gcd`, you can
 read those next.
+
+
+## Example: Least Common Multiple (LCM)
+
+As another example of using functions, let's create a Python function that calculates the [least common multiple](https://en.wikipedia.org/wiki/Least_common_multiple), or [LCM](https://en.wikipedia.org/wiki/Least_common_multiple), or two integers. 
+
+For example, the least common multiple of 4 and 6 is 12, and the least common
+multiple of 10 and 24 is 120.
+
+We can calculate the LCM with this formula:
+
+```math
+\mathrm{lcm}(a, b) = \frac{|ab|}{\mathrm{gcd}(a, b)}
+```
+
+Converting this Python:
+
+```python
+def lcm(a, b):
+    """ Returns the lowest common multiple of a and b.
+    Assumes a and b are both ints.
+    """
+    return abs(a * b) // gcd(a, b)  # // is integer division
+```
+
+Now we could re-write `main` from above like this:
+
+```python
+def main():
+    a = get_int('What is a? ')
+    b = get_int('What is b? ')
+    print("greatest common divisor:", gcd(a, b))
+    print("  least common multiple:", lcm(a, b))
+```
