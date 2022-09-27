@@ -27,14 +27,13 @@ for n in range(1000):
     turtle.forward(10)
     angle = random.uniform(-10, 10)
     turtle.left(angle)
+    x, y = turtle.position()
 
-    if turtle.xcor() > max_X: # gone off the right edge?
-        jump_to(min_X, turtle.ycor())
-    elif turtle.xcor() < min_X: # gone off the left edge?
-        jump_to(max_X, turtle.ycor())
-    elif turtle.ycor() > max_Y: # gone off the bottom edge?
-        jump_to(turtle.xcor(), min_Y)
-    elif turtle.ycor() < min_Y: # gone off the top edge?
-        jump_to(turtle.xcor(), max_Y)
-
-
+    if x > max_X: # gone off the right edge?
+        jump_to(min_X, y)
+    elif x < min_X: # gone off the left edge?
+        jump_to(max_X, y)
+    elif y > max_Y: # gone off the bottom edge?
+        jump_to(x, min_Y)
+    elif y < min_Y: # gone off the top edge?
+        jump_to(x, max_Y)

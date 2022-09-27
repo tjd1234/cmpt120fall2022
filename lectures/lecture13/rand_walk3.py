@@ -24,37 +24,37 @@ for n in range(1000):
     turtle.forward(10)
     angle = random.uniform(-10, 10)
     turtle.left(angle)
+    x, y = turtle.position()
 
-    if turtle.xcor() > max_X: # gone off the right edge?
+    if x > max_X:   # gone off the right edge?
         turtle.up()
         turtle.hideturtle()
         turtle.speed('fastest')
-        turtle.goto(min_X, turtle.ycor())
+        turtle.goto(min_X, y)
         turtle.speed('normal')
         turtle.showturtle()
         turtle.down()
-    elif turtle.xcor() < min_X: # gone off the left edge?
+    elif x < min_X: # gone off the left edge?
         turtle.up()
         turtle.hideturtle()
         turtle.speed('fastest')
-        turtle.goto(max_X, turtle.ycor())
+        turtle.goto(max_X, y)
         turtle.speed('normal')
         turtle.showturtle()
         turtle.down()
-    elif turtle.ycor() > max_Y: # gone off the bottom edge?
+    elif y > max_Y: # gone off the bottom edge?
         turtle.up()
         turtle.hideturtle()
         turtle.speed('fastest')
-        turtle.goto(turtle.xcor(), min_Y)
+        turtle.goto(x, min_Y)
         turtle.speed('normal')
         turtle.showturtle()
         turtle.down()
-    elif turtle.ycor() < min_Y: # gone off the top edge?
+    elif y < min_Y: # gone off the top edge?
         turtle.up()
         turtle.hideturtle()
         turtle.speed('fastest')
-        turtle.goto(turtle.xcor(), max_Y)
+        turtle.goto(x, max_Y)
         turtle.speed('normal')
         turtle.showturtle()
         turtle.down()
-

@@ -21,19 +21,21 @@ for n in range(1000):
     angle = random.uniform(-10, 10)
     turtle.left(angle)
 
-    if turtle.xcor() > max_X: # gone off the right edge?
+    x, y = turtle.position()
+
+    if x > max_X:   # gone off the right edge?
         turtle.up()
         turtle.goto(0, 0)
         turtle.down()
-    elif turtle.xcor() < min_X: # gone off the left edge?
+    elif x < min_X: # gone off the left edge?
         turtle.up()
         turtle.goto(0, 0)
         turtle.down()
-    elif turtle.ycor() > max_Y: # gone off the bottom edge?
+    elif y > max_Y: # gone off the bottom edge?
         turtle.up()
         turtle.goto(0, 0)
         turtle.down()
-    elif turtle.ycor() < min_Y: # gone off the top edge?
+    elif y < min_Y: # gone off the top edge?
         turtle.up()
         turtle.goto(0, 0)
         turtle.down()

@@ -22,7 +22,7 @@ print('Age:', age)
 print('GPA:', gpa)
 ```
 
-Re-writing this using a `main()` function looks like this:
+Here it is re-written using a `main()` function:
 
 ```main
 def main():
@@ -36,6 +36,13 @@ def main():
 ```
 
 To run this program you need to type `main()`.
+
+The variables `name`, `age`, and `gpa` are not *local variables*, i.e. they
+exist only inside `main`. When `main` ends the variables are automatically
+deleted. When the variables were not in a function, they were *global
+variables*, which means *any* Python code could read/write them. In general,
+global variables are bad because it is hard to keep track of when and how
+they're modified.
 
 
 ## Example: Re-writing Euclid's GCD Algorithm
@@ -81,6 +88,9 @@ def get_int(prompt):
     result = int(result)
     return result
 ```
+
+> **Challenge** Re-write `get_int` so it uses only one statement: a single
+> `return`.
 
 Now we can get `a` and `b` like this:
 
