@@ -178,7 +178,7 @@ def remove_all_bad(s, bad_chars):
 The only difference is that the if-statement now checks if `c` is *not* in
 `bad_chars`.
 
-Once we have `remove_all_bad`, we can now implement `remove_all_spaces` in
+Now that we have `remove_all_bad`, we can implement `remove_all_spaces` in
 this very simple way:
 
 ```python
@@ -186,4 +186,22 @@ def remove_all_spaces(s):
     """ Returns a copy of s with all spaces removed.
     """
     return remove_all_bad(s, ' ')
+```
+
+Here's a function that removes all digits:
+
+```python
+def remove_all_spaces(s):
+    """ Returns a copy of s with all digits removed.
+    """
+    return remove_all_bad(s, '0123456789')
+```
+
+And this function removes all vowels:
+
+```python
+def remove_all_spaces(s):
+    """ Returns a copy of s with all digits removed.
+    """
+    return remove_all_bad(s, 'aeiouAEIOU')
 ```
