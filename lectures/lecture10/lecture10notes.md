@@ -37,12 +37,11 @@ def main():
 
 To run this program you need to type `main()`.
 
-The variables `name`, `age`, and `gpa` are not *local variables*, i.e. they
-exist only inside `main`. When `main` ends the variables are automatically
-deleted. When the variables were not in a function, they were *global
-variables*, which means *any* Python code could read/write them. In general,
-global variables are bad because it is hard to keep track of when and how
-they're modified.
+The variables `name`, `age`, and `gpa` are *local variables*, i.e. they exist
+only inside `main`. When `main` ends the variables are automatically deleted.
+When the variables were not in a function, they were *global variables*, which
+means *any* Python code could read/write them. In general, global variables
+are bad because it is hard to keep track of when and how they're modified.
 
 
 ## Example: Re-writing Euclid's GCD Algorithm
