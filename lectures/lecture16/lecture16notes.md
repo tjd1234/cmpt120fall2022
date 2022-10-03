@@ -2,8 +2,8 @@
 
 ### Example: Checking if a String is a Positive Integer
 
-Let's write a function that tests if a string is a *positive* integer. It
-should work like this:
+Let's write a function that tests if a string is formatted like a *positive*
+integer:
 
 ```
 >>> is_positive_int('9033')
@@ -19,7 +19,7 @@ False
 ```
 
 Intuitively, a valid string is a sequence of 1, or more, digits. So first lets
-write a function that test if a string is a digit:
+write a function that tests if a string is a digit:
 
 ```python
 def is_digit(s):
@@ -57,8 +57,8 @@ True
 So to test of `s` is a digit, we must check *both* that it's in
 `'0123456789'`, and also that it's length is 1.
 
-Using `is_digit`, we can test if a string looks like a positive `int` if all
-its characters are digits. Here's a good first try:
+Using `is_digit`, we can test if a string looks like a positive `int` by
+checking that all its characters are digits. Here's a good first try:
 
 ```python
 def bad_is_positive_int(s):        
@@ -69,16 +69,17 @@ def bad_is_positive_int(s):
     return True
 ```
 
-The for-loop goes through each character in string `s`. The if-statement in
-the body checks if `c` is *not* a digit. If `c` isn't a digit, then that means
-`s` can't be a sequence digit only. So we can immediately return `False`.
+The for-loop goes through each character in string `s`, one character at a
+time. The if-statement in the body checks if `c` is *not* a digit. If `c`
+isn't a digit, then that means `s` can't be digits-only. So we can immediately
+return `False`.
 
-If the the loop ends without `return False` being executed, then that means
-all the characters in `s` must be digits, i.e. there are no non-digit
-characters in `s`. And so `True` is returned.
+If the the loop ends without calling `return False`, then that means all the
+characters in `s` must be digits, i.e. there are no non-digit characters in
+`s`. And so `True` is returned.
 
 But it's not quite correct: there is one string `s` that returns the wrong
-value. You can find it with a bit of testing:
+value:
 
 ```
 >>> bad_is_positive_int('90477')
@@ -116,8 +117,8 @@ def is_positive_int(s):
     return True
 ```
 
-Handling the empty string as a special case is actually quite common, and it's
-wise to always check that your string functions work correctly with `''`.
+The empty string as often a special case, and it's wise to always check that
+your string functions work correctly with it.
 
 ### Example: Remove all Spaces from a String
 

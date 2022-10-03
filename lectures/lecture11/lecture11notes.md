@@ -3,8 +3,8 @@
 ## Boolean Values
 
 Python has a very useful type called `bool` that represents *true* and *false*
-values. There are only two values of type `bool`: `True` and `False`. We call
-these **boolean values**, or **booleans** for short.
+values. The two `bool` types are `True` and `False`. We call these **boolean
+values**, or **booleans** for short.
 
 ```python
 >>> type(True)
@@ -15,7 +15,7 @@ True
 False
 ```
 
-Note the following:
+Note:
 
 - *Capitals matter*: `True` is a boolean value, but `true` is the name of a
   variable.
@@ -24,8 +24,7 @@ Note the following:
 
 ## Building Boolean Expressions with Relational Operators
 
-We can use the `==` operator, tests for *equality*, to create boolean
-expressions. For example:
+The `==` operator tests for *equality*. For example:
 
 ```python
 >>> 5 == 5
@@ -52,6 +51,9 @@ False
 >>> False == False
 True
 ```
+
+**Question** Why does Python use `==` for equality instead of `=`, as in
+mathematics?
 
 The `!=` operator tests if two values are *not equal*:
 
@@ -81,11 +83,12 @@ True
 False
 ```
 
-In general, if the boolean expression `a == b` is *true*, then the boolean
-expression `a != b` is *false*.
+In general, if `a == b` is *true*, then `a != b` is *false*. And vice-versa:
+if `a != b` is *true*, then `a == b` is *false*. In general, `a == b` and `a
+!= b`, which means the expression `(a == b) != (a != b)` is *always* true.
 
-**Question** Why does Python use `==` for equality instead of `=`, as in
-mathematics?
+Expressions of the form `x == y` or `x != y` are examples of **boolean
+expressions**, i.e. expressions that evaluate to a `bool`.
 
 You can test if values are *less than* or *greater than* each other using
 these operators:
@@ -129,7 +132,11 @@ False
 True
 ```
 
-We leave examples of `>` and `>=` as exercises for the reader.
+As mentioned above, when you compare *strings* with `<` or `<=`, then Python
+checks *alphabetical order*.
+
+We leave examples of `>` and `>=` as an exercise for the reader. They are like
+`<` and `<=` in the obvious way.
 
 
 ## Logical Operators
@@ -166,21 +173,21 @@ Here are some examples of boolean expressions using `not`:
 - `not True` evaluates to `False`
 - `not False` evaluates to `True`
 - `not (3 == 3)` evaluates to `False`. That's because `3 == 3` evaluates to
-  `True`, and `not` "flips" flips it to return the opposite boolean value.
+  `True`, and `not` "flips" it to return the opposite boolean value.
 - `not (3 != 3)` evaluates to `True`. That's because `3 != 3` evaluates to
   `False`, and `not` "flips" it to return the opposite boolean value.
 - `not (not True)` evaluates to `True`
 - `not (not False)` evaluates to `False`
 - `not (not ('box' < 'shoe'))` evaluates to `True`
 
-**Question** Do the boolean expressions `p` and `not (not p)` always evaluate
-to the same boolean value?
+**Question** Do the boolean expressions `p` and `not (not p)` *always*
+evaluate to the same boolean value?
 
 Note that the boolean expression `a != b` is logically equivalent to `not (a
 == b)`, i.e. both expressions always evaluate to the same value. In other
 words, this expression is always true: `(a != b) == (not (a == b))`.
 
-Mixing and matching `and`, `or`, and `not` lets create a huge variety of
+Mixing and matching `and`, `or`, and `not` lets us create a huge variety of
 different boolean expressions.
 
 **Example** Suppose `4 <= 5` evaluates to `True`. Using `or`, we could write
@@ -201,8 +208,8 @@ You can use variables with boolean expressions. For example, if `n` has the
 value 5, then the expression `n == 4 and n < 10 ` evaluates to `False`.
 
 **Example** Suppose `n` is a variable that has been set to some integer value,
-but we don't know what it is. What would be a boolean expression that
-evaluates to `True` just when `n` is 4 or 6?
+but we don't know what it is. What is a boolean expression that evaluates to
+`True` when `n` is 4 or 6, `False` for every other value of `n`?
 
 This expression works: `n == 4 or n == 6`. But this expression **does not
 work**: `n == 4 or 6`. `n == 4 or 6` is equivalent to `(n == 4) or 6`, which

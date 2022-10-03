@@ -1,7 +1,6 @@
 ## Lecture 15 Notes
 
-In what follows we give a few more examples of writing programs that use
-loops.
+In what follows we give a few more examples of programs that use loops.
 
 ### Example: Random Turtle Walk
 

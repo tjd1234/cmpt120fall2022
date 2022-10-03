@@ -13,12 +13,12 @@ if name == 'Joe':
 print('...')
 ```
 
-The line `if name == 'Joe'` is the first line of an if-statement. It starts
-with the keyword `if`, followed by any boolean expression (i.e. an expression
-that evaluates to true or false), followed by a `:` that marks the end of the
-line. The code indented underneath is the body of the if-statement, and will
-only be executed if the boolean expression evaluates to `True`. If it
-evaluates to `False`, then the if-statement body is skipped.
+The line `if name == 'Joe'` is the first line of an **if-statement**. It
+starts with the keyword `if`, followed by a boolean expression (i.e. an
+expression that evaluates to `True` or `False`), followed by a `:` that marks
+the end of the statement. The code indented underneath is the **body of the
+if-statement**, and will only be executed if the boolean expression evaluates
+to `True`. If it evaluates to `False`, then the body is skipped.
 
 An if-statement can also have an `else`:
 
@@ -33,7 +33,7 @@ print('...')
 ```
 
 The code indented under the `else` part of an if-statement is only executed if
-none of the previous if-statement expressions evaluate to `True`. It's a
+*none* of the previous if-statement expressions evaluate to `True`. It's a
 catch-all for if-statements.
 
 Here's another example. Imagine a website ask you to enter your password
@@ -77,8 +77,8 @@ The boolean expression being tested is often called the if-statement's
 ## elif statements
 
 An if-statement can check multiple conditions. For example, suppose a school
-with 3 semesters uses a code `s1` for the spring semester, `s2` for the summer
-semester, and `s3` for the fall semester:
+with 3 semesters uses the code `s1` for the spring semester, `s2` for the
+summer semester, and `s3` for the fall semester:
 
 ```python
 code = input('Please enter semester code: ')
@@ -93,16 +93,14 @@ else:
 	print('Unknown semester code:', code)
 ```
 
-This if-statement has 3 conditions. Python checks them one at time, in order
-from top to bottom. The first condition that is `True`, Python runs the
+This if-statement has 3 conditions. Python checks them **one at time in order
+from top to bottom**. The first condition that is `True`, Python runs the
 indented code underneath and then jumps out of the if-statement. If none of
 the conditions are true, the code in the `else` part is executed.
 
-Exactly one of the blocks of indented code in this if-statement are executed.
-
 **Example**: Transit Fares
 
-The city bus system has these rules for fares:
+A city bus system has these rules for fares:
 
 - Children 12 and under ride *free*.
 - Youths 14 to 18, or seniors 65 and older, pay *concession* fares.
@@ -148,9 +146,9 @@ else:
 ```
 
 This solution has a readability issue: the statement `elif age <= 18` on its
-own suggests that the rule is "if age is less than or equal to 18, then it's a
-youth concession fare". But that's not correct. You need to know the two cases
-that come before it to understand what it means.
+own is easy to mis-read as the rule is "if age is less than or equal to 18,
+then it's a youth concession fare". But that's not correct. You need to know
+the two cases that come before it are false.
 
 Here is an alternative solution that makes the rules a little more explicit
 (see [bus2.py](bus2.py)):
