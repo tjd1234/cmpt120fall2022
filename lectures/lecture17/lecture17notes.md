@@ -1,1 +1,3 @@
-Notes will appear here as soon as they are ready.
+## Lecture 17 Notes
+
+Review session for midterm exam.

@@ -181,9 +181,7 @@ multiple of 10 and 24 is 120.
 
 We can calculate the LCM with this formula:
 
-```math
-\mathrm{lcm}(a, b) = \frac{|ab|}{\mathrm{gcd}(a, b)}
-```
+$$\mathrm{lcm}(a, b) = \frac{|ab|}{\mathrm{gcd}(a, b)}$$
 
 Converting this Python:
 

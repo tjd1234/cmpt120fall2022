@@ -63,7 +63,7 @@ you'll need for this course.
 - Wed Oct 19: [lecture 17](lectures/lecture17/lecture17notes.md) (midterm prep)
 
 ### Week 8
-- Mon Oct 14: midterm exam for CMPT 120 Surrey (same room, same time as
+- Mon Oct 24: midterm exam for CMPT 120 Surrey (same room, same time as
   lectures)
 - [lecture 18](lectures/lecture18/lecture18notes.md)
 

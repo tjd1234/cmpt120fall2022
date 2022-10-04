@@ -2,7 +2,7 @@
 
 """
 - Children 12 and under ride *free*.
-- Youths 14 to 18, or seniors 65 and older, pay *concession* fares.
+- Youths 13 to 18, or seniors 65 and older, pay *concession* fares.
 - Everyone else pays *full* fares.
 """
 

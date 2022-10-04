@@ -85,7 +85,8 @@ False
 
 In general, if `a == b` is *true*, then `a != b` is *false*. And vice-versa:
 if `a != b` is *true*, then `a == b` is *false*. In general, `a == b` and `a
-!= b`, which means the expression `(a == b) != (a != b)` is *always* true.
+!= b` are always different, which means the expression `(a == b) != (a != b)`
+is *always* true.
 
 Expressions of the form `x == y` or `x != y` are examples of **boolean
 expressions**, i.e. expressions that evaluate to a `bool`.
