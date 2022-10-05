@@ -248,6 +248,7 @@ to write `chatbot.say('Hello')` or `chatbot.set_name('Eliza')`.
 We won't go into any more details here since we haven't covered functions yet,
 but we will see modules again later.
 
+
 ## Exercise: Random Product Names
 
 Write a Python program that generates random product names, e.g.:

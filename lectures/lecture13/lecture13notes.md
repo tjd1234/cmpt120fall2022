@@ -9,5 +9,3 @@ This lecture develops a turtle graphics program that does a random walk:
 - [rand_walk3.py](rand_walk3.py), a modification of the previous program that
   has the turtle "wrap around" to the opposite side of the screen when it hits
   an edge
-- [rand_walk4.py](rand_walk4.py), a modification of the previous program that
-  uses a function to simplify the edge-detection code
