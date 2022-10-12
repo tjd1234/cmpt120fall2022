@@ -6,8 +6,9 @@ import math
 #
 # Draws a square spiral
 #
-# In the turtle.forward statement, try different expression, e.g. 3*i, i*i, i * math.sin(i)
+# In the turtle.forward statement, try different expression, e.g. 3*i, i*i,
+# i * math.sin(i)
 #
 for i in range(1, 100):
-    turtle.forward(i * math.sin(i))
-    turtle.left(10 * i)
+    turtle.forward(3 * i)
+    turtle.left(90)

@@ -2,7 +2,7 @@
 
 ### For-loops
 
-A Python for-loop can repeat a block of code some of number of times. For
+A Python **for-loop** repeats a block of code some of number of times. For
 example:
 
 ```python
@@ -41,7 +41,7 @@ yellow is a nice color
 orange is a nice color
 ```
 
-You can also use for-loops in a way that combines the above two styles:
+You can combine the above two styles:
 
 ```python
 colors = ['red', 'green', 'yellow', 'orange']
@@ -82,8 +82,8 @@ The output is the same as the previous example:
 
 ### while Loops
 
-A Python while-loop repeats a block of code until some condition is `False`.
-For example, this prints the numbers from 1 to 5:
+A Python **while-loop** repeats a block of code as long as some given
+condition is `True`. For example, this prints the numbers from 1 to 5:
 
 ```python
 i = 0
@@ -105,20 +105,20 @@ This prints:
 Go!
 ```
 
-In the program code, `i < 5` is called the **while-loop condition**, or
-**condition** for short. A while-loop condition should always be a boolean
-expression (i.e. and expression that returns `True` or `False`).
+`i < 5` is called the **while-loop condition**, or **condition** for short. A
+while-loop condition should always be a boolean expression (i.e. and
+expression that returns `True` or `False`).
 
-In general, the way a while-loop runs is as follows:
+In general, a while-loop runs like this:
 
-- If the condition is `True`, the statements in the while-loop body are all
+- If the condition is `True`, the statements in the while-loop body are
   executed, one after the other.
 - Next, the while-loop condition is evaluated again. If it's `True`, the loop
   body is run again. If it's `False`, Python immediately jumps to the first
   statement *after* the while loop.
 
-Whenever a while-loop body is executed, the condition is evaluated to see if
-the body should be executed again.
+After a while-loop body is executed, the condition is evaluated to see if the
+body should be executed again.
 
 **Example.** Here's a variation of the above while-loop:
 
@@ -131,7 +131,7 @@ while i <= 5:  # <= is used, not <
 print('Go!')
 ```
 
-It prints the same thing as the previous while-loop:
+It prints the same thing as before:
 
 ```
 1
@@ -144,6 +144,9 @@ Go!
 
 In the program, time `i` is initialized to 1 instead of 0, and the condition
 uses `<=` instead of `<`.
+
+**Question** What's printed if the statement s`print(i)` and `i += 1` are
+swapped?
 
 
 **Example.** This while-loop counts *down* from 5 to 1:
@@ -180,7 +183,11 @@ while i <= 100:
 print(total)
 ```
 
-**Example.** This while-loop prints just the multiples of 5 from 1 to 100:
+**Aside** If you replace `+=` with `*=`, it prints 100 factorial, i.e. 
+`1 * 2 * 3 * ... * 100`.
+
+**Example.** How can you use a while-loop to print just the multiples of 5
+from 1 to 100:
 
 ```python
 i = 5            # i is initialized to 5
@@ -275,3 +282,45 @@ while i < 5:
 
 print('Go!')   # never printed
 ```
+
+**Example** Here is an example of a function that may, or may not, loop
+forever --- no one knows!
+
+```python
+def collatz_step(n):
+    if n % 2 == 0:       # is n even?
+        return n // 2
+    else:                # is n odd?
+        return 3 * n + 1
+
+def collatz(n):
+    """Repeatedly applies collatz_step to n until it reaches 1.
+    Fact: No one knows if there is some positive integer value for n
+    that causes this function to loop forever.
+    """
+    original_n = n
+    step_count = 0
+    while n > 1:
+        #print(n)
+        n = collatz_step(n)
+        step_count += 1
+    #print(n)
+    print(f'{step_count} steps to reduce {original_n} to 1')
+```
+
+The [Collatz conjecture](https://en.wikipedia.org/wiki/Collatz_conjecture)
+says that for all positive integers `n`, `collatz(n)` prints 1. Another way of
+stating this conjecture is that there is *no* positive integer `n` that causes
+`collatz(n)` to loop forever.
+
+Despite being
+so simple to state, currently no one knows if the conjecture is true or false.
+It is one of the most famous unsolved problems in mathematics.
+
+Computers have checked that `collatz(n)` prints 1 for all values of `n` up to
+$2^{68}$. So if there is a number that makes
+
+The [Collatz conjecture](https://en.wikipedia.org/wiki/Collatz_conjecture)
+isn't very practical. But it's a nice example that even short and
+simple-looking programs can behave in ways that we don't completely
+understand.

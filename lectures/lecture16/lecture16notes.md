@@ -192,7 +192,7 @@ def remove_all_spaces(s):
 Here's a function that removes all digits:
 
 ```python
-def remove_all_spaces(s):
+def remove_all_digits(s):
     """ Returns a copy of s with all digits removed.
     """
     return remove_all_bad(s, '0123456789')
@@ -201,7 +201,7 @@ def remove_all_spaces(s):
 And this function removes all vowels:
 
 ```python
-def remove_all_spaces(s):
+def remove_all_vowels(s):
     """ Returns a copy of s with all digits removed.
     """
     return remove_all_bad(s, 'aeiouAEIOU')

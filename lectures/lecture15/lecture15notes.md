@@ -4,7 +4,7 @@ In what follows we give a few more examples of programs that use loops.
 
 ### Example: Random Turtle Walk
 
-In a previous lecture we say this program for making a turtle do a "random
+In a previous lecture we saw this program for making a turtle do a "random
 walk" around the screen. When the turtle hits an edge, it "wraps around" to
 the opposite side of the screen:
 
@@ -82,8 +82,10 @@ def newton_sqrt(x):
 
 For this course, we won't worry about *why* this finds the square root, or how
 the method was discovered. We use it as an example of a while-loop that is not
-just a simple counting loop. The loop condition is `better != approx`, and
-ahead of time we don't how many times the loop will iterate.
+just a simple counting loop. 
+
+The loop condition is `better != approx`, and ahead of time we don't how many
+times the loop will iterate. So we couldn't write this as a for-loop.
 
 It's instructive to uncomment the `print` statement in `newton_sqrt` to see
 the intermediate values that are calculated.
@@ -91,8 +93,8 @@ the intermediate values that are calculated.
 
 ### Example: Sentinel Loops
 
-A **sentinel loop**, or **sentinel value loop**, is loop that stops when some
-final (sentinel) value is encountered. For example:
+A **sentinel loop**, or **sentinel value loop**, is a loop that stops when
+some final (sentinel) value is encountered. For example:
 
 ```python
 count = 0
