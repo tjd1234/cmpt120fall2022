@@ -321,6 +321,6 @@ Computers have checked that `collatz(n)` prints 1 for all values of `n` up to
 $2^{68}$. So if there is a number that makes
 
 The [Collatz conjecture](https://en.wikipedia.org/wiki/Collatz_conjecture)
-isn't very practical. But it's a nice example that even short and
+isn't very practical. But it's a nice example that shows how even short and
 simple-looking programs can behave in ways that we don't completely
 understand.
