@@ -1,7 +1,8 @@
 ## Lecture 18 Notes
 
-This lecture is a case study in the problem of converting to and from binary
-numbers.
+This lecture is a case study of converting to and from binary numbers. It's
+good practice with loops, and computational thinking.
+
 
 ### Base-10 Numbers
 

@@ -79,7 +79,9 @@ you'll need for this course.
 - Wed Nov 2:  [lecture 21](lectures/lecture21/lecture21notes.md)
 
 ### Week 10
-- [Read chapter 10: Lists (10.1 - 10.22)](https://runestone.academy/ns/books/published/120fall2022surrey/Lists/toctree.html)
+- [Read chapter 10: Lists (10.1 - 10.12, 10.14, 10.17 - 10.19,
+  10.22)](https://runestone.academy/ns/books/published/120fall2022surrey/Lists/toctree.html);
+  tuples will not be covered in this course
 - Mon Nov 7: [lecture 22](lectures/lecture22/lecture22notes.md), 
              [lecture 23](lectures/lecture23/lecture23notes.md)
 - Wed Nov 9: [lecture 24](lectures/lecture24/lecture24notes.md)
