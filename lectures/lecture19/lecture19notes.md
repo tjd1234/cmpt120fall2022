@@ -192,6 +192,49 @@ itself. In Python you can also do that with the `'*'` operator:
 'BoatBoatBoatBoatBoat'
 ```
 
+### String Comparisons
+
+If `s` and `t` are variables that refer to strings, then:
+
+- `s == t` evaluates to `True` if `s` and `t` are the same length, and have
+  exactly the same characters in the same order. Otherwise, it evaluates to
+  `False`.
+
+- `s != t` evaluates to `True` if `s` and `t` are different, and to `False` if
+  `s == t`.
+
+- `s < t` evaluates to `True` if `s` comes alphabetically before `t`, and
+  `False` otherwise. `s > t` evaluates to the same value as `t < s`.
+
+- `s <= t` evaluates to `True` if either `s < t` or `s == t`, and `False`
+  otherwise. `s >= t` evaluates to the same value as `t <= s`.
+
+For example:
+
+```
+>>> s = 'cat'
+>>> t = 'dog'
+
+>>> s == t
+False
+>>> s == s
+True
+>>> ('c' + 'at' ) == s
+True
+>>> s != t
+True
+
+>>> s < t
+True
+>>> s <= t
+True
+
+>>> s > t
+False
+>>> s >= t
+False
+```
+
 ### String Indexing
 
 Consider the string `'s'`:
