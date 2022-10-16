@@ -512,6 +512,33 @@ way to reverse a string if you can remember it.
 ```
 
 
+### The in and not in Operators
+
+It's easy to test if a string contains, or doesn't contain, a particular
+substring:
+
+```
+>>> 'off' in 'post office'
+True
+>>> 'to' in 'post office'
+False
+
+>>> 'm' in 'Computer'
+True
+>>> 'm' not in 'Computer'
+False
+
+>>> 'CPU' in 'Computer'
+False
+>>> 'CPU' not in 'Computer'
+True
+```
+
+`in` and `not in` only tell you if a substring is in a string or not. If it is
+in the string, they don't say where in the string. For that you need to use a
+string method such as `find`, discussed in the next section.
+
+
 ### String Methods
 
 Python strings come with a number of built-in **methods** that do various
@@ -581,4 +608,79 @@ True                                     # convert to lower case, and
                                          # check if it starts with 'done'
 ```
 
-To be continued ...
+
+### Example: Our Own String Equality Checking Function
+
+It's easy to check if two strings are the same using `==` and `!=`:
+
+```
+>>> 'Star' == 'Star'
+True
+>>> 'star' == 'Star'
+False
+
+>>> 'Star' != 'Star'
+False
+>>> 'star' != 'Star'
+True
+```
+
+It's instructive to write our own version of these operators.
+
+Let's write a function `string_equal(s, t)` that returns `True` if strings `s`
+and `t` are the same length, and have the same characters in the same order.
+Otherwise, it returns `False`. It should return the same results as `==`.
+
+
+```python
+def strings_equal(s, t):
+    """Returns True if strings s and t are the same, False otherwise.
+    """
+    # string with different lengths can't be equal
+    if len(s) != len(t): return False
+    
+    # len(s) == len(t) at this point
+    for i in range(len(s)):
+        if s[i] != t[i]:
+            return False
+    
+    return True
+```
+
+This function works as follows:
+
+- First it checks if the strings are the same length. If they're not, then we
+  know the strings can't be the same, and return `False` immediately.
+
+- Second, if the strings are the same length, we use a loop to go through the
+  characters one by one, comparing each pair of characters at the same
+  location to see if they are the same. If they're not the same, we return
+  `False` immediately.
+
+- Finally, if we get through the for-loop without returning `False`, then that
+  means `s` and `t` must be equal, and so we return `True`.
+
+Notice that the amount of work the function does depends in part on where the
+first difference of characters appears. For example, `string_equal('x123456',
+'y123456')` returns `False` immediately after checking the first characters.
+But `string_equal('123456x', '123456y')` takes a little longer because the
+first six characters of each string are checked before getting to the
+different characters, `'x'` and `'y'`, at the end. If you are comparing a lot
+of very large strings, this speed difference might be noticeable.
+
+With `strings_equal` written, it is easy to implement `strings_not_equal`:
+
+```python
+def strings_not_equal(s, t):
+    """Returns True if strings s and t are different, False otherwise.
+    """
+    return not strings_equal(s, t)
+```
+
+`strings_not_equal` always returns the opposite value of `strings_equal`, so
+we can implement it in a single line.
+
+
+# Example: Counting a Character in a String
+
+Coming soon ...
