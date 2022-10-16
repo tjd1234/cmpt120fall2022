@@ -379,6 +379,41 @@ beginning.
 **Question** If `s` is a non-empty string, is `s[-len(s)]` the *first*
 character of `s`?
 
+#### Example: Pluralizing a String
+
+Here's a simple rule for pluralizing English words:
+
+- If the word doesn't end with an *s*, then add an *s* to the end of it. For
+  example, *toy* becomes *toys*.
+- If the word ends with an *s*, then do nothing (we assume it's already
+  pluralized). For example, *birds* becomes *birds*.
+
+While this pluralization rule is simple, it doesn't always give the right
+answer. For example, the rule says the plural of *try* is *trys*. But the
+correct plural is *tries*. We'll ignore such problems and implement the rule
+as given:
+
+```python
+def pluralize(word):
+    """Adds an 's' to the end of the string. 
+    If it already ends with an 's', then it is returned
+    unchanged.
+    """
+    if word == '': return s
+    if word[-1] == 's':
+        return word
+    else:
+        return word + 's'
+```
+
+For example:
+
+```
+>>> pluralize('toy')
+'toys'
+>>> pluralize('toys')
+'toys'
+```
 
 ### String Slicing
 
@@ -647,18 +682,28 @@ def strings_equal(s, t):
     return True
 ```
 
-This function works as follows:
+For example:
 
-- First it checks if the strings are the same length. If they're not, then we
-  know the strings can't be the same, and return `False` immediately.
+```
+>>> strings_equal('Star', 'Star')
+True
+>>> strings_equal('star', 'Star')
+False
+```
 
-- Second, if the strings are the same length, we use a loop to go through the
+`strings_equal` works as follows:
+
+- First it checks if the strings are the same length. If they're *not*, then
+  we know the strings can't be the same, and return `False` immediately.
+
+- Second, if the strings are the same length, a loop goes through the
   characters one by one, comparing each pair of characters at the same
-  location to see if they are the same. If they're not the same, we return
+  location to see if they are the same. If they're different, we return
   `False` immediately.
 
 - Finally, if we get through the for-loop without returning `False`, then that
-  means `s` and `t` must be equal, and so we return `True`.
+  means all the characters in `s` and `t` are the same, and so we return
+  `True`.
 
 Notice that the amount of work the function does depends in part on where the
 first difference of characters appears. For example, `string_equal('x123456',
@@ -677,10 +722,123 @@ def strings_not_equal(s, t):
     return not strings_equal(s, t)
 ```
 
+For example:
+
+```
+>>> strings_not_equal('Star', 'Star')
+False
+>>> strings_not_equal('star', 'Star')
+True
+```
+
 `strings_not_equal` always returns the opposite value of `strings_equal`, so
 we can implement it in a single line.
 
 
-# Example: Counting a Character in a String
+## Example: Checking if All Characters are Equal
 
-Coming soon ...
+Let's write a function called `all_chars_same(s)` that returns `True` if all
+the characters in `s` are the same, and `False` otherwise:
+
+```
+>>> all_chars_same('')
+True
+>>> all_chars_same('a')
+True
+>>> all_chars_same('aa')
+True
+>>> all_chars_same('aaaaaaa')
+True
+>>> all_chars_same('ab')
+False
+>>> all_chars_same('aaaaa!')
+False
+```
+
+Here's one way to implement it:
+
+```python
+def all_chars_same(s):
+    """Returns True if all the characters are the same, and False otherwise.
+    Returns True for the empty string.
+    """
+    if len(s) <= 1: return True
+    
+    # s has at least 2 characters at this point
+    first_char = s[0]
+    for c in s:
+        if c != first_char:
+            return False
+    return True
+```
+
+First it checks if `s` has length 0 or 1. In either case, that means all the
+characters in the string are the same, and `True` can be returned immediately.
+
+If the string is length 2 or greater, then the first character is saved in
+`first_char`, and we use a for-loop to go through every character in `s` and
+check if it's equal to `first_char`. If not, we can return `False`
+immediately. If we get through the entire loop, then all the characters must
+be the same, and `True` is returned.
+
+
+## Example: Checking if All Characters are Equal
+
+Now consider the problem of testing all the characters in a string are
+different, i.e. no 2 characters are equal. Unfortunately, this simple function
+*doesn't* work:
+
+```python
+def incorrect_all_chars_different(s):
+	"""Returns True if all characters are different, False otherwise.
+	Returns True for the empty string.
+	"""
+	return not all_same(s)
+```
+
+The problem here is that all the characters not being the same doesn't mean
+they are all different. For example, the characters in the string `'baaa!` are
+not all the same, but they are also not all different (`'a'` is repeated).
+
+So we need another approach. One idea is, for strings with 2 or more
+characters, to go through the characters one at a time and then use `not in`
+to make sure it doesn't appear in any of the characters after it:
+
+
+```python
+def all_chars_different(s):
+    """Returns True if all characters are different, False otherwise.
+    Returns True for the empty string.
+    """
+    n = len(s)
+    if n <= 1: return True
+    
+    for i in range(n-1):    # -1 is important!
+        if s[i] in s[i+1:]:
+            return False
+    return True
+```
+
+For example:
+
+```
+>>> all_chars_different('')
+True
+>>> all_chars_different('a')
+True
+>>> all_chars_different('abc')
+True
+>>> all_chars_different('abba')
+False
+>>> all_chars_different('mmm')
+False
+```
+
+`s[i]` is the character at location `i` in the string, and `s[i+1:]` is a
+slice starting at the first character *after* `s[i]` and continuing to the end
+of the string. In other wise, `s[i+1:]` is all the characters after `s[i]`.
+
+The range of the loop is only up to `n-1`. If we used `n` instead then, when
+`i` is `n-1`, we would get a run-time when evaluating `s[i+1:]` because it
+would be the same as `s[(n-1)+1:]`, or `s[n:]`, which is an invalid slice.
+
