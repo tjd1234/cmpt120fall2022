@@ -573,6 +573,61 @@ True
 in the string, they don't say where in the string. For that you need to use a
 string method such as `find`, discussed in the next section.
 
+#### Example: Testing if a String is Formatted like an Integer
+
+Here's some code from earlier in the course that tests if a string is
+formatted like a *non-negative* integer:
+
+```python
+def is_digit(s):
+    """Returns True if string s is a digit, False otherwise.
+    """
+    if len(s) == 1 and s in '0123456789':
+        return True
+    else:
+        return False
+
+def is_positive_int(s):
+    """Returns True if string s is formatted like a positive int.
+    Otherwise it returns False.
+    """
+    # if s is the empty string, return False immediately
+    if s == '': return False
+        
+    for c in s:
+        if not is_digit(c):
+            return False
+            
+    return True
+```
+
+How can we test if a string is formatted like a *negative* integer? For
+example, `'-8851'` is a negative integer. It starts with a `-`, and is
+followed by a positive integer. So we can write this function:
+
+```python
+def is_negative_int(s):
+    """Returns True if string s is formatted like a negative int.
+    Otherwise it returns False.
+    """
+    if s == '':
+    	return False
+    elif s[0] == '-' and is_positive_int(s[1:]):
+        return True
+    else:
+        return False
+```
+
+For example:
+
+```
+>>> is_negative_int('-3292')
+True
+>>> is_negative_int('3292')
+False
+>>> is_negative_int('-')
+False
+```
 
 ### String Methods
 
@@ -642,6 +697,9 @@ You can combine multiple methods together. For example:
 True                                     # convert to lower case, and
                                          # check if it starts with 'done'
 ```
+
+**Question** Suppose the `strip()` method didn't exist. How could you
+implement it using `lstrip()` and `rstrip()`?
 
 
 ### Example: Our Own String Equality Checking Function

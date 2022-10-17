@@ -1,5 +1,7 @@
 ## Lecture 16 Notes
 
+More examples of using loops.
+
 ### Example: Checking if a String is a Positive Integer
 
 Let's write a function that tests if a string is formatted like a *positive*
@@ -23,6 +25,8 @@ write a function that tests if a string is a digit:
 
 ```python
 def is_digit(s):
+    """Returns True if string s is a digit, False otherwise.
+    """
     if len(s) == 1 and s in '0123456789':
         return True
     else:
@@ -56,6 +60,16 @@ True
 
 So to test of `s` is a digit, we must check *both* that it's in
 `'0123456789'`, and also that it's length is 1.
+
+**Aside** `is_digit` can be more compactly written with a single `return`
+statement:
+
+```python
+def is_digit(s):
+    """Returns True if string s is a digit, False otherwise.
+    """
+    return len(s) == 1 and s in '0123456789'
+```
 
 Using `is_digit`, we can test if a string looks like a positive `int` by
 checking that all its characters are digits. Here's a good first try:
@@ -120,6 +134,7 @@ def is_positive_int(s):
 The empty string as often a special case, and it's wise to always check that
 your string functions work correctly with it.
 
+
 ### Example: Remove all Spaces from a String
 
 Let's write a function that takes any string `s` as input, and returns a copy
@@ -136,7 +151,7 @@ of `s` with all spaces removed. For example:
 ''
 ```
 
-A way to do this is to use the accumulator pattern and go through the
+One way to do this is to use the accumulator pattern and go through the
 characters of `s` one at a time, only keeping them if they are *not* spaces:
 
 ```python
@@ -180,7 +195,7 @@ The only difference is that the if-statement now checks if `c` is *not* in
 `bad_chars`.
 
 Now that we have `remove_all_bad`, we can implement `remove_all_spaces` in
-this very simple way:
+this simple way:
 
 ```python
 def remove_all_spaces(s):
