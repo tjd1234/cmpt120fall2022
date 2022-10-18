@@ -99,7 +99,9 @@ the intermediate values that are calculated.
 ### Example: Sentinel Loops
 
 A **sentinel loop**, or **sentinel value loop**, is a loop that stops when
-some final (sentinel) value is encountered. For example:
+some final (sentinel) value is encountered. For example, this progam prints
+the sum and average of the numbers entered by the user, stopping when the type
+"done":
 
 ```python
 count = 0

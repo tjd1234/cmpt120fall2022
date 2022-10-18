@@ -62,8 +62,8 @@ def is_prime_test(is_prime):
 
     print('is_prime: all tests passed')
 
-is_prime_test(is_prime)
-is_prime_test(is_prime2)
+#is_prime_test(is_prime)
+#is_prime_test(is_prime2)
 
 def primes_less_than(n):
     """Returns a list of all the primes less than n.
@@ -76,6 +76,9 @@ def primes_less_than(n):
             result.append(n)
     return result
 
-primes = primes_less_than(100)
-print(primes)
-print(len(primes))
+def num_primes_less_than(n):
+    return len(primes_less_than(n))
+
+#primes = primes_less_than(100)
+#print(primes)
+#print(len(primes))

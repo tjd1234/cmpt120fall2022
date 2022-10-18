@@ -18,12 +18,15 @@ def jump_to(x, y):
     turtle.showturtle()
     turtle.down()
 
-for n in range(1000):
+while True: # inifnite loop
     turtle.forward(10)
+
+    # turn some random amount
     angle = random.uniform(-10, 10)
     turtle.left(angle)
-    x, y = turtle.position()
 
+    # "wrap-around" the screen if hit an edge
+    x, y = turtle.position()
     if x > max_X:   # gone off the right edge?
         jump_to(min_X, y)
     elif x < min_X: # gone off the left edge?

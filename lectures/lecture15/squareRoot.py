@@ -14,11 +14,13 @@ def newton_sqrt(x):
 
     # keep improving the approximation until no more improvements occur
     while better != approx:
-        #print(f'  {approx}')
+        print(f'  {approx}')
         approx = better
         better = 0.5 * (approx + x / approx)
     return approx
 
-print('math.sqrt', 'newton_sqrt')
-for i in range(1, 11):
-    print(math.sqrt(i), newton_sqrt(i))
+newton_sqrt(5)
+
+#print('math.sqrt', 'newton_sqrt')
+#for i in range(1, 11):
+#    print(math.sqrt(i), newton_sqrt(i))

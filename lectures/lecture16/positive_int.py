@@ -3,6 +3,7 @@
 def is_digit(s):
     """Returns True if string s is a digit, False otherwise.
     """
+    #return len(s) == 1 and s in '0123456789'
     if len(s) == 1 and s in '0123456789':
         return True
     else:
