@@ -11,7 +11,7 @@ you'll need for this course.
 
 - [Assignment 1](assignments/a1/a1.md)
 - [Assignment 2](assignments/a2/a2.md)
-- [Assignment 3](assignments/a3/a3.md)
+- [Assignment 3](assignments/a3/a3.md). [Sample solution (includes sample solution to assignment 2)](assignments/a3/sample_solution).
 - Assignment 4
 - Assignment 5
 
