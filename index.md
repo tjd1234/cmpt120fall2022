@@ -12,7 +12,7 @@ you'll need for this course.
 - [Assignment 1](assignments/a1/a1.md)
 - [Assignment 2](assignments/a2/a2.md)
 - [Assignment 3](assignments/a3/a3.md). [Sample solution (includes sample solution to assignment 2)](assignments/a3/a3_sample_solution.zip).
-- Assignment 4
+- [Assignment 4](assignments/a4/a4.md)
 - Assignment 5
 
 ## Sample Exams
