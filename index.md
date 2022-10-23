@@ -19,6 +19,7 @@ you'll need for this course.
 
 - [Sample Midterm coding questions](exams/120-D400midterm_coding_sample_fall2022.pdf) ([solutions](exams/120-D400midterm_coding_sample_fall2022_sol.pdf))
 - [Mini midterm](exams/120-D400mini_midterm1_fall2022.pdf) ([solutions](exams/120-D400mini_midterm1_fall2022_sol.pdf))
+- [Exam timer](examclock/examclock.html) that shows the remaining time in an exam.
 
 
 ## Dr. Donaldson's Lecture Notes
