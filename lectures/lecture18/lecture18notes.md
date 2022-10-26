@@ -1,24 +1,26 @@
 ## Lecture 18 Notes
 
-This lecture is a case study of converting to and from binary numbers. It's
-good practice with loops, and computational thinking.
+This lecture is a case study of **converting to and from binary numbers**.
+It's good practice with loops, and computational thinking.
 
 
 ### Base-10 Numbers
 
 The ordinary numbers we use day-to-day are called **decimal numbers**, or
-**base-10 numbers**. In base-10, each **digit** is an integer from 0 to 9, and
-the right-most digit is multiplied by 1, the digit to the left of that is
-multiplied by 10, the digit to the left of that is multiplied by 100, and so
-on. Since the position of the digit matters, this is called [positional
+**base-10 numbers**. In base-10, a number consists of **digits**, which are
+the integers 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. The value of a base-10 number is
+calculated like this: the right-most digit is multiplied by 1, the digit to
+the left of that is multiplied by 10, the digit to the left of that is
+multiplied by 100, and so on. Since the *position* of the digit matters, this
+is called [positional
 notation](https://en.wikipedia.org/wiki/Positional_notation).
 
 For example, the base-10 number 3503 is interpreted like this:
 
 ```
-	   3     5     0     3  = 3*1000 + 5*100 + 0*10 + 3*1
-	1000   100    10     1
-	10^3  10^2  10^1  10^0
+   3     5     0     3  = 3*1000 + 5*100 + 0*10 + 3*1
+1000   100    10     1
+10^3  10^2  10^1  10^0
 ```
 
 Notice that the 3 at the start represents 3\*1000 = 3000, while the 3 at the
@@ -35,16 +37,16 @@ above example?
 **Base-2**, or **binary**, numbers follow the same idea as base-10 numbers,
 but with two main differences:
 
-- Binary uses powers of 2 (instead of powers of 10 in base-10)
+- Binary uses powers of 2 (instead of powers of 10).
 - Binary digits are called **bits**, and there are only two of them: 0 and 1.
 
 For example, 10110 is a binary number that is 5-bits long. It is interpreted
 like this:
 
 ```
-	   1     0     1     1    0 = 1*16 + 0*8 + 1*4 + 1*2 + 0*1 = 16 + 4 + 2 = 22
-	  16     8     4     2    1
-	 2^4   2^3   2^2   2^1  2^0
+  1     0     1     1    0 = 1*16 + 0*8 + 1*4 + 1*2 + 0*1 = 16 + 4 + 2 = 22
+ 16     8     4     2    1
+2^4   2^3   2^2   2^1  2^0
 ```
 
 This shows that 10110, which is in base-2, is equal to 22 in base-10.
@@ -52,12 +54,16 @@ This shows that 10110, which is in base-2, is equal to 22 in base-10.
 **Fact** A group of 8 bits is called a **byte**.
 
 **Fact** If a binary number ends with 0, then it is even. If it ends with 1,
-then it's odd. On some computers this fact is used to efficiently test if a
-number if even or odd.
+then it's odd.
 
 **Fact** The largest value for an $n$-bit binary number is $2^{n}-1$, when all
 the bits are 1s. For example, the largest 5-bit binary number is $11111 = 16 +
 8 + 4 + 2 + 1 = 31 = 2^{5} - 1$.
+
+**Note** We have used the standard binary encoding here, which represents
+integers from 0 upward. We *won't* discuss how to represent negative integers
+in binary, but if you are curious you should look into [twos
+complement](https://en.wikipedia.org/wiki/Two%27s_complement).
 
 
 ### Converting Binary Numbers to Base-10
@@ -78,17 +84,17 @@ def bits_to_dec(bits):
     """Returns the base-10 int value of bits.
     Assumes bits is a string of 0s and 1s.
     """
-    pow = len(bits) - 1
+    i = len(bits) - 1
     result = 0
     for b in bits:
-        result += int(b) * 2**pow
-        pow -= 1   # subtract 1 from pow
+        result += int(b) * 2**i
+        i -= 1   # subtract 1 from i
     return result
 ```
 
-Notice that `pow` is initialized to *one less* than the length of `bits`. That's
-because, if you count from the right, the powers of the place values start at
-0 (not 1).
+Notice that `i` is initialized to *one less* than the length of `bits`. That's
+because if you count from the right the powers of the place values start at 0
+(not 1).
 
 
 ### The Other Direction: Converting Base-10 Numbers to Binary
@@ -125,7 +131,7 @@ The next power of 4 is equal to 4, so we put a 1 over the 4:
 ```
 
 We subtract 4 from 4 to get 0. At this point we are done and can write 0s for
-he rest of the bits:
+the rest of the bits:
 
 ```
  1 0 1 0 0
@@ -134,7 +140,7 @@ he rest of the bits:
 
 So the binary representation of 20 is 10100.
 
-**Question** Using the same method as the example, calculate the binary
+**Question** Using the same method as in the example, calculate the binary
 representation of 25.
 
 Here is a Python function that converts base-10 values to binary (see
@@ -195,6 +201,8 @@ The output:
 19 10011
 20 10100
 ```
+
+## Testing
 
 Here's a useful way to test both `bits_to_dec` and `dec_to_bits`. If you
 convert a number to binary using `dec_to_bits`, and then convert it back using
