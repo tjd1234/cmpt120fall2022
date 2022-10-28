@@ -68,8 +68,17 @@ complement](https://en.wikipedia.org/wiki/Two%27s_complement).
 
 ### Converting Binary Numbers to Base-10
 
-Let's write a Python function that converts binary numbers to base-10. For
-example, `bit_to_dec('10110')` evaluates to 22.
+In Python, you can convert a binary number to base 10 like this:
+
+```
+>>> int('101', 2) 
+5 
+>>> int('10110') 
+22
+```
+
+Let's write our own Python function that converts binary numbers to base-10.
+For example, `bit_to_dec('10110')` evaluates to 22.
 
 We will assume the input is a string of bits, i.e. 0s and 1s. Leading 0s are
 allowed, e.g. `'00011'` is 3 in base-10.
@@ -78,6 +87,10 @@ The idea of `bits_to_dec(bits)` is to go through each each bit in `bits`, one
 at a time from left to right. The bit is converted to an `int`, multiplied by
 the corresponding power of 2, and then added to the accumulator variable
 `result`.
+
+**Important** We start processing the bits at the *left*, and the left-most
+bit is the **high order bit**, i.e. the bit corresponding to the highest power
+of 2. In an $n$-bit binary number, the left-most bit corresponds to $2^{n-1}$.
 
 ```python
 def bits_to_dec(bits):
@@ -91,10 +104,6 @@ def bits_to_dec(bits):
         i -= 1   # subtract 1 from i
     return result
 ```
-
-Notice that `i` is initialized to *one less* than the length of `bits`. That's
-because if you count from the right the powers of the place values start at 0
-(not 1).
 
 
 ### The Other Direction: Converting Base-10 Numbers to Binary

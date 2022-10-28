@@ -14,26 +14,30 @@ def bits_to_dec(bits):
         pow -= 1   # subtract 1 from pow
     return result
 
-def dec_to_bits(n, num_bits):
-    """Returns binary representation of base-10 integer n.
-    Assumes n is an int and n >= 0, and num_bits is big enough
-    to represent n. A string of num_bits bits is returned. For
-    example:
 
-    >>> dec_to_bits(19, 5)
-    '10011'
-    >>> dec_to_bits(19, 10)
-    '0000010011'
-    """
+
+def dec_to_bits(n, num_bits):
     result = ''
     for i in range(num_bits):
-        pow2 = 2 ** (num_bits - i - 1)
+        pow2 = 2 ** (num_bits - i)
         if n >= pow2:
             result += '1'
             n -= pow2
         else:
             result += '0'
     return result
+
+
+
+
+
+
+
+
+
+
+
+
 
 def test1():
     for i in range(0, 21):
@@ -44,4 +48,9 @@ def test2():
     print the numbers from 0 to 20.
     """
     for i in range(0, 21):
-        print(bits_to_dec(dec_to_bits(i, 5)))
+        result = bits_to_dec(dec_to_bits(i, 5))
+        if result == i:
+            pass
+        else:
+            print(f'error on i={i}')
+    print('all tests done')
