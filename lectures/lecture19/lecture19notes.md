@@ -1,5 +1,14 @@
 # Lecture 19 Notes
 
+Strings are one of the most important and useful *data structures* in Python.
+They are well-designed and provide a lot of useful built-in features that make
+Python a good language for string processing.
+
+Almost all programs use strings at least a little, and many use them quite a
+lot. For example, in web programming web pages are often giant strings of
+text.
+
+
 ## String Basics
 
 In Python, a **string** is a sequence of 0 or more characters. The type of a
@@ -193,17 +202,21 @@ and the end using the `.strip()` method, e.g. the string `'  done\n'` becomes
 ## Strings are Immutable
 
 In Python, **mutable** means "changeable", and **immutable** means "not
-changeable". Python strings are immutable, i.e. there is way to modify them or
-change their length. While it might sometimes seem like you are changing a
-Python string, you can never change them, you can only make a copy.
+changeable". Python strings are immutable, i.e. there is no way to modify them
+or change their length. While it might sometimes seem like you are changing a
+Python string, you're, you are actually making copies and constructing new
+strings.
 
-String immutability has both pros and cons. One of the good features of
-immutable strings is that you don't need to make copies of them. Since they
-never change, it is always safe to have different variables refer to the same
-underlying string. One of the bad features of mutable strings is that if you
-need to, say, change a character in a very long string, then you need to make
-a copy of the entire string. If your program does this kind of thing a lot,
-then it could become very inefficient.
+String immutability has both pros and cons:
+
+- One good feature of immutable strings is that they are quite efficient for
+  most copying operations. Since they never change, it is always safe to have
+  different variables refer to the same underlying string.
+
+- One bad feature of immutable strings is that if you need to, say, change one
+  character in a very long string, then you *can't* just change the character,
+  you need to construct a brand new string. If your program does this kind of
+  thing a lot, then it could become very inefficient.
 
 
 ## String Concatenation
@@ -228,6 +241,19 @@ itself. You can also do that with the `'*'` operator:
 'hahaha'
 >>> 'Boat' * 5
 'BoatBoatBoatBoatBoat'
+```
+
+String expressions can get complicated:
+
+```
+>>> s = (5 * 'Meow! ' + '\n') * 6
+>>> print(s)
+Meow! Meow! Meow! Meow! Meow! 
+Meow! Meow! Meow! Meow! Meow! 
+Meow! Meow! Meow! Meow! Meow! 
+Meow! Meow! Meow! Meow! Meow! 
+Meow! Meow! Meow! Meow! Meow! 
+Meow! Meow! Meow! Meow! Meow! 
 ```
 
 ## String Comparisons
@@ -339,6 +365,7 @@ TypeError: 'str' object does not support item assignment
 If you want the string `'Apple`, then you must use some combination of string
 slice or string methods (discussed later) to create a new string.
 
+
 ## Looping Over Strings
 
 The simplest way to loop over a Python string is like this:
@@ -366,3 +393,35 @@ while i < len(s):  # < is important; <= would be wrong
 	print(s[i])
 	i += 1           # += adds a value to a variable
 ```
+
+**Challenge** Using a while-loop, write a function that *reverses* a string:
+
+```
+>>> reverse('')
+''
+>>> reverse('a')
+'a'
+>>> reverse('ab')
+'ba'
+>>> reverse('abc')
+'cba'
+>>> reverse('bird')
+'drib'
+```
+
+Here's one way to do it:
+
+```python
+def reverse(s):
+    result = ''
+    i = len(s) - 1
+    while i >= 0:
+        result += s[i]
+        i -= 1
+    return result
+```
+
+Since Python strings are immutable, the line `result += s[i]` creates a new
+string every time it is called. And all of these strings are quickly discarded
+when the next character from `s` is appended. So this isn't a very efficient
+function.

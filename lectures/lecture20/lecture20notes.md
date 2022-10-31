@@ -3,13 +3,13 @@
 ## Negative Indices
 
 If `s` is a non-empty string, then `s[len(s)-1]` is it's last character. The
-index `len(s)-1` is bit a long, and it's easy to mistype. So Python lets you
-write `s[-1]` instead. For any non-empty string `s`, `s[-1]` is its last
-character, `s[-2]` is its second to last character, `s[-3]` is its third to
-last character, and so on.
+index `len(s)-1` is long and easy to mistype. So Python lets you write `s[-1]`
+instead. For any non-empty string `s`, `s[-1]` is its last character, `s[-2]`
+is its second to last character, `s[-3]` is its third to last character, and
+so on.
 
-So every character of a string has both a negative index and a non-negative
-index:
+So every character of a Python string has both a negative index and a
+non-negative index:
 
 ```
       -5    -4    -3    -2    -1
@@ -47,6 +47,7 @@ beginning.
 
 **Question** If `s` is a non-empty string, is `s[-len(s)]` the *first*
 character of `s`?
+
 
 ### Example: Pluralizing a String
 
@@ -86,7 +87,7 @@ For example:
 ### String Slicing
 
 **String slicing** is a generalization of string indexing that lets you get an
-entire substring within a string, instead of just a single character. For
+entire substring from within a string, instead of just a single character. For
 example:
 
 ```
@@ -133,8 +134,8 @@ number bigger than the string length without causing an out of range error:
 ```
 
 You can also do slicing with negative indices, but we will not cover that in
-these notes. While slicing with negative indices is occasionally useful, it
-often results in tricky expressions that can be hard to understand.
+these notes. While slicing with negative indices is occasionally useful, they
+can be tricky expressions that are hard to understand.
 
 In general, for a non-empty string `s`, a string slice has the form
 `s[begin:end]`. The *first* character of the slice is `s[begin]`, and the
@@ -213,6 +214,30 @@ way to reverse a string if you can remember it.
 'hamburger'
 ```
 
+**Challenge** A simple kids game is to take a person's first and last name,
+and then swap the first letter of each to get a new name (which hopefully
+sounds funny). For example, "Bill Gates" becomes "Gill Bates", and "Justin
+Trudeau" becomes "Tustin Jrudeau".
+
+Write a function called `name_change(first, last)` that does this:
+
+```
+>>> name_change('Bill', 'Gates')
+'Gill Bates'
+>>> name_change('Elon', 'Musk')
+'Mlon Eusk'
+>>> name_change('Justin', 'Trudeau')
+'Tustin Jrudeau'
+```
+
+Here's a possible solution:
+
+```python
+def name_change(first, last):
+    new_first = last[0] + first[1:]
+    new_last = first[0] + last[1:]
+    return new_first + ' ' + new_last
+```
 
 ### The in and not in Operators
 
@@ -239,6 +264,7 @@ True
 `in` and `not in` only tell you if a substring is in a string or not. If it is
 in the string, they don't say where in the string. For that you need to use a
 string method such as `find`, discussed in the next section.
+
 
 ### Example: Testing if a String is Formatted like an Integer
 
@@ -293,5 +319,28 @@ True
 >>> is_negative_int('3292')
 False
 >>> is_negative_int('-')
+False
+```
+
+Now we can combine them to check if a string is formatted like an `int`,
+positive, negative, or 0:
+
+```python
+def is_int(s):
+    """Returns True if string s is formatted like an int, otherwise False.
+    """
+    return is_positive_int(s) or is_negative_int(s)
+```
+
+```
+>>> is_int('0')
+True
+>>> is_int('-0')
+True
+>>> is_int('4390')
+True
+>>> is_int('-4390')
+True
+>>> is_int('--4390')
 False
 ```
