@@ -5,8 +5,7 @@
 Python strings come with a number of built-in **methods** that do various
 useful things. Here are examples of a few of them. It's important to keep in
 mind that none of these methods actually change the string they are operating
-on (because strings are immutable in Python), and instead they are making
-copies:
+on (because strings are immutable in Python), and instead they make copies:
 
 ```
 >>> s = 'IBM is Big Blue'
@@ -164,7 +163,7 @@ True
 we can implement it in a single line.
 
 
-## Example: Checking if All Characters are Equal
+## Example: Checking if All Characters are the Same
 
 Let's write a function called `all_chars_same(s)` that returns `True` if all
 the characters in `s` are the same, and `False` otherwise:
@@ -270,4 +269,3 @@ of the string. In other wise, `s[i+1:]` is all the characters after `s[i]`.
 The range of the loop is only up to `n-1`. If we used `n` instead then, when
 `i` is `n-1`, we would get a run-time when evaluating `s[i+1:]` because it
 would be the same as `s[(n-1)+1:]`, or `s[n:]`, which is an invalid slice.
-

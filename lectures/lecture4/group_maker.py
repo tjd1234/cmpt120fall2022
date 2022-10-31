@@ -1,7 +1,7 @@
 # group_maker.py
 
 #
-# This programs helps divide a group into smaller groups. Given the total
+# This programs helps divide a group into smaller groups. Given the total_num
 # number of people and group size, it reports how many groups are needed, and
 # how many people are leftover.
 #

@@ -3,13 +3,13 @@
 ## Negative Indices
 
 If `s` is a non-empty string, then `s[len(s)-1]` is it's last character. The
-index `len(s)-1` is bit a long, and it's easy to mis=type. So Python lets you
+index `len(s)-1` is bit a long, and it's easy to mistype. So Python lets you
 write `s[-1]` instead. For any non-empty string `s`, `s[-1]` is its last
 character, `s[-2]` is its second to last character, `s[-3]` is its third to
-last character and so on.
+last character, and so on.
 
-So every character of a string has both negative indices as well as
-non-negative indices:
+So every character of a string has both a negative index and a non-negative
+index:
 
 ```
       -5    -4    -3    -2    -1
@@ -52,15 +52,14 @@ character of `s`?
 
 Here's a simple rule for pluralizing English words:
 
-- If the word doesn't end with an *s*, then add an *s* to the end of it. For
-  example, *toy* becomes *toys*.
 - If the word ends with an *s*, then do nothing (we assume it's already
   pluralized). For example, *birds* becomes *birds*.
+- If the word *doesn't* end with an *s*, then add an *s* to the end of it. For
+  example, *toy* becomes *toys*.
 
-While this pluralization rule is simple, it doesn't always give the right
-answer. For example, the rule says the plural of *try* is *trys*. But the
-correct plural is *tries*. We'll ignore such problems and implement the rule
-as given:
+Note that these rules sometimes make mistakes. For example, they says the
+plural of *try* is *trys*, but the correct plural is *tries*. We'll ignore
+this and implement the rule as given:
 
 ```python
 def pluralize(word):
@@ -119,8 +118,8 @@ Here are a few more examples:
 
 Notice that in the slice `s[4:5]` the value 5 is *not* a valid index for `s`,
 i.e. `s[5]` causes an out of range error. But it is okay to use it as the
-second number in a slice. In fact, this second number in a slice can be bigger
-than the string length without causing an out of range error:
+second number in a slice. In fact, this second number in a slice can be any
+number bigger than the string length without causing an out of range error:
 
 ```
 >>> s[4:5]
@@ -134,8 +133,8 @@ than the string length without causing an out of range error:
 ```
 
 You can also do slicing with negative indices, but we will not cover that in
-these notes. While slicing with negative indices does have it's uses, it often
-results in tricky expressions that can be hard to understand.
+these notes. While slicing with negative indices is occasionally useful, it
+often results in tricky expressions that can be hard to understand.
 
 In general, for a non-empty string `s`, a string slice has the form
 `s[begin:end]`. The *first* character of the slice is `s[begin]`, and the
@@ -156,7 +155,7 @@ Traceback (most recent call last):
 TypeError: 'str' object does not support item assignment
 ```
 
-There are a couple of short expressions for string slicing that you can use:
+There are a couple of short-cut expressions for string slicing:
 
 ```
 >>> s = 'apple'
@@ -193,9 +192,8 @@ For example:
 '26'
 ```
 
-Slices with a step are only occasionally useful, and so don't appear often in
-most Python programs. Perhaps the most common use of the step parameter is to
-reverse a string:
+Slices with a step don't appear often in most Python programs. A common use of
+the step parameter is to reverse a string:
 
 ```
 >>> s = 'apple'
@@ -211,8 +209,8 @@ way to reverse a string if you can remember it.
 **Trivia** `[::-1]` applied twice gives you the original string:
 
 ```
->>> 'start loop'[::-1][::-1]
-'start loop'
+>>> 'hamburger'[::-1][::-1]
+'hamburger'
 ```
 
 

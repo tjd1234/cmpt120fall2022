@@ -114,7 +114,7 @@ while num != 'done':
 
 print()
 print(f'You entered {count} numbers.')
-print(f'Their total is {total}.')
+print(f'Their total_num is {total}.')
 print(f'Their average is {total / count :.2f}.')
 ```
 

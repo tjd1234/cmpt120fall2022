@@ -1,6 +1,15 @@
 # Lecture 28 Notes
 
 
+## Challenge: Checking if Any Lines in a File are Too Long
+
+Write a program that takes the name of a text file as input, and prints just
+the lines in the file that *over* 100 characters in length. Print the line
+number at the start of the line so that the user knows where to look for the
+line in the file. If the file has no lines over 100 characters, then print a
+helpful message like 'Looks good: no lines over 100 characters long'.
+
+
 ## Reading a Text File Character by Character
 
 ... coming soon ...

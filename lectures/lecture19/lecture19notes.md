@@ -2,8 +2,8 @@
 
 ## String Basics
 
-In Python, a string is a sequence of 0 or more characters. The type of a
-string in Python is `str`:
+In Python, a **string** is a sequence of 0 or more characters. The type of a
+string is `str`:
 
 ```python
 >>> type('cat')
@@ -28,11 +28,11 @@ using single-quotes instead of double-quotes.
 '''
 ```
 
-As mentioned in the examples, you *cannot* split a regular single-quoted or
-double-quoted string across multiple lines.
+As shown you *can* split triple quotes across multiple lines, but you *cannot*
+split a regular single-quoted or double-quoted string across multiple lines.
 
 The **empty string** is a string with 0 characters, i.e. of length 0. These
-all represent the empty string:
+all represent the empty string (the first two are by far the most common):
 
 ```
 ''
@@ -54,12 +54,12 @@ The *case* of a letter in a string *matters*. For example, `'M'` and `'m'` are
 *different* string, and `'Cat'` and `'cat'` are also different.
 
 **Note** Some programming languages have a special data type for single
-characters. For example, in C++ the `char` data type represents single
-characters. However, Python does *not* have a special character data type.
+characters. For example, in C++ the `char` data type represents a single
+character. However, Python does *not* have a character data type.
 Single-character strings like `'h'` or `'!'` are regular strings of length 1.
 
 The **length** of a string is the number of characters it contains, and in
-Python the built-in `len` function returns the length of a string:
+Python the built-in `len` function returns this:
 
 ```python
 >>> len('')
@@ -73,9 +73,10 @@ Python the built-in `len` function returns the length of a string:
 
 ## Special Characters
 
-In a string literal, any '`\`' indicates that the next character is special in
-some way. For example, `'\n` is an escape character called **newline** that
-represents a command to send the cursor to the next line. For example:
+In a string literal, a '`\`' indicates an **escape character**, which means
+that the next character is special in some way. For example, `'\n` is an
+escape character called **newline** that represents a command to send the
+cursor to the next line. For example:
 
 ```python
 >>> print('one\ntwo')
@@ -84,8 +85,8 @@ two
 ```
 
 The string `'one\ntwo'` has length 7 (not 8!). Even though `'\n'` consists of
-two symbols, `\` and `n`, it counts as single character. Similarly, the string
-`'\n\n\n'` has length 3:
+two symbols, `\` and `n`, it counts as a single character. Similarly, the
+string `'\n\n\n'` has length 3:
 
 ```python
 >>> len('\n\n\n')
@@ -143,29 +144,66 @@ The problem here is that Python reads the string as these three characters:
 so the error.
 
 
+### Raw Strings
+
+Writing a lot of escape characters in a string can make the strings messy and
+hard to read. So Python provides a neat trick call **raw strings** that ignore
+escape characters. You make a raw string by putting an `r` in from of the
+string. For example:
+
+```
+>>> print('cat\ndog')
+cat
+dog
+
+>>> print(r'cat\ndog')
+cat\ndog
+
+>>> print('cat\'dog')
+cat'dog
+
+>>> print('\\\\\\')
+\\\
+>>> print(r'\\\\\\')
+\\\\\\
+```
+
+Most of the time you should use regular, non-raw strings. Use raw strings only
+when they simplify the string.
+
+
 ## Whitespace
 
 A **whitespace character** is a character that doesn't have a visual
 representation (and so, when "printed" on a piece of white paper will look
-like a white space). While there are many such characters in Python, the three
-most common whitespace characters are:
+like empty white space). While there are many such characters in Python, the
+three most common whitespace characters are:
 
 - `' '`, a regular space
 - `\n`, a newline
 - `\t`, a tab
 
 When programmers refers to "whitespace", they mean characters like this.
-Sometimes whitespace matters, sometimes it doesn't. For instance, we can say
-that the indentation in a Python program is "significant whitespace". When we
-read strings from the user, we often remove whitespace characters at the
-beginning and the end, e.g. the string `'  done\n'` becomes `'done'`.
+Sometimes whitespace matters, sometimes it doesn't. For instance, the
+indentation in a Python program uses "significant whitespace". When we read
+strings from the user, we often remove whitespace characters at the beginning
+and the end using the `.strip()` method, e.g. the string `'  done\n'` becomes
+`'done'`.
 
 ## Strings are Immutable
 
-In Python, **mutable** means "changeable", and **immutable** "not changeable".
-Python strings are immutable, i.e. there is way to modify them or change their
-length. While it might sometimes seem like you are changing a Python string,
-you can never change them, you can only make a copy.
+In Python, **mutable** means "changeable", and **immutable** means "not
+changeable". Python strings are immutable, i.e. there is way to modify them or
+change their length. While it might sometimes seem like you are changing a
+Python string, you can never change them, you can only make a copy.
+
+String immutability has both pros and cons. One of the good features of
+immutable strings is that you don't need to make copies of them. Since they
+never change, it is always safe to have different variables refer to the same
+underlying string. One of the bad features of mutable strings is that if you
+need to, say, change a character in a very long string, then you need to make
+a copy of the entire string. If your program does this kind of thing a lot,
+then it could become very inefficient.
 
 
 ## String Concatenation
@@ -183,7 +221,7 @@ string. This is easily done in Python with the `+` operator:
 ```
 
 The last example with `'ha'` is an example of concatenating a string with
-itself. In Python you can also do that with the `'*'` operator:
+itself. You can also do that with the `'*'` operator:
 
 ```
 >>> 3 * 'ha'
@@ -201,7 +239,7 @@ If `s` and `t` are variables that refer to strings, then:
   `False`.
 
 - `s != t` evaluates to `True` if `s` and `t` are different, and to `False` if
-  `s == t`.
+  `s == t`. It returns the same value as `not (s == t)`.
 
 - `s < t` evaluates to `True` if `s` comes alphabetically before `t`, and
   `False` otherwise. `s > t` evaluates to the same value as `t < s`.
@@ -237,7 +275,7 @@ False
 
 ## String Indexing
 
-Consider the string `'s'`:
+Consider this string:
 
 ```python
 s = 'apple'
@@ -301,6 +339,16 @@ TypeError: 'str' object does not support item assignment
 If you want the string `'Apple`, then you must use some combination of string
 slice or string methods (discussed later) to create a new string.
 
+## Looping Over Strings
+
+The simplest way to loop over a Python string is like this:
+
+```python
+s = 'apple'
+for c in s:
+  print(c)
+```
+
 You can access every character in a string with this style of for-loop:
 
 ```python
@@ -316,16 +364,5 @@ s = 'apple'
 i = 0
 while i < len(s):  # < is important; <= would be wrong
 	print(s[i])
-	i += 1         # += adds a value to a variable
+	i += 1           # += adds a value to a variable
 ```
-
-More simple, you can directly loop over the characters of a string like this:
-
-```python
-s = 'apple'
-for c in s:
-	print(c)
-```
-
-In general, this kind of loop is often preferable to the other two because it
-is short and clear, and you don't need to worry about the index variable.

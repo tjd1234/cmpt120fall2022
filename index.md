@@ -76,7 +76,8 @@ you'll need for this course.
 - [lecture 18](lectures/lecture18/lecture18notes.md)
 
 ### Week 9
-- [Read chapter 9: Strings (9.1 - 9.14)](https://runestone.academy/ns/books/published/120fall2022surrey/Strings/toctree.html); skip 9.5.1 (the `format` method: we're using f-strings instead)
+- [Read chapter 9: Strings (9.1 - 9.14)](https://runestone.academy/ns/books/published/120fall2022surrey/Strings/toctree.html); 
+  skip 9.5.1 (you don't need to know about the `format` method: we're using f-strings instead)
 - Mon Oct 30: [lecture 19](lectures/lecture19/lecture19notes.md), 
               [lecture 20](lectures/lecture20/lecture20notes.md)
 - Wed Nov 2:  [lecture 21](lectures/lecture21/lecture21notes.md)
