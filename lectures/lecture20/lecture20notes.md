@@ -64,7 +64,7 @@ this and implement the rule as given:
 
 ```python
 def pluralize(word):
-    """Adds an 's' to the end of the string. 
+    """Adds an 's' to the end of word, if needed. 
     If it already ends with an 's', then it is returned
     unchanged.
     """

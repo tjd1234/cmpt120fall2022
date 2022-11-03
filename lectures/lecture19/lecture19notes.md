@@ -1,12 +1,21 @@
 # Lecture 19 Notes
 
-Strings are one of the most important and useful *data structures* in Python.
-They are well-designed and provide a lot of useful built-in features that make
-Python a good language for string processing.
+A **data structure** is an organized collection of data. Python has three main
+built-in data strucrures that we will see in this course:
 
-Almost all programs use strings at least a little, and many use them quite a
-lot. For example, in web programming web pages are often giant strings of
-text.
+- *Strings*, which are ordered sequences of characters.
+- *Lists*, which are ordered sequences of any values.
+- *Dictionaries*, which let you find a value using a key value associated with
+  it. For example, you could make a dictionary where you can find the name of
+  a student given their SFU ID number.
+
+In the next few lecrures, we'll look at **strings**, a very useful and
+important data structure. Python has great built-in support for strings, and
+so is a good language to use for string processing.
+
+Almost all programs use strings, at least a little. Many use them quite a
+lot. For example, web pages are often giant strings of
+text, and so web programming relies heavily on strings.
 
 
 ## String Basics
@@ -151,34 +160,6 @@ SyntaxError: EOL while scanning string literal
 The problem here is that Python reads the string as these three characters:
 `\\`, `\\`, and `\\'`. This means there is no `'`-quote to end the string, and
 so the error.
-
-
-### Raw Strings
-
-Writing a lot of escape characters in a string can make the strings messy and
-hard to read. So Python provides a neat trick call **raw strings** that ignore
-escape characters. You make a raw string by putting an `r` in from of the
-string. For example:
-
-```
->>> print('cat\ndog')
-cat
-dog
-
->>> print(r'cat\ndog')
-cat\ndog
-
->>> print('cat\'dog')
-cat'dog
-
->>> print('\\\\\\')
-\\\
->>> print(r'\\\\\\')
-\\\\\\
-```
-
-Most of the time you should use regular, non-raw strings. Use raw strings only
-when they simplify the string.
 
 
 ## Whitespace
