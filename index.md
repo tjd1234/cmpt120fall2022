@@ -87,8 +87,10 @@ you'll need for this course.
   10.22)](https://runestone.academy/ns/books/published/120fall2022surrey/Lists/toctree.html), and reading text files line by line;
   tuples will **not** be covered in this course (they're essentially immutable
   lists)
-- Mon Nov 7: [lecture 22](lectures/lecture22/lecture22notes.md), 
-             [lecture 23](lectures/lecture23/lecture23notes.md)
+- Mon Nov 7: [lecture 22](lectures/lecture22/lecture22notes.md) 
+             ([template used in lecture](lectures/lecture22/lecture22.docx)), 
+             [lecture 23](lectures/lecture23/lecture23notes.md) 
+             ([template used in lecture](lectures/lecture23/lecture23.docx))
 - Wed Nov 9: [lecture 24](lectures/lecture24/lecture24notes.md)
 - Friday Nov 11: SFU Closed ([Remembrance Day](https://en.wikipedia.org/wiki/Remembrance_Day))
 
