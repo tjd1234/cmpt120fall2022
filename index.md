@@ -128,4 +128,5 @@ that shows the remaining time in an exam.
 ## Exam Period: Wed Dec 7 to Mon December 19
 
 The day and time of the CMPT 120 final exam will be announced by the
-university part way through the semester.
+university part way through the semester, and will be published on
+[Canvas](https://canvas.sfu.ca/courses/73212) as soon as we know it.
