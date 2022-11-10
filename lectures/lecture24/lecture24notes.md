@@ -1,5 +1,13 @@
 # Lecture 24 Notes
 
+**Note** The actual lecture consisted of working on 
+[this zero marks quiz](lecture24Quiz.pdf) for 15 minutes, followed by an in-class 
+review of the solutions ([which are here](lecture24Quiz_sol.pdf)). [quiz.py](quiz.py) has
+implementations of the sample solutions.
+
+The notes below contain more examples of writing code to work with with lists.
+
+
 ## Looping with Lists
 
 You can loop through the individual elements of a list with a for-loop. For
