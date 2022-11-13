@@ -1,1 +1,3 @@
-Notes will appear here as soon as they are ready.
+# Lecture 27 Notes
+
+Please see [lecture 25 notes](../lecture25/lecture25notes.md).
