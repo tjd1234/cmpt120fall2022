@@ -22,13 +22,13 @@ in these notes.
 
 ## The Basic Search Problem
 
-Suppose you have a list of values $$a_0, a_1, \ldots, a_{n-1}$$. We assume they
-are all the same type, e.g. numbers, strings, letters, or lists --- *any* value
+Suppose you have a list of values $$a_0, a_1, \ldots, a_{n-1}$$ that are all the
+same type. They could be numbers, strings, letters, or lists --- *any* value
 that can be compared with `==`. The **search problem** asks for an answer to
 this question:
 
 > What is the index position of an element on the list that is equal to a
-> given target value $$x$$?
+> given *target value* $$x$$?
 
 If the target value $$x$$ is nowhere on the list, then we want the search to
 somehow signal that. For simplicity, we will do this by having it return the
@@ -62,7 +62,7 @@ returned because `'bike'` is *not* in the list.
 ### The Linear Search Algorithm
 
 The **linear search** algorithm is the most basic and important answer to the
-search problem. It's already implement with the built-in `index` list method:
+search problem. It's already implemented by the built-in `index` list method:
 
 ```
 >>> nums = [3, 9, -2, 4, -2]
@@ -85,17 +85,16 @@ Traceback (most recent call last):
 ValueError: 'bike' is not in list
 ```
 
-Instead of returning -1 when it can't find the target value, the `index`
-method causes a `ValueError` exception. In Python, exceptions are a
-general-purpose way of signaling and handling errors, but we won't be covering
-them in this course.
+Instead of returning -1 when it can't find the target value, `index` causes a
+`ValueError` exception. In Python, **exceptions** are a general-purpose way of
+signaling and handling errors, but we won't be covering them in this course.
 
 Let's implement our own version of linear search. First, we should think of
 the *algorithm* to solve the problem. This isn't too hard for linear search.
 To determine if one of the values $$a_0, a_1, \ldots, a_{n-1}$$ equals $$x$$,
 we will check them one at time, starting with $$a_0$$, then $$a_1$$, then
 $$a_2$$, and so on. Eventually we will find a value equal to $$x$$, or prove
-that $$x$$ is not in the list
+that $$x$$ is not in the list.
 
 ```python
 def linear_search(x, lst):
@@ -128,7 +127,7 @@ For example:
 ```
 
 **Important** For linear search, *it doesn't matter what order the elements in
-the list are*. Linear works the same whether the values are, say, in sorted
+the list are*. Linear search works the same whether the values are in sorted
 order, or in a totally random order.
 
 
@@ -136,8 +135,8 @@ order, or in a totally random order.
 
 Another way to solve the linear search problem is to check the elements of the
 list going from right to left, i.e. by starting at the *end* of the list and
-moving towards the start. We will call this **reverse linear search**. The
-main difference between it and regular linear search is that when $$x$$ occurs
+moving towards the start. We call this **reverse linear search**. The main
+difference between it and regular linear search is that when $$x$$ occurs
 multiple times in the list then reverse linear search returns the position of
 the *right-most* occurrence of $$x$$. Regular linear search returns the
 left-most position.
@@ -175,56 +174,57 @@ For example:
 ```
 
 Reverse linear search can be useful in practice. Sometimes you might know
-approximately where in the list the item you're searching for might be. If
-it's probably near the *end* of the list, then reverse linear search might it
-faster than regular linear search. For instance, it are searching for the
-position of the `'.'` in a file name, it's probably faster to user reverse
-linear search since the `'.'` tends to be near the end of the file name, e.g.
-`story.txt`, `index.md`, `searching.py`, etc.
+approximately where in the list the item you're searching for might be. If it's
+probably near the *end* of the list, then reverse linear search might it faster
+than regular linear search. For instance, when searching for the position of the
+`'.'` in a file name, it's probably faster to use reverse linear search since
+the `'.'` tends to be near the end of the file name, e.g. `story.txt`,
+`index.md`, `searching.py`, etc.
 
 > **Aside** There are other ways you could do linear search. As long as you
-> *check* all the items in the list, you can do that in any order that you
-> like. For instance, you could:
+> *check* all the items in the list, you can do that in any order that you like.
+> For instance, you could:
 > 
 > - start in the middle, and then scan to the left, "wrapping-around" to the
 >   start of the list when you hit the end
 > - start in the middle and expand outwards in both left and right directions;
->   this will give you the value of $$x$$ that is closest to your starting point'
-> - start at both the beginning and the end, and scan inwards towards the
->   middle from both directions
+>   this will give you the value of $$x$$ that is closest to your starting
+>   point'
+> - start at both the beginning and the end, and scan inwards towards the middle
+>   from both directions
 >   
-> In practice, you'd only use one of these other methods if you had some
-> reason to think they would find $$x$$ more quickly. If you know nothing about
-> the order of the elements on the list, then just use regular linear search.
+> In practice, you'd only use one of these other methods if you had some reason
+> to think they would find $$x$$ more quickly. If you know nothing about the
+> order of the elements on the list, then just use regular linear search.
 
 
 ### The Binary Search Algorithm
 
 The **binary search algorithm** solves the search problem in a very different
-way. First, binary search requires that the list of elements be ascending
-sorted order. Then, it works by checking the target value $$x$$ is equal to the
-*middle* item on the list. If it is, then it's done. But otherwise it cuts the
-list in half, depending on whether $$x$$ is smaller than or greater than the
-middle element. It then applies binary search to this smaller half. It keeps
-doing this until either it finds $$x$$, or the remaining list is empty.
+way. First, binary search requires that the values on the list be ascending
+sorted order. Then, it works by checking if  $$x$$ is equal to the *middle* item
+on the list. If it is, then it's done. But otherwise it cuts the list in half,
+depending on whether $$x$$ is smaller than or greater than the middle element.
+It then applies binary search to this smaller half. It keeps doing this until
+either it finds $$x$$, or the remaining list is empty.
 
 It helps to trace through some examples by hand. For example, suppose you have
 the list `[0, 2, 3, 4, 8, 9, 9]`, and you want to find the target value 5. The
 list is in sorted order, so we can use binary search like this:
 
 - First check if 5 is equal to the middle element of the list. 
-- 4 is *not* equal to 5. So if 5 is in the list, it must be to the *left* of
-  the 4, i.e. in the sub-list `[0, 2, 3]`.
+- 4 is *not* equal to 5. So if 5 is in the list, it must be to the *left* of the
+  4, i.e. in the sub-list `[0, 2, 3]`.
 - Next we check if 5 is equal to the middle element of `[0, 2, 3]`.
-- 5 is not equal to 2, and so if 5 is in that list it must be to the right of
-  2, i.e. in the sub-list `[3]`.
+- 5 is not equal to 2, and so if 5 is in that list it must be to the right of 2,
+  i.e. in the sub-list `[3]`.
 - Next we check if 5 is equal to the middle element of `[3]`.
 - 5 is not equal to 3, and if 5 is in that list it must e to the right of the
   3, i.e. in the sub-list []. But there are no values in the empty list `[]`,
   so this proves that 5 is *not* in the list, and -1 can be returned.
 
-Here is an implementation of binary search. It uses the variables `lo` and
-`hi` to keep track of the current sub-list:
+Here is an implementation of binary search. It uses the variables `lo` and `hi`
+to keep track of the current sub-list:
 
 ```python
 def binary_search(x, lst):
@@ -245,9 +245,9 @@ def binary_search(x, lst):
     return -1             # x not in lst
 ```
 
-Binary search is notoriously tricky to implement. The idea is not difficult
-once you understand it, but getting every little detail exactly right is not
-so easy. So be sure to carefully test it!
+Binary search is notoriously tricky to implement. The idea is not difficult once
+you understand it, but getting every little detail exactly right is not so easy.
+So be sure to carefully test it!
 
 See [searching.py](searching.py) for an implementation.
 
@@ -264,10 +264,10 @@ This shows clearly that are linear search is much slower than both the built-in
 the computer running the experiment is doing other things at the same time, and
 occasionally it slows down or speeds up.
 
-When computer scientists study algorithms theoretically, actual running time is
-usually *not* a good way to measure performance. Actual running time depends too
-much on the speed of the computer, and whatever else it might be doing at the
-same time. Instead, computer scientists simplify things by choosing a **key
+When computer scientists study algorithms theoretically, *actual* running time
+is usually *not* a good way to measure performance. Actual running time depends
+too much on the speed of the computer, and whatever else it might be doing at
+the same time. Instead, computer scientists simplify things by choosing a **key
 instruction** in the code, and then count how many times that instruction is
 executed. If you choose a good key instruction, the resulting performance graphs
 have the same shape as the actual running time graphs.
@@ -276,14 +276,14 @@ For searching and sorting algorithms, experience shows that *comparisons* are a
 good key instruction. For linear search, we count how many times `==` is
 executed, and for binary search we count how many times `<=` is executed.
 
-So when we talk about the performance of linear search and binary search, we
-mean *how many comparisons they do*.
+So when a computer scientists talks about the performance of linear search and
+binary search, they usually mean *how many comparisons they do*.
 
 Suppose you run `linear_search` on a list with 100 elements. Then:
 
 - **Best case**: the *minimum* number of comparisons `linear_search` does is
   1, in the case where the first element is $$x$$
-- **Worst case**: the *maximum* number of comparison `linear_search` does is
+- **Worst case**: the *maximum* number of comparisons `linear_search` does is
   100, either when $$x$$ is the last element, or not in the list at all
 - **Average case**: the *average* number of comparisons `linear_search` does is
   about $$\frac{100}{2}=50$$, assuming randomly ordered data; the reason for
@@ -296,12 +296,12 @@ $$n$$ comparisons in the worst case, and about $$\frac{n}{2}$$ in the average
 case.
 
 In practice, it's wise to always assume the worst case for linear search. The
-best case happens rarely (about a 1 in $$n$$ chance), and the average and
-worst cases are much more common. So we just say linear search does $$n$$
-comparisons. Since the expression $n$ is a *linear expression*, we also say
-that linear search is a **linear time** algorithm.
+best case happens rarely (about a 1 in $$n$$ chance), and the average and worst
+cases are much more common. So we usually just say linear search does $$n$$
+comparisons. Since the expression $n$ is a *linear expression*, we also say that
+linear search is a **linear time** algorithm.
 
-> We will follow the maxim "Hope for the best, but prepare for the worst".
+> We will follow the maxim "Hope for the best, but prepare for the worst". 
 
 Assuming your list is in sorted order, binary search usually does vastly fewer
 comparisons than linear search. In general, if your list has $$n$$ items then
@@ -325,7 +325,7 @@ To get an idea of how much better binary search is, look at this table:
 | 1048576  |     20     |
 
 1048576 is $$2^{20}$$, which is just over a million. If you have a sorted list
-of a million strings, then, in the worst case, linear search would do 1048576
+of a million values, then, in the worst case, linear search would do 1048576
 comparisons. But binary search would, in the worst case, only do about $$\log_2
 1000000 \approx 20$$ comparisons. So if you have the choice, especially with
 large amounts of data, you should always using binary search instead of linear
