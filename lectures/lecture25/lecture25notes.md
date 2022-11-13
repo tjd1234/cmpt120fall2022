@@ -257,23 +257,17 @@ See [searching.py](searching.py) for an implementation.
 How fast are linear search and binary search? Here's the results of an
 experiment showing how their real time performance compares:
 
-![sorting time line graph for linear and binary search](sortingTimeComp.png)
+![sorting time line graph for linear and binary search](searchRealTimeGraph.png)
 
-The green line is selection sort, and it is shaped like a parabola, i.e. a
-quadratic curve. Selection sort's performance is proportional to $$n^2$$, where
-$$n$$ is the number of items being sorted. It's not perfectly smooth since the
-computer running the experiment is doing other things at the same time, and
+This shows clearly that are linear search is much slower than both the built-in
+`index` and binary search. The linear search graph is not perfectly smooth since
+the computer running the experiment is doing other things at the same time, and
 occasionally it slows down or speeds up.
 
-The other two lines at the bottom are for mergesort and Python's built-in sort
-(which is an optimized version of mergesort). Although you can't easily see it
-in this graph, they both run in time proportional to $$n \log n$$, where $$n$$
-is the number of items being sorted.
-
-When computer scientists study algorithms theoretically,  actual running time is
+When computer scientists study algorithms theoretically, actual running time is
 usually *not* a good way to measure performance. Actual running time depends too
 much on the speed of the computer, and whatever else it might be doing at the
- same time. Instead, computer scientists simplify things by choosing a **key
+same time. Instead, computer scientists simplify things by choosing a **key
 instruction** in the code, and then count how many times that instruction is
 executed. If you choose a good key instruction, the resulting performance graphs
 have the same shape as the actual running time graphs.
@@ -320,24 +314,26 @@ binary search performs like this:
 - **Average case**: the *average* number of comparisons `binary_search` does
   is about $$\log_2 n$$
 
-To get an idea of how much better binary search is, suppose you have a sorted
-list of a million strings. Binary search would, in the worst case, do about
-$$\log_2 1000000 \approx 20$$ comparisons, while, in the worst case linear
-search would do a million comparisons (and 500,000 comparisons on average). So
-if you have the choice, especially with large amounts of data, you should always
-using binary search instead of linear search.
+To get an idea of how much better binary search is, look at this table:
+
+| **n**    | **log2 n** |
+|----------|------------|
+|    16    |      4     |
+|    32    |      5     |
+|    64    |      6     |
+|    128   |      7     |
+| 1048576  |     20     |
+
+1048576 is $$2^{20}$$, which is just over a million. If you have a sorted list
+of a million strings, then, in the worst case, linear search would do 1048576
+comparisons. But binary search would, in the worst case, only do about $$\log_2
+1000000 \approx 20$$ comparisons. So if you have the choice, especially with
+large amounts of data, you should always using binary search instead of linear
+search.
 
 See [searching.py](searching.py) for code that counts comparisons of linear and
 binary search. There's also interest data and graphs in
-[comparisons.xslx](comparisons.xslx), e.g.:
-
-![line plot of # comparisons done by linear and binary search](linearVsBinarySearch_graph.png)
-
-The blue linear search line is basically a straight line (not perfectly
-straight due to randomness in the data), and the orange binary search line is
-a [logarithmic curve](https://en.wikipedia.org/wiki/Logarithmic_growth). The
-important point is that as the number of items gets bigger, the linear search
-line increases more quickly than the binary search line.
+[comparisons.xlsx](comparisons.xlsx), e.g.:
 
 
 ## The Basic Sorting Problem
@@ -503,4 +499,4 @@ selection sort. In practice, the performance is different that there are very
 few cases where you would selection sort to mergesort. Indeed, in Python the
 built-in sort is almost always the best choice.
 
-See [comparisons.xslx](comparisons.xslx) for all the data.
+See [comparisons.xlsx](comparisons.xlsx) for all the data.
