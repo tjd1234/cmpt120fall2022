@@ -163,7 +163,7 @@ For example:
 ```
 >>> nums = [3, 9, -2, 4, -2]
 >>> reverse_linear_search(-2, nums)
-4                                      # different result than regular linear search
+4                                   # different result than regular linear search
 >>> reverse_linear_search(5, nums)
 -1
 
