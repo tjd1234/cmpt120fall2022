@@ -295,11 +295,11 @@ In general, for $$n$$ items linear search does 1 comparison in the best case,
 $$n$$ comparisons in the worst case, and about $$\frac{n}{2}$$ in the average
 case.
 
-In practice, it's wise to assume that linear search will always do the maximum
-number of comparisons. The best case happens rarely (about a 1 in $$n$$ chance),
-and the average and worst cases are much more common. So we just say linear
-search does $$n$$ comparisons. Since the expression $n$ is a *linear
-expression*, we also say that linear search is a **linear time** algorithm.
+In practice, it's wise to always assume the worst case for linear search. The
+best case happens rarely (about a 1 in $$n$$ chance), and the average and
+worst cases are much more common. So we just say linear search does $$n$$
+comparisons. Since the expression $n$ is a *linear expression*, we also say
+that linear search is a **linear time** algorithm.
 
 > We will follow the maxim "Hope for the best, but prepare for the worst".
 
