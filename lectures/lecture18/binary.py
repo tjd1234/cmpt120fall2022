@@ -15,7 +15,6 @@ def bits_to_dec(bits):
     return result
 
 
-
 def dec_to_bits(n, num_bits):
     result = ''
     for i in range(num_bits):
@@ -26,17 +25,6 @@ def dec_to_bits(n, num_bits):
         else:
             result += '0'
     return result
-
-
-
-
-
-
-
-
-
-
-
 
 
 def test1():

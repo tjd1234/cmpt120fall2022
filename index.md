@@ -75,7 +75,7 @@ that shows the remaining time in an exam.
 ### Week 8
 - Mon Oct 24: midterm exam for CMPT 120 Surrey (same room, same time as
   lectures)
-- [lecture 18](lectures/lecture18/lecture18notes.md)
+- [lecture 18: binary](lectures/lecture18/lecture18notes.md)
 
 ### Week 9
 - [Read chapter 9: Strings (9.1 - 9.14)](https://runestone.academy/ns/books/published/120fall2022surrey/Strings/toctree.html); 
