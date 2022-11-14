@@ -500,3 +500,25 @@ few cases where you would selection sort to mergesort. Indeed, in Python the
 built-in sort is almost always the best choice.
 
 See [comparisons.xlsx](comparisons.xlsx) for all the data.
+
+### Example Application: Estimating Running Time
+
+Knowing that *selection sort* runs in time proportional to $$n^2$$ can be
+useful. For example, suppose it takes your computer 100 seconds to sort a big
+list. About how long would you expect it to take to sort a list that is *twice*
+as long? Think about this a moment before looking at the answer.
+
+You might think that because it takes 100 seconds to sort 100 items, then it
+should take 200 seconds to sort 200 items. But that's not true for selection
+sort, since it's running time is proportional to $$n^2$$, *not* $$n$$. If it
+takes $$n^2$$ seconds to sort $$n$$ items, then to sort $$2n$$ items it will
+take $$((2n)^2) = 4n^2$$ seconds, i.e. four times as long as sorting n items.
+
+So the answer to the original question is that it would take 400 seconds to sort
+$$2n$$ items.
+
+What if we had three times as much data to sort, i.e. $$3n$$ items on the list?
+It takes 100 seconds to sort $$n$$ items, and that is proportional to $$n^2$$.
+Sorting $$3n$$ items will then take $$(3n)^2 = 9n^2$$ seconds, i.e. *nine* times
+as long as sorting $$n$$ items. So it would take 900 seconds to sort $$3n$$
+items.
