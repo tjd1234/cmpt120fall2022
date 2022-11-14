@@ -202,7 +202,7 @@ the `'.'` tends to be near the end of the file name, e.g. `story.txt`,
 
 The **binary search algorithm** solves the search problem in a very different
 way. First, binary search requires that the values on the list be ascending
-sorted order. Then, it works by checking if  $$x$$ is equal to the *middle* item
+sorted order. Then, it works by checking if $$x$$ is equal to the *middle* item
 on the list. If it is, then it's done. But otherwise it cuts the list in half,
 depending on whether $$x$$ is smaller than or greater than the middle element.
 It then applies binary search to this smaller half. It keeps doing this until
@@ -219,9 +219,9 @@ list is in sorted order, so we can use binary search like this:
 - 5 is not equal to 2, and so if 5 is in that list it must be to the right of 2,
   i.e. in the sub-list `[3]`.
 - Next we check if 5 is equal to the middle element of `[3]`.
-- 5 is not equal to 3, and if 5 is in that list it must e to the right of the
-  3, i.e. in the sub-list []. But there are no values in the empty list `[]`,
-  so this proves that 5 is *not* in the list, and -1 can be returned.
+- 5 is not equal to 3, and if 5 is in that list it must e to the right of the 3,
+  i.e. in the sub-list `[]`. But there are no values in the empty list `[]`, so
+  this proves that 5 is *not* in the list, and -1 can be returned.
 
 Here is an implementation of binary search. It uses the variables `lo` and `hi`
 to keep track of the current sub-list:
@@ -453,9 +453,9 @@ mergesort. Merging takes two *already-sorted* lists an combines them into a
 single new sorted list. Since the lists are already sorted, it can do this much
 more efficiently than sorting.
 
-We uses Python's `heapq.merge` function to do the merging. See
+We uses Python's `heapq.merge` function to do the merging (see
 [sorting.py](sorting.py) for another implementation of merge using loops and
-if-statements. `heap.merge` doesn't return a list directly, but instead returns
+if-statements). `heap.merge` doesn't return a list directly, but instead returns
 the elements one at a time in sorted order. So we call `list` to get all the
 elements in a list. It's similar `range(n)`, which returns the numbers 0 to n-1
 one at a time, and you write `list(range(n))` if you want them all in a list.
