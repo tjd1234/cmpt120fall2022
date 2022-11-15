@@ -16,16 +16,15 @@ be. Instead, we focus on clarity and understanding. High-performance
 implementations of searching and sorting require a lot more work and are
 significantly more complex.
 
-See [searching.py](searching.py) and [sorting.py](sorting.py) for the code used
-in these notes.
+See [searching.py](searching.py) for the code used in these notes.
 
 
 ## The Basic Search Problem
 
 Suppose you have a list of values $$a_0, a_1, \ldots, a_{n-1}$$ that are all the
 same type. They could be numbers, strings, letters, or lists --- *any* value
-that can be compared with `==`. The **search problem** asks for an answer to
-this question:
+that can be compared. The **search problem** asks for an answer to this
+question:
 
 > What is the index position of an element on the list that is equal to a
 > given *target value* $$x$$?
@@ -128,7 +127,8 @@ For example:
 
 **Important** For linear search, *it doesn't matter what order the elements in
 the list are*. Linear search works the same whether the values are in sorted
-order, or in a totally random order.
+order, or in a totally random order. All that matters is that the values being
+searched can be compared with `==`.
 
 
 ### The Reverse Linear Search Algorithm
