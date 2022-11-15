@@ -11,7 +11,7 @@ is_sorted_True_cases = [
 ]
 
 is_sorted_False_cases = [
-    [2, 1], 
+    [2, 1],
     [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1],
     [2, 2, 4, 4, 1, 1, 1],
     [0, -9, 4, 29, 2, 3, 53, 5, 3, 36, 100, -100, 4, 5, 35]
@@ -158,7 +158,7 @@ def merge(lst1, lst2):
     """Combines lst1 and lst2 into a new sorted list.
     lst1 and lst2 must both be in ascending sorted order.
     """
-    return list(heapq.merge(lst1, lst2))    
+    return list(heapq.merge(lst1, lst2))
 
 
 #
@@ -219,13 +219,13 @@ def rand_range(n):
     random.shuffle(result)
     return result
 
-def sort_compare3():
+def sort_compare():
     print('Comparing built-in sort to selection sort and mergesort ...')
     print('Generating random lists ...')
     #sizes = [10, 100, 1000, 10000, 100000]
     sizes = [100*n for n in range(1, 101)]
     data = [rand_range(n) for n in sizes]
-    
+
     # test built-in sort
     built_in_times = []
     print(f'Testing built-in sort ...')
@@ -236,7 +236,7 @@ def sort_compare3():
         sort_time = time.time_ns() - start
         built_in_times.append(sort_time)
     # print(built_in_times)
-    
+
     # test mergesort
     mergesort_times = []
     print(f'Testing mergesort ...')
@@ -258,7 +258,7 @@ def sort_compare3():
         sort_time = time.time_ns() - start
         selection_sort_times.append(sort_time)
     # print(selection_sort_times)
-    
+
     # print results
     built_in_times = [t/(10**9) for t in built_in_times]
     mergesort_times = [t/(10**9) for t in mergesort_times]
@@ -269,4 +269,4 @@ def sort_compare3():
     for i in range(len(sizes)):
         print(f'{sizes[i]} {built_in_times[i]} {mergesort_times[i]} {selection_sort_times[i]}')
 
-sort_compare3()
+#sort_compare()

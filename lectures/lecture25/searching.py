@@ -17,7 +17,7 @@ def linear_search(x, lst):
     i = 0
     while i < len(lst):
         if lst[i] == x: # x found at location i
-            return i 
+            return i
         i += 1
     return -1           # x not in lst
 
@@ -51,7 +51,7 @@ def reverse_linear_search(x, lst):
     i = len(lst) - 1
     while i >= 0:
         if lst[i] == x: # x found at location i
-            return i 
+            return i
         i -= 1
     return -1           # x not in lst
 
@@ -137,7 +137,7 @@ def linear_search_mod(x, lst):
     while i < len(lst):
         comp_count += 1
         if lst[i] == x: # x found at location i
-            # return i 
+            # return i
             return comp_count
         i += 1
     # return -1           # x not in lst
@@ -162,7 +162,7 @@ def linear_search_performance():
         print(f'{size} {avg_comps}')
         # print(f'linear search size {size}, avg_comps = {avg_comps}')
 
-linear_search_performance()
+#linear_search_performance()
 
 """
 Linear Search Performance
@@ -218,7 +218,7 @@ def binary_search_performance():
         print(f'{size} {total_comps}')
         # print(f'binary search size {size}, avg_comps = {avg_comps}')
 
-binary_search_performance()
+#binary_search_performance()
 
 """
 Binary Search Performance
@@ -240,7 +240,7 @@ def search_compare():
     sizes = [n for n in range(10000, 20001, 1000)]
     print(sizes)
     data = [rand_range(n) for n in sizes]
-    
+
     # test built-in index
     index_times = []
     print(f'Testing built-in index ...')
@@ -264,9 +264,9 @@ def search_compare():
             except: pass
             find_time = time.time_ns() - start
             total_time += find_time
-        
+
         index_times.append(find_time / (2 *reps))
-    
+
     # test linear search
     linear_times = []
     print(f'Testing linear search ...')
@@ -312,9 +312,9 @@ def search_compare():
             binary_search(r, lst)
             find_time = time.time_ns() - start
             total_time += find_time
-        
+
         binary_times.append(find_time / (2 *reps))
-    
+
     # print results
     index_times = [t/(10**9) for t in index_times]
     linear_times = [t/(10**9) for t in linear_times]
@@ -325,4 +325,4 @@ def search_compare():
     for i in range(len(sizes)):
         print(f'{sizes[i]} {index_times[i]} {linear_times[i]} {binary_times[i]}')
 
-search_compare()
+#search_compare()
