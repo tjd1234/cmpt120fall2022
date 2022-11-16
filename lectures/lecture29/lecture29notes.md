@@ -44,6 +44,9 @@ It is much faster that accessing a list element (e.g. using `find`), and is
 often faster than *binary search*. But unlike binary search, Python's
 dictionaries don't need to be stored in sorted order.
 
+On the flip side, accessing a key by its value is not efficient. You can do it,
+but it's not much better than linear search through all the values.
+
 If you ask for a key that's not in the dictionary, you get a `KeyError`:
 
 ```
@@ -122,6 +125,7 @@ key. For example:
 ```
 
 These are all fast operations, since they are based on the key.
+
 
 ## Example: Counting Words in a File
 
@@ -232,8 +236,7 @@ KeyError: 'eraser'
 
 `'eraser'` is not in the dictionary, so we get a `KeyError`.
 
-
-[dracula.txt](dracula.txt) is a text file of Bram Stoker's *Dracula*:
+[dracula.txt](dracula.txt) is a text file of [Bram Stoker's *Dracula*](https://en.wikipedia.org/wiki/Dracula):
 
 ```
 >>> words = count_words('dracula.txt')
@@ -259,7 +262,6 @@ by `count_words`, and sorting them by count:
 
 ```python
 
-```python
 def print_top10(fname):
     word_count = count_words(fname)
     
@@ -270,7 +272,7 @@ def print_top10(fname):
     # will be [3, 'cat'], [2, 'dog'], [1, 'mouse']
     #
     count_pairs = []
-    for w in word_count:
+    for w in word_count:  # this loops through all they keys in word_count
         count_pairs.append([word_count[w], w])
     
     #
@@ -304,4 +306,3 @@ that 2375
 he 1931
 was 1866
 ```
-
