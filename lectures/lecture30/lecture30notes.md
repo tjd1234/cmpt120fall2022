@@ -1,7 +1,7 @@
 # Lecture 30 Notes
 
-In programming, a function is **recursive** if it calls itself. For example, `f`
-is a recursive function:
+In programming, a function is **recursive** if it calls itself. For example,
+`f1` is a recursive function:
 
 ```python
 def f1(n):
@@ -105,8 +105,6 @@ that *doesn't* work is this:
 
 ```python
 def f4_bad():
-    """A wrong way to implement f3 without using a global variable.
-    """
     count = 0
     print(f'{count}. hello!')
     count += 1
@@ -136,8 +134,6 @@ pass it as a parameter?
 
 ```python
 def f4(count):
-    """A correct way to implement f3 without using a global variable.
-    """
     print(f'{count}. hello!')
     count += 1
     f4(count)
@@ -193,5 +189,169 @@ This prints:
 
 RecursionError: maximum recursion depth exceeded while calling a Python object
 ```
+
+## Getting Rid of the Infinite Loop
+
+All the recursive functions above suffer from the obvious defect that they run
+until they crash. We never want out code to crash, so how can fix them?
+
+Instead of printing a theoretically infinite number of lines, lets pass in as a
+variable how many times we want the line printed. For example, we want to be
+able to do this:
+
+```
+>>> f5(3)
+1. hello!
+2. hello!
+3. hello!
+
+>>> f5(5)
+1. hello!
+2. hello!
+3. hello!
+4. hello!
+5. hello!
+```
+
+Now, we'll call the parameter being passed `n`, and treat it as the number of
+times we want the line printed. If `n` is less than 1, we do nothing. If it's  we will
+print if it's greater than, or equal to 0:
+
+```python
+def f5_imperfect(n):
+    if n > 0:
+        print(f'{n}. hello!')
+        f5_imperfect(n - 1)
+```
+
+It works, although not perfectly:
+
+```
+>>> f5_imperfect(3)
+3. hello!
+2. hello!
+1. hello!
+
+>>> f5(5)
+5. hello!
+4. hello!
+3. hello!
+2. hello!
+1. hello!
+```
+
+The numbers are in reverse order: we want them to start small and get big. How can we fix that?
+
+There turns out to be a simple modification::
+
+```python
+def f5_better(n):
+    if n >= 0:
+        f5_better(n - 1)       # call f5_better first
+        print(f'{n}. hello!')  # then print
+```
+
+Swapping the order of the two lines in the if-statement now prints in increasing
+order:
+
+```
+>>> f5_better(3)
+0. hello!
+1. hello!
+2. hello!
+```
+
+This works because the *first* time `f5_better` is called, `n` is 3. That means
+the `n` in the print statement is 3. So we can't print it right away: we have to
+recursively print all the other numbers first.
+
+Finally, we want to start at 1, not 0:
+
+```python
+def f5(n):
+    if n >= 0:
+        f5(n - 1)
+        print(f'{n+1}. hello!')  # n changed to n + 1
+```
+
+For example:
+
+```
+>>> f5(3)
+1. hello!
+2. hello!
+3. hello!
+```
+
+## **Try these**
+
+See [recursion.py](recursion.py) for sample solutions to these exercises.
+
+1. Write a recursive function call `print_upto(n)` that prints the numbers from
+   1 up to, and including n:
+   
+   ```
+   >>> print_upto(4)
+   1
+   2
+   3
+   4
+   ```
+
+2. Write a recursive function call `print_downto(n)` that prints the numbers
+   from n down to 1:
+   
+   ```
+   >>> print_downto(4)
+   4
+   3
+   2
+   1
+   ```
+
+3. Write a recursive function called `my_range(n)` that returns (not prints!)
+   the list `[0, 1, 3, ..., n-1]`:
+   
+   ```
+   >>> my_range(-2)
+   []
+   >>> my_range(1)
+   [1]
+   >>> my_range(3)
+   [1, 2, 3]
+   ```
+
+   If `n` is less than, or equal to, 0, return the empty list.
+
+
+4. Write a recursive function called `say(s, n)` that prints the string `s` `n`
+   times:
+   
+   ```
+   >>> say('hello', 3)
+   hello
+   hello
+   hello
+   >>> say('I like cheese!', 5)
+   I like cheese!
+   I like cheese!
+   I like cheese!
+   I like cheese!
+   I like cheese!
+   ```
+
+   If `n` is less than, or equal to, 0, print nothing.
+
+5. Write a recursive function called `fill(s, n)` that returns (not prints!) a
+   new list with `n` copies of `s`:
+   
+   ```
+   >>> fill('hello', 3)
+   ['hello', 'hello', 'hello']
+   >>> fill('I like cheese!', 5)
+   ['I like cheese!', 'I like cheese!', 'I like cheese!', 'I like cheese!', 'I like cheese!']
+   ```
+
+    If `n` is less than, or equal to, 0, return the empty list.
 
 To be continued ...

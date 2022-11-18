@@ -4,13 +4,19 @@ def f1():
     """In theory, this should loop forever an never return. But in practice Python stops
     the recursion after a certain number of calls.
 
-    >>> f()
+    >>> f1()
     Traceback (most recent call last):
-    File "<stdin>", line 1, in <module>
-    File "<stdin>", line 1, in f
-    File "<stdin>", line 1, in f
-    File "<stdin>", line 1, in f
-    [Previous line repeated 996 more times]
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest __main__.f1[0]>", line 1, in <module>
+        f1()
+      File "recursion.py", line 16, in f1
+        f1()
+      File "recursion.py", line 16, in f1
+        f1()
+      File "recursion.py", line 16, in f1
+        f1()
+      [Previous line repeated 991 more times]
     RecursionError: maximum recursion depth exceeded
     """
     f1()
@@ -55,3 +61,98 @@ def f4_better(count):
 def f4_bad_again(count):
     print(f'{count}. hello!')
     f4_bad_again(count)  # oops: forgot the + 1
+
+
+def f5_imperfect(n):
+    """Prints 'hello' n times, numbered.
+
+    >>> f5_imperfect(3)
+    3. hello!
+    2. hello!
+    1. hello!
+    """
+    if n > 0:
+        print(f'{n}. hello!')
+        f5_imperfect(n - 1)
+
+def f5(n):
+    """Prints 'hello' n times, numbered.
+
+    >>> f5(3)
+    1. hello!
+    2. hello!
+    3. hello!
+    """
+    if n > 0:
+        f5(n - 1)
+        print(f'{n}. hello!')
+
+def print_upto(n):
+    """Prints the numbers from 1 to n, inclusive.
+
+    >>> print_upto(3)
+    1
+    2
+    3
+    """
+    if n > 1:
+        print_upto(n - 1)
+    print(n)
+
+def print_downto(n):
+    """Prints the numbers from n down to 1.
+
+    >>> print_downto(3)
+    3
+    2
+    1
+    """
+    print(n)
+    if n > 1:
+        print_downto(n - 1)
+
+def my_range(n):
+    """Returns a list of the numbers from 1 to n, inclusive.
+
+    >>> my_range(3)
+    [1, 2, 3]
+    >>> my_range(1)
+    [1]
+    >>> my_range(0)
+    []
+    """
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [1]
+    else:
+        return my_range(n - 1) + [n]
+
+def say(s, n):
+    """Prints s n times.
+
+    >>> say('hello', 3)
+    hello
+    hello
+    hello
+    """
+    if n > 0:
+        print(s)
+        say(s, n - 1)
+
+def fill(s, n):
+    """Returns a list of n copies of s.
+
+    >>> fill('hello', 3)
+    ['hello', 'hello', 'hello']
+    >>> fill('hello', -9)
+    []
+    """
+    if n <= 0:
+        return []
+    else:
+        return fill(s, n - 1) + [s]
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

@@ -1,20 +1,19 @@
 # Lecture 28 Notes
 
 Reading and writing files is a common Python task. There are two main kinds of
-files: **text files**, that consist plain text and can viewed and edited in an
-editor like Mu; and **binary files**, which is every other kind of file, e.g.
-image files, video files, specially formatted files for particular applications,
-and so on.
+files: **text files**, that consist of plain text and can viewed and edited in
+an editor like Mu; and **binary files**, which are every other kind of file,
+e.g. image files, video files, specially formatted files for particular
+applications, and so on.
 
 While there are many ways to process files, in these notes we only discuss
 reading text files line-by-line.
 
-
 ## Determining What Folder You're In
 
-A tricky aspect of using files is that it can sometimes be unclear if you are
-using the right folder or directory (they mean the same) thing. You can check
-what folder Python will uses with this code:
+A tricky aspect of using files is that it can be unclear if you are using the
+right folder or directory (*folder* and *directory* mean the same) thing. You
+can check what folder Python will uses with this code:
 
 ```
 >>> import os
@@ -26,7 +25,8 @@ what folder Python will uses with this code:
 ```
 
 `os.getcwd()` returns the *current working directory*, i.e. the directory that
-Python will read files from by default.
+Python will read files from by default. This tells you where Python will
+read/write files by default.
 
 `os.listdir(os.getcwd())` returns a list of all the files and folders in the
 current working directory.
@@ -34,7 +34,7 @@ current working directory.
 
 ## Reading a Text File Line by Line
 
-[joke.txt](joke.txt) is a text file that contains this:
+[joke.txt](joke.txt) is a text file containing this:
 
 ```
 Who’s there?
@@ -66,7 +66,7 @@ Never mind. It's pointless.
 
 The print-out is *double-spaced* because each line of `joke.txt` ends with a
 `\n` (which causes a new line when printed), and Python's `print` always adds a
-`\n` after what it prints. One way to fix this problem is to have `print` *not*
+`\n` after what it prints. If we want single-spacing, we can tell `print` *not*
 add a final `\n`:
 
 ```python
@@ -75,7 +75,7 @@ for line in textfile:
     print(line, end='')     # don't put a \n after line
 ```
 
-Or you could check which lines end with a `\n` and not print it:
+Or we can check which lines end with a `\n` and not print the final `\n`:
 
 ```python
 textfile = open('joke.txt')
@@ -143,7 +143,7 @@ mind. It's pointless."]
 number of lines: 4
 ```
 
-This useful enough to put into its own function:
+This is useful enough to put into its own function:
 
 ```python
 def get_line_list(fname):
@@ -244,6 +244,22 @@ A broken pencil.
 A broken pencil who?
 ```
 
+### The Built-in `readlines` Function
+
+We note that Python files have a built-in method called `readlines` that will reads
+a test file into a list of strings:
+
+```
+>>> f = open('changelog.txt')
+>>> all_lines = f.readlines()
+>>> len(all_lines)
+714
+```
+
+In practice, this is probably what you should use. We have written our own 
+versions above to understand how they work and learn more about Python.
+
+
 ## Challenge: Checking if Any Lines in a File are Too Long
 
 Write a program that takes the name of a text file as input, and prints just the
@@ -291,7 +307,8 @@ The line above is blank
 
 ## Reading a Web Page
 
-Finally, we note that it is easy to read the contents of a web page as string. For example:
+Finally, we note that Python provides an easy way to read the contents of a
+web page as string. For example:
 
 ```python
 import urllib.request

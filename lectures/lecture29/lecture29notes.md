@@ -1,8 +1,8 @@
 # Lecture 29 Notes
 
-Recall that a **data structure** is a collection of data. We've seen two main
-Python data structures so far: *strings*, which are collections of characters, and
-*lists*, which are collections of any values.
+Recall that a **data structure** is an organized collection of data. We've seen
+two main Python data structures so far: *strings*, which are collections of
+characters, and *lists*, which are collections of any values.
 
 A **dictionary** is another useful data structure that stores data in
 *key*:*value* pairs. Dictionaries are also know as **maps**, **associative
@@ -25,10 +25,11 @@ dict_keys(['Marge', 'Homer'])
 dict_values([34, 36])
 ```
 
-In this particular examples, the keys are strings. You can use almost any
+In this particular example, the keys are strings. A dictionary key can be any
 *immutable* (non-changeable) type, such as strings or numbers. You *can't* use a
-*list* as key, since changing the list could cause the dictionary to lose track
-of the position of the value (the position of value depends on its key).
+*list* as a key, since changing the list could cause the dictionary to lose
+track of the position of its associated value (the position of value depends on
+its key).
 
 You access values in a dictionary by using its associated key. For example:
 
@@ -39,15 +40,15 @@ You access values in a dictionary by using its associated key. For example:
 36
 ```
 
-**Important** Accessing a value through its key like this extremely efficient.
-It is much faster that accessing a list element (e.g. using `find`), and is
-often faster than *binary search*. But unlike binary search, Python's
-dictionaries don't need to be stored in sorted order.
+**Important** Accessing a value through its key is extremely efficient. It is
+much faster that accessing a list element (e.g. using `find`), and is often
+faster than *binary search*. But unlike binary search, Python's dictionaries
+don't need to be stored in sorted order.
 
-On the flip side, accessing a key by its value is not efficient. You can do it,
-but it's not much better than linear search through all the values.
+On the flip side, accessing a key by its value is *not* efficient. You can do
+it, but it's not much better than a linear search through all the values.
 
-If you ask for a key that's not in the dictionary, you get a `KeyError`:
+If you ask for a key that's *not* in the dictionary, you get a `KeyError`:
 
 ```
 >>> age['Bart']
@@ -67,15 +68,14 @@ KeyError: 34
 ```
 
 In general, dictionaries are only efficient when you search for values by keys.
-If by search by value, it's about the same as linear search, which is extremely
-slow. You should search a dictionary by value only as a last resort.
+You should search a dictionary by value only as a last resort.
 
 
 ## Keys are Unique, Values are Not
 
 In a Python dictionary, all the keys *must* be different: repeated keys are not
-allowed. However, values don't need to be unique: repeated values are allowed.
-For example, this is okay:
+allowed. However, values don't need to be unique: values can be repeated. For
+example, this is okay:
 
 ```
 >>> age = {'Marge': 34, 'Homer': 36, 'Carl': 34}
@@ -92,9 +92,9 @@ But this is a problem:
 {'Marge': 35, 'Homer': 36}
 ```
 
-Identical keys are *not* allowed in a Python dictionary, and so the second
-`'Marge'` overwrites the first one, which may not, be what you want. This would
-be okay:
+Since identical keys are *not* allowed, and so the second `'Marge'` overwrites
+the first one, which may not, be what you want. Changing the key slightly might
+work in some cases:
 
 ```
 >>> age = {'Marge 1': 34, 'Homer': 36, 'Marge 2': 35}  # okay, different keys for Marge
@@ -130,8 +130,8 @@ These are all fast operations, since they are based on the key.
 ## Example: Counting Words in a File
 
 Suppose you have a text file, and want to count how many times each different
-words. This is a good job for a dictionary: we words will be the keys, and the
-associated value is how many times the word appears. 
+word occurs. This is a good job for a dictionary: words will be the keys, and
+the associated value is how many times the word appears. 
 
 The word counts for a very small file might look like this:
 
@@ -152,8 +152,8 @@ Let's write a program that works like this:
   word is not in the dictionary, it is added with a count of 1.
 
 Getting words from a file is conceptually easy, but the details are tricky
-because of things like punctuation. So we will strip out everything that isn't a
-letter or a space using this function:
+because of things like punctuation. So, for simplicity, we will strip out
+everything that isn't a letter or a space using this function:
 
 ```python
 def clean_text(text):
@@ -167,9 +167,9 @@ def clean_text(text):
     cleaned_text = ''
     for char in text:
         if char.isalpha() or char == ' ':
-            cleaned_text += char # keep spaces and letters
+            cleaned_text += char  # keep spaces and letters
         else:
-            cleaned_text += ' '  # replace other characters with spaces
+            cleaned_text += ' '   # replace other characters with spaces
     return cleaned_text
 ```
 
@@ -256,9 +256,10 @@ KeyError: 'chilupas'
 
 ## Printing the Top 10 Most Frequent Words
 
-Suppose we want to know which words occur most frequently in a file. We can get
-this by extracting all the words and their counts from the dictionary returned
-by `count_words`, and sorting them by count: 
+Suppose you want to print a list of the top 10 most frequently occurring words
+in a file. We can do this by first getting all the word counts using
+`count_words`, and then convert that to a list of *count*:*word* pairs that
+we can sort by count.
 
 ```python
 
@@ -306,3 +307,6 @@ that 2375
 he 1931
 was 1866
 ```
+
+**Excercise** Modify `print_top10` to print the top *n* most frequently 
+occurring words, where *n* is any integer.
