@@ -298,11 +298,11 @@ See [recursion.py](recursion.py) for sample solutions to these exercises.
    4
    ```
 
-2. Write a recursive function call `print_downto(n)` that prints the numbers
+2. Write a recursive function call `print_downfrom(n)` that prints the numbers
    from n down to 1:
    
    ```
-   >>> print_downto(4)
+   >>> print_downfrom(4)
    4
    3
    2
@@ -322,7 +322,6 @@ See [recursion.py](recursion.py) for sample solutions to these exercises.
    ```
 
    If `n` is less than, or equal to, 0, return the empty list.
-
 
 4. Write a recursive function called `say(s, n)` that prints the string `s` `n`
    times:
@@ -354,4 +353,122 @@ See [recursion.py](recursion.py) for sample solutions to these exercises.
 
     If `n` is less than, or equal to, 0, return the empty list.
 
-To be continued ...
+
+## Recursively Summing 1 + 2 + 3 + ... + n
+
+Lets write a recursive function that returns the sum 1 + 2 + 3 + ... + n. It
+should work like this:
+
+```
+>>> sum_to(3)
+6
+>>> sum_to(5)
+15
+>>> sum_to(100)
+5050
+```
+
+To make this function, lets start with this one from the previous exercises. It
+uses recursion to return the list `[0, 1, 2, ..., n-1]`:
+
+```python
+def my_range(n):
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [1]
+    else:
+        return my_range(n - 1) + [n]
+```
+
+How can we turn this into `sum_to`? First a couple of simple things:
+
+- We rename it to `sum _to`
+- The `n <= 0` case should return 0
+- We get rid if the `n == 1` special cases
+
+```python
+def sum_to_almost1(n):
+    if n <= 0:
+        return 0
+    else:
+        return sum_to_almost1(n - 1) + [n]
+```
+
+How do we modify the last line? Think about this sum:
+
+```
+1 + 2 + 3 + ... + (n-1) + n
+```
+
+How could you describe it recursively? More specifically, how can you describe
+the sum from 1 to `n` using the sum from 1 to some other number?
+
+The trick is that `1 + 2 + 3 + ... + (n-1)` is what `sum_to(n-1)` returns, and
+so `sum_to(n)` is equal to `n + sum_to(n-1)`:
+
+```python
+def sum_to(n):
+    if n <= 0:
+        return 0
+    else:
+        return n + sum_to(n - 1)
+```
+
+This works! It may seem like the `sum_to` isn't doing anything, but if you run
+it you'll see it does return the 1 + 2 + ... + n as promised.
+
+To get a better intuition for how `sum_to` works, here is a modified version
+that with prints statements when the function is called and when it returns:
+
+```python
+def sum_to_mod(n):
+    """Same as sum_to, but with print statements.
+    """
+    print(f'sum_to_mod({n}) called ...')
+    if n <= 0:
+        print(f'sum_to_mod({n}) returned 0')
+        return 0
+    else:
+        result = sum_to_mod(n - 1) + n
+        print(f'sum_to_mod({n}) returned {result}')
+        return result
+```
+
+For example:
+
+```
+>>> sum_to_mod(5)
+sum_to_mod(5) called ...
+sum_to_mod(4) called ...
+sum_to_mod(3) called ...
+sum_to_mod(2) called ...
+sum_to_mod(1) called ...
+sum_to_mod(0) called ...
+sum_to_mod(0) returned 0
+sum_to_mod(1) returned 1
+sum_to_mod(2) returned 3
+sum_to_mod(3) returned 6
+sum_to_mod(4) returned 10
+sum_to_mod(5) returned 15
+15
+```
+
+Notice a couple of things:
+
+- The first function call, `sum_to_mod(5)`, is the *last* one to return.
+- No function calls return until all the functions have been called.
+- The first 6 functions calls need to be stored in memory, and that takes up
+  extra space (and time). So just after `sum_to_mod(0) called ...` is printed, a
+  copy of all the numbers from 1 to n are stored inside the function calls. If
+  `n` is big, this could be a significant waste of time and memory.
+
+In *practice*, recursion is *not* a common technique because it often uses more
+time and memory than equivalent loop versions. Recursion can be a useful
+problem-solving tool in some situations, e.g. we saw that *mergesort* used
+recursion in a pretty efficient way.
+
+In *theory*, however, recursion is an extremely important idea, and in fact can
+be used as the basis for pretty much all computation. Any program that uses
+loops can be rewritten using just recursion instead --- although the resulting
+code might be slower, or use more memory, or be harder to understand.

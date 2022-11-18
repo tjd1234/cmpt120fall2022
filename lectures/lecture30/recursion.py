@@ -99,17 +99,17 @@ def print_upto(n):
         print_upto(n - 1)
     print(n)
 
-def print_downto(n):
+def print_downfrom(n):
     """Prints the numbers from n down to 1.
 
-    >>> print_downto(3)
+    >>> print_downfrom(3)
     3
     2
     1
     """
     print(n)
     if n > 1:
-        print_downto(n - 1)
+        print_downfrom(n - 1)
 
 def my_range(n):
     """Returns a list of the numbers from 1 to n, inclusive.
@@ -152,6 +152,44 @@ def fill(s, n):
         return []
     else:
         return fill(s, n - 1) + [s]
+
+def sum_to_almost1(n):
+    """Incorrect "transitional" function from my_range to sum_to.
+    """
+    if n <= 0:
+        return 0
+    else:
+        return sum_to_almost1(n - 1) + [n]
+
+def sum_to(n):
+    """Returns the sum of the numbers from 1 to n, inclusive.
+
+    >>> sum_to(0)
+    0
+    >>> sum_to(1)
+    1
+    >>> sum_to(3)
+    6
+    >>> sum_to(100)
+    5050
+    """
+    if n <= 0:
+        return 0
+    else:
+        return sum_to(n - 1) + n
+
+
+def sum_to_mod(n):
+    """Same as sum_to, but with debugging statements.
+    """
+    print(f'sum_to({n}) called ...')
+    if n <= 0:
+        print(f'sum_to({n}) returned 0')
+        return 0
+    else:
+        result = sum_to_mod(n - 1) + n
+        print(f'sum_to_mod({n}) returned {result}')
+        return result
 
 if __name__ == "__main__":
     import doctest
