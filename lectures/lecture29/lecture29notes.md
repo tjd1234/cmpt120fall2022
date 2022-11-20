@@ -5,8 +5,8 @@ two main Python data structures so far: *strings*, which are collections of
 characters, and *lists*, which are collections of any values.
 
 A **dictionary** is another useful data structure that stores data in
-*key*:*value* pairs. Dictionaries are also know as **maps**, **associative
-arrays**, and **tables** (or **hash tables**).
+*key*:*value* pairs. Dictionaries are also known as **maps**, **associative
+arrays**, or **tables** (or **hash tables**).
 
 For example, here is a dictionary of ages:
 
@@ -14,9 +14,9 @@ For example, here is a dictionary of ages:
 >>> age = {'Marge': 34, 'Homer': 36}
 ```
 
-`age` is a dictionary, and it has two entries: `'Marge':34` and `'Homer':36`.
-The first value of each entry is it's **key**, and the second value is its
-associated **value**. You can retrieve them like this:
+`age` is a dictionary with two entries: `'Marge':34` and `'Homer':36`. The first
+value of each entry is it's **key**, and the second value is its associated
+**value**. You can retrieve them like this:
 
 ```
 >>> age.keys()
@@ -26,12 +26,13 @@ dict_values([34, 36])
 ```
 
 In this particular example, the keys are strings. A dictionary key can be any
-*immutable* (non-changeable) type, such as strings or numbers. You *can't* use a
-*list* as a key, since changing the list could cause the dictionary to lose
-track of the position of its associated value (the position of value depends on
-its key).
+*immutable* (non-changeable) type, such as strings or numbers. However, keys
+*can't* be *lists*, since changing the list could cause the dictionary to lose
+track of the position of its associated value (the position of a value depends
+on its key).
 
-You access values in a dictionary by using its associated key. For example:
+You normally access values in a dictionary by using its associated key. For
+example:
 
 ```
 >>> age['Marge']
@@ -40,13 +41,14 @@ You access values in a dictionary by using its associated key. For example:
 36
 ```
 
-**Important** Accessing a value through its key is extremely efficient. It is
-much faster that accessing a list element (e.g. using `find`), and is often
-faster than *binary search*. But unlike binary search, Python's dictionaries
-don't need to be stored in sorted order.
+**Important** Accessing a dictionary value through its key is extremely
+efficient. It is much faster that accessing a list element (e.g. using `find`),
+and is often faster than *binary search*. But unlike binary search, Python's
+dictionaries *don't* need to be stored in sorted order.
 
 On the flip side, accessing a key by its value is *not* efficient. You can do
-it, but it's not much better than a linear search through all the values.
+it, but it's about the same speed as doing a linear search through all the
+values.
 
 If you ask for a key that's *not* in the dictionary, you get a `KeyError`:
 
@@ -58,7 +60,7 @@ KeyError: 'Bart'
 ```
 
 You can only efficiently access values by their keys. In `age`, you *can't* get
-a name from the age:
+efficiently get a name from the age:
 
 ```
 >>> age[34]
@@ -81,8 +83,8 @@ example, this is okay:
 >>> age = {'Marge': 34, 'Homer': 36, 'Carl': 34}
 ```
 
-In this case, `'Carl'` and `'Marge'` have the same age, and that's no problem:
-different people can have the same age.
+`'Carl'` and `'Marge'` have the same age, and that's no problem: different
+people can have the same age.
 
 But this is a problem:
 
@@ -92,9 +94,11 @@ But this is a problem:
 {'Marge': 35, 'Homer': 36}
 ```
 
-Since identical keys are *not* allowed, and so the second `'Marge'` overwrites
-the first one, which may not, be what you want. Changing the key slightly might
-work in some cases:
+Since identical keys are *not* allowed, the second `'Marge'` overwrites the
+first one, which may, or may not, be what you want. 
+
+If you really do need to have two `'Marge'`s, then you should  probably change
+the keys:
 
 ```
 >>> age = {'Marge 1': 34, 'Homer': 36, 'Marge 2': 35}  # okay, different keys for Marge
@@ -104,9 +108,9 @@ work in some cases:
 
 ## Dictionaries are Changeable
 
-Like lists, dictionaries are *mutable*, i.e. they can be changed. You can both
-add/remove *key*:*value* pairs, and you can change the value associated with a
-key. For example:
+Like lists, dictionaries are *mutable*, i.e. they can be changed. You can
+add/remove *key*:*value* pairs, and also change the value associated with a key.
+For example:
 
 ```
 >>> age = {'Marge': 34, 'Homer': 36}
@@ -146,14 +150,21 @@ Let's write a program that works like this:
 
 - It opens a text file.
 - It reads the file line-by-line.
-- It splits each line into individual words.
+- It splits each line into individual words. Python strings have a built-in
+  method called `split` to do this:
+  
+  ```
+  >>> names = 'Ken, Alex, Art, Anna'
+  >>> names.split(', ')
+  ```
+
 - It adds the words to a dictionary of *word*:*count* pairs. If the word is
   already in the dictionary, then its associated count is incremented. If the
   word is not in the dictionary, it is added with a count of 1.
 
 Getting words from a file is conceptually easy, but the details are tricky
-because of things like punctuation. So, for simplicity, we will strip out
-everything that isn't a letter or a space using this function:
+because of things like punctuation. For simplicity, we will strip out everything
+that isn't a letter or a space using this function:
 
 ```python
 def clean_text(text):
@@ -174,7 +185,7 @@ def clean_text(text):
 ```
 
 Now we can write `count_words`, which returns a dictionary of the counts of all
-the words in a file:
+the words in a text file:
 
 ```python
 def count_words(fname):
@@ -258,8 +269,8 @@ KeyError: 'chilupas'
 
 Suppose you want to print a list of the top 10 most frequently occurring words
 in a file. We can do this by first getting all the word counts using
-`count_words`, and then convert that to a list of *count*:*word* pairs that
-we can sort by count.
+`count_words`, and then convert that to a list of *count*:*word* pairs that we
+can sort by count.
 
 ```python
 
@@ -308,5 +319,5 @@ he 1931
 was 1866
 ```
 
-**Excercise** Modify `print_top10` to print the top *n* most frequently 
-occurring words, where *n* is any integer.
+**Exercise** Modify `print_top10` to print the top *n* most frequently occurring
+words, where *n* is any integer.

@@ -191,6 +191,7 @@ def sum_to_mod(n):
         print(f'sum_to_mod({n}) returned {result}')
         return result
 
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod()

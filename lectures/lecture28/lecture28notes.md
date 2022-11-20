@@ -2,7 +2,7 @@
 
 Reading and writing files is a common Python task. There are two main kinds of
 files: **text files**, that consist of plain text and can viewed and edited in
-an editor like Mu; and **binary files**, which are every other kind of file,
+an editor like Mu. And **binary files**, which are every other kind of file,
 e.g. image files, video files, specially formatted files for particular
 applications, and so on.
 
@@ -11,12 +11,13 @@ reading text files line-by-line.
 
 ## Determining What Folder You're In
 
-A tricky aspect of using files is that it can be unclear if you are using the
-right folder or directory (*folder* and *directory* mean the same) thing. You
-can check what folder Python will uses with this code:
+Before we get into reading files, here's a useful trick for being sure what
+folder or directory (*folder* and *directory* mean the same thing) you're
+reading from:
 
 ```
 >>> import os
+
 >>> os.getcwd()
 'C:\\Users\\james\\Documents\\courses\\cmpt120fall2022'
 
@@ -120,8 +121,7 @@ Never mind. It's pointless.
 
 ## Reading Lines of Text File into a List
 
-Something that's often useful to do is to read the lines of file as strings in a
-list:
+Something that's often useful to do is to read the lines of file into a list:
 
 ```python
 textfile = open('joke.txt')
@@ -246,8 +246,8 @@ A broken pencil who?
 
 ### The Built-in `readlines` Function
 
-We note that Python files have a built-in method called `readlines` that will reads
-a test file into a list of strings:
+Python has a built-in method called `readlines` that will reads a test file into
+a list of strings:
 
 ```
 >>> f = open('changelog.txt')
@@ -256,14 +256,14 @@ a test file into a list of strings:
 714
 ```
 
-In practice, this is probably what you should use. We have written our own 
+In practice, this is probably what you should use. We have written our own
 versions above to understand how they work and learn more about Python.
 
 
 ## Challenge: Checking if Any Lines in a File are Too Long
 
 Write a program that takes the name of a text file as input, and prints just the
-lines in the file that are *longer* than 100 characters. 
+lines in the file that are *longer* than 100 characters.
 
 Print the line number at the start of the line so that the user knows where to
 look for it in the file.
@@ -307,8 +307,8 @@ The line above is blank
 
 ## Reading a Web Page
 
-Finally, we note that Python provides an easy way to read the contents of a
-web page as string. For example:
+Finally, Python provides an easy way to read the contents of a web page as
+string. For example:
 
 ```python
 import urllib.request
