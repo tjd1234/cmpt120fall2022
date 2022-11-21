@@ -323,7 +323,7 @@ page = get_web_page_text('https://www.sfu.ca/')
 print(page)
 ```
 
-This returns the web page *as a string*, which may be quite unreadable! If you
-want to create your own
+This returns the web page *as one big string*, which may be quite unreadable! 
+If you want to create your own
 [web scraper](https://en.wikipedia.org/wiki/Web_scraping) or web browser, then 
 this is a good start.
