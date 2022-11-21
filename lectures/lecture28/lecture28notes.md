@@ -282,10 +282,10 @@ Basic writing to a text file is straightforward. For example
 
 ```python
 # open a file for writing
-outfile = open('output.txt', 'w')  # 'w' means write
+outfile = open('output.txt', 'w')    # 'w' means write
 
 # write some lines
-outfile.write('This is a line 1\n')   # \n is needed to end the line
+outfile.write('This is a line 1\n')  # \n is needed to end the line
 outfile.write('This is a line 2\n')
 outfile.write('\n')
 outfile.write('The line above is blank\n')
@@ -313,17 +313,17 @@ string. For example:
 ```python
 import urllib.request
 
-def get_web_page(url):
+def get_web_page_text(url):
     """ Retrieve the contents of a web page.
     """
     socket = urllib.request.urlopen(url)
     return socket.read()
 
-page = get_web_page('https://www.sfu.ca/')
+page = get_web_page_text('https://www.sfu.ca/')
 print(page)
 ```
 
 This returns the web page *as a string*, which may be quite unreadable! If you
-want to create your own web
-[scraper](https://en.wikipedia.org/wiki/Web_scraping) or browser, then this is a
-good start.
+want to create your own
+[web scraper](https://en.wikipedia.org/wiki/Web_scraping) or web browser, then 
+this is a good start.
