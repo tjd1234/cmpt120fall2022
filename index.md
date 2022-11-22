@@ -20,9 +20,7 @@ you'll need for this course.
 - [Sample Midterm coding questions](exams/120-D400midterm_coding_sample_fall2022.pdf) ([solutions](exams/120-D400midterm_coding_sample_fall2022_sol.pdf))
 - [Mini midterm](exams/120-D400mini_midterm1_fall2022.pdf) ([solutions](exams/120-D400mini_midterm1_fall2022_sol.pdf))
 - [Sample solutions to midterm exam](exams/120-D400midterm1_fall2022_sample_solutions.pdf)
-
-- [Zero marks quiz](lectures/lecture24/lecture24Quiz.pdf) 
-  ([sample solutions](lectures/lecture24/lecture24Quiz_sol.pdf)) based [lecture 24](lectures/lecture24/lecture24.md).
+- [Zero marks quiz](lectures/lecture24/lecture24Quiz.pdf) ([sample solutions](lectures/lecture24/lecture24Quiz_sol.pdf)) based [lecture 24](lectures/lecture24/lecture24.md)
 
 Here is an [exam timer](https://tjd1234.github.io/examclock/examclock.html)
 that shows the remaining time in an exam.
