@@ -23,12 +23,12 @@ def count_words(fname):
     # word_count is an initially empty dictionary that stores the count of each
     # word
     word_count = {}
-    
+
     contents = open(fname)
     for line in contents:
         # split the line into words
         words = clean_text(line).split(' ')
-        
+
         # add all the words to the dictionary
         for w in words:
             w = w.strip()   # remove whitespace at the beginning and end
@@ -37,7 +37,7 @@ def count_words(fname):
                     word_count[w] += 1
                 else:
                     word_count[w] = 1
-    
+
     return word_count
 
 
@@ -57,14 +57,15 @@ def print_top10(fname):
     was 1866
     """
     word_count = count_words(fname)
-    
+
     # make a list if [count, word] pairs
     count_pairs = []
     for w in word_count:
-        count_pairs.append([word_count[w], w])
-    
-    # sort the words from highest count to lowest 
-    # 
+        pair = [word_count[w], w]
+        count_pairs.append(pair)
+
+    # sort the words from highest count to lowest
+    #
     # when sorting a list, Python's built-in sort compares the first element of
     # the list first
     count_pairs.sort()
@@ -73,3 +74,4 @@ def print_top10(fname):
     # print the top 10 words
     for pair in count_pairs[:10]:
         print(pair[1], pair[0])
+

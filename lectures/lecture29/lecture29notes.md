@@ -285,7 +285,8 @@ def print_top10(fname):
     #
     count_pairs = []
     for w in word_count:  # this loops through all they keys in word_count
-        count_pairs.append([word_count[w], w])
+        pair = [word_count[w], w]
+        count_pairs.append(pair)
     
     #
     # sort the words from highest count to lowest 

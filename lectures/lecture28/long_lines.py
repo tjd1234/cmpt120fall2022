@@ -17,14 +17,14 @@ def compress_string(s, max_len):
     if len(s) <= max_len:
         return s
     else:
-        result = s[:max_len-4] 
+        result = s[:max_len-4]
         result += ' ...'
         assert len(result) == max_len  # check that the result is the right length
         return result
 
 def print_long_lines(filename, max_len):
     """Prints the lines in filename that are longer than max_len.
-    
+
     Tab characters, '\t', count as a single character. In some editors they are
     expanded to, say, 4 spaces. This can cause some confusion when determining
     how long a line is since the length of a '\t' depends on the program used to
