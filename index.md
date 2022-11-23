@@ -20,7 +20,7 @@ you'll need for this course.
 - [Sample Midterm coding questions](exams/120-D400midterm_coding_sample_fall2022.pdf) ([solutions](exams/120-D400midterm_coding_sample_fall2022_sol.pdf))
 - [Mini midterm](exams/120-D400mini_midterm1_fall2022.pdf) ([solutions](exams/120-D400mini_midterm1_fall2022_sol.pdf))
 - [Sample solutions to midterm exam](exams/120-D400midterm1_fall2022_sample_solutions.pdf)
-- [Zero marks quiz](lectures/lecture24/lecture24Quiz.pdf) ([sample solutions](lectures/lecture24/lecture24Quiz_sol.pdf)) based [lecture 24](lectures/lecture24/lecture24.md)
+- [Zero marks list quiz](lectures/lecture24/lecture24Quiz.pdf) ([sample solutions](lectures/lecture24/lecture24Quiz_sol.pdf)) based [lecture 24](lectures/lecture24/lecture24.md)
 
 Here is an [exam timer](https://tjd1234.github.io/examclock/examclock.html)
 that shows the remaining time in an exam.
@@ -94,7 +94,7 @@ that shows the remaining time in an exam.
              ([template used in lecture](lectures/lecture22/lecture22.docx)), 
              [lecture 23](lectures/lecture23/lecture23notes.md) 
              ([template used in lecture](lectures/lecture23/lecture23.docx))
-- Wed Nov 9: In class we did a [zero marks quiz](lectures/lecture24/lecture24Quiz.pdf) 
+- Wed Nov 9: In class we did a [zero marks list quiz](lectures/lecture24/lecture24Quiz.pdf) 
   ([sample solutions](lectures/lecture24/lecture24Quiz_sol.pdf)). 
   The [lecture 24](lectures/lecture24/lecture24notes.md) notes contain more examples 
   of using lists.
