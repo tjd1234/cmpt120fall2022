@@ -112,7 +112,8 @@ that shows the remaining time in an exam.
 - [Read chapter 12: Dictionaries (12.1 - 12.4)](https://runestone.academy/ns/books/published/120fall2022surrey/Dictionaries/toctree.html)
 - Mon Nov 21: [lecture 28](lectures/lecture28/lecture28notes.md), 
               [lecture 29](lectures/lecture29/lecture29notes.md)
-- Wed Nov 23: [lecture 30](lectures/lecture30/lecture30notes.md)
+- Wed Nov 23: In this class we did a [zero marks quiz on dictionaries](lectures/lecture30/lecture30Quiz.pdf) ([solutions](lectures/lecture30/lecture30Quiz_sol.pdf)). [spellcheck.py](lectures/lecture30/spellcheck.py) contains sample code, including an extra function for finding misspelled words in a text file.
+  [lecture 30](lectures/lecture30/lecture30notes.md) does *not* contain any extra notes.
 
 ### Week 13
 - [Read chapter 16: Recursion (all)](https://runestone.academy/ns/books/published/120fall2022surrey/IntroRecursion/toctree.html)
