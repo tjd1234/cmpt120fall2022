@@ -59,7 +59,7 @@ See [searching.py](../lecture25/searching.py) for an implementation.
 How fast are linear search and binary search? Here's the results of an
 experiment showing how their real time performance compares:
 
-![sorting time line graph for linear and binary search](searchRealTimeGraph.png)
+![sorting time line graph for linear and binary search](searchRealTimeGraph_small.png)
 
 This shows clearly that are linear search is much slower than both the built-in
 `index` and binary search. The linear search graph is not perfectly smooth since
