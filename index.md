@@ -134,3 +134,9 @@ that shows the remaining time in an exam.
 - Day: Tuesday Dec 13th
 - Time: 12PM to 3PM
 - Room: SYRE 1002 (the usual lecture room)
+
+The final exam is a closed-book, hand-written exam, and covers the entire course. It will have variety of questions types, such as multiple-choice, coding questions where you will be asked to read code, and coding questions where you will be asked to write code to solve problems. The style will be similar to the midterm, but longer since it covers the entire course.
+
+Closed-book means no books, no notes, no papers, no calculators, etc. are permitted. 
+
+More details will be posted closer to the date of the exam on [Canvas](https://canvas.sfu.ca/courses/73212).
