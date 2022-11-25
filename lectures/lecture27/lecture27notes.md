@@ -137,7 +137,7 @@ calling `mergesort` always returns a sorted list.
 In practice, mergesort is much faster than selection sort. You can see it in
 this graph of their running times (with the built-in sort included):
 
-![line plot of running times of selection sort, mergesort, and built-in sort](sortingTimeComp.png)
+![line plot of running times of selection sort, mergesort, and built-in sort](sortingTimeComp_small.png)
 
 The graph shows that selection sort is *much* slower than both mergesort and
 Python's built-in sort. The built-in sort is significantly faster than our
