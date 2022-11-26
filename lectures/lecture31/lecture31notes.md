@@ -1,5 +1,31 @@
 # Lecture 31 Notes
 
+## Overview
+
+**Recursion** is a deep and interesting idea with many applications in computer
+science, mathematics, and science. The general idea of recursion is that you can
+build a *big* out of *small* things that all look the same, but at different
+sizes. For example, here is a recursive picture called the [Sierpinski triangle](https://en.wikipedia.org/wiki/Sierpinski_triangle):
+
+![Sierpinski triangle](sierpinski_triangle_small.png)
+
+The entire picture is made of three smaller copies of the entire picture, and
+each one those is made of three smaller copies, and so and so on.
+
+Here's another example called the [Barnsley fern](https://en.wikipedia.org/wiki/Barnsley_fern):
+
+![Barnsley Fern](barnsley_fern_small.png)
+
+Each leaf of the fern is made of smaller copies of the fern, again and again
+until it gets so small you can't see it. This looks impressively similar to real
+ferns, and so it seems that recursion is a process that nature itself sometimes
+follows.
+
+Learning recursion in programming can be tricky, so we introduce it step-by-step
+in a practical way.
+
+## Introduction to Recursion
+
 In programming, a function is **recursive** if it calls itself. For example,
 `f1` is a recursive function:
 
@@ -8,9 +34,9 @@ def f1(n):
     f1(n)
 ```
 
-When run, it should, in theory, loop forever and never return a value. However,
-Python has a limit on how many times a function can call itself, and if it
-reaches that limit, a `RecursionError` exception is raised:
+When run, it should, in *theory*, loop forever and never return a value.
+However, Python has a limit on how many times a function can call itself, and if
+it reaches that limit, a `RecursionError` exception is raised:
 
 ```
 >>> f1()
@@ -23,7 +49,8 @@ Traceback (most recent call last):
 RecursionError: maximum recursion depth exceeded
 ```
 
-`f1()` isn't very useful. Here's a slightly more useful recursive function:
+A function like `f1()` that always crashes, or never ends, isn't very useful.
+Here's a slightly more useful recursive function:
 
 ```python
 def f2():
@@ -31,8 +58,8 @@ def f2():
     f2()
 ```
 
-It's similar to `f1`, but it prints a message before calling itself. When run,
-it prints `hello!` many times, and then crashes with a `RecursionError`:
+When run, it prints `hello!` many times, and then crashes with a
+`RecursionError`:
 
 ```
 >>> f2()
@@ -58,11 +85,11 @@ RecursionError: maximum recursion depth exceeded while calling a Python object
 ```
 
 In theory, this should loop forever and print `'hello!'` an infinite number of
-times. But in practice, Python only has limited time and memory, so it
+times. But in practice, computers only have a limited memory and time, so it
 eventually crashes.
 
-> From now on we'll skip writing out the Traceback message, and just write the
-> `RecursionError` line.
+> **Note** From now on we'll skip writing out the Traceback message, and just
+> write the `RecursionError` line.
 
 How many times is `'hello!` printed? One way to figure this out is to print the
 number of each one like this:
@@ -71,7 +98,7 @@ number of each one like this:
 count = 0  # count is a global variable
 
 def f3():
-    global count  # tell Python that count is the global variable defined outside the function
+    global count  # tell Python to use the global count variable
     print(f'{count}. hello!')
     count += 1
     f3()
@@ -97,8 +124,8 @@ So we see `'hello!'` is printed 994 times before the program crashes.
 A problem with `f3` is that it relies on the global variable `count`. Global
 variables are generally a bad idea because other code in the program could
 modify `count` in a way that makes `f3` work incorrectly. We also need the ugly
-statement `global count` to tell Python that `count` is the global variable
-defined outside the function.
+statement `global count` to tell Python that the *global* `count` defined
+outside the function is the variable to use.
 
 How could we re-write `f3` so that it doesn't use a global variable? One way
 that *doesn't* work is this:
@@ -154,12 +181,10 @@ RecursionError: maximum recursion depth exceeded while calling a Python object
 ```
 
 This works! Well, it still crashes, but we'll fix that in a moment. By passing
-the `count` as a parameter, we are able to correctly update it. 
+the `count` as a parameter, we are able to correctly update it.
 
 The statement `count += 1` in `f4` is usually deleted, and instead `f4_better`
 is called directly with `count + 1`:
-
-```python
 
 ```python
 def f4_better(count):
@@ -167,7 +192,7 @@ def f4_better(count):
     f4_better(count + 1)
 ```
 
-The `+ ` is important in the last line. If you forget it, then `count` is never
+The `+` is important in the last line. If you forget it, then `count` is never
 incremented:
 
 ```python
@@ -193,11 +218,10 @@ RecursionError: maximum recursion depth exceeded while calling a Python object
 ## Getting Rid of the Infinite Loop
 
 All the recursive functions above suffer from the obvious defect that they run
-until they crash. We never want out code to crash, so how can fix them?
+until they crash. We never want out code to crash.
 
-Instead of printing a theoretically infinite number of lines, lets pass in as a
-variable how many times we want the line printed. For example, we want to be
-able to do this:
+An idea for fixing this is to pass in, as a parameter, how many times we want
+the line printed. For example, we want to be able to do this:
 
 ```
 >>> f5(3)
@@ -213,10 +237,11 @@ able to do this:
 5. hello!
 ```
 
-Now, we'll call the parameter being passed `n`, and treat it as the number of
-times we want the line printed. If `n` is less than 1, we do nothing. If it's  we will
-print if it's greater than, or equal to 0:
-
+We'll call the parameter being passed `n`, and treat it as the number of times
+we want the line printed. If `n` is less than 1, we do nothing. If it's bigger
+than 1, we will print a line and then recursively print another one, but this
+time using `n - 1`:
+ 
 ```python
 def f5_imperfect(n):
     if n > 0:
@@ -224,7 +249,7 @@ def f5_imperfect(n):
         f5_imperfect(n - 1)
 ```
 
-It works, although not perfectly:
+This works, although not perfectly:
 
 ```
 >>> f5_imperfect(3)
@@ -240,9 +265,10 @@ It works, although not perfectly:
 1. hello!
 ```
 
-The numbers are in reverse order: we want them to start small and get big. How can we fix that?
+The numbers are in *reverse* order: we want them to start small and get big. How
+can we fix that?
 
-There turns out to be a simple modification::
+There turns out that swapping the two lines in the if-statement work:
 
 ```python
 def f5_better(n):
@@ -251,8 +277,7 @@ def f5_better(n):
         print(f'{n}. hello!')  # then print
 ```
 
-Swapping the order of the two lines in the if-statement now prints in increasing
-order:
+For example:
 
 ```
 >>> f5_better(3)
@@ -283,7 +308,7 @@ For example:
 3. hello!
 ```
 
-## **Try these**
+## **Try These #1**
 
 See [recursion.py](recursion.py) for sample solutions to these exercises.
 
@@ -356,8 +381,8 @@ See [recursion.py](recursion.py) for sample solutions to these exercises.
 
 ## Recursively Summing 1 + 2 + 3 + ... + n
 
-Lets write a recursive function that returns the sum 1 + 2 + 3 + ... + n. It
-should work like this:
+Lets write a recursive function that returns the sum $$1 + 2 + 3 + \ldots + n$$.
+It should work like this:
 
 ```
 >>> sum_to(3)
@@ -368,11 +393,19 @@ should work like this:
 5050
 ```
 
-To make this function, lets start with this one from the previous exercises. It
-uses recursion to return the list `[0, 1, 2, ..., n-1]`:
+> **Note** In practice, you would never use a recursive function, or a loop, to
+> calculate $$1 + 2 + 3 + \ldots n$$. Instead, you would use the formula
+> $$\frac{n(n+1)}{2}$$. So take this example for what it is, an example to help
+> learn recursion.
+
+To make this function, lets use the strategy of starting with an existing
+function, and then modifying it step-by-step. The function we'll start with is
+this:
 
 ```python
 def my_range(n):
+    """Returns [0, 1, 2, ..., n-1]
+    """
     if n <= 0:
         return []
     elif n == 1:
@@ -383,9 +416,11 @@ def my_range(n):
 
 How can we turn this into `sum_to`? First a couple of simple things:
 
-- We rename it to `sum _to`
+- We rename it to `sum_to`
 - The `n <= 0` case should return 0
-- We get rid if the `n == 1` special cases
+- We get rid if the `n == 1` special case
+
+This gives us:
 
 ```python
 def sum_to_almost1(n):
@@ -401,11 +436,19 @@ How do we modify the last line? Think about this sum:
 1 + 2 + 3 + ... + (n-1) + n
 ```
 
-How could you describe it recursively? More specifically, how can you describe
+How could you describe it *recursively*? More specifically, how can you describe
 the sum from 1 to `n` using the sum from 1 to some other number?
 
 The trick is that `1 + 2 + 3 + ... + (n-1)` is what `sum_to(n-1)` returns, and
 so `sum_to(n)` is equal to `n + sum_to(n-1)`:
+
+```
+  1 + 2 + 3 + ... + (n-1) + n
+= (1 + 2 + 3 + ... + (n-1)) + n
+= sum_to(n-1) + n
+```
+
+So:
 
 ```python
 def sum_to(n):
@@ -415,11 +458,11 @@ def sum_to(n):
         return n + sum_to(n - 1)
 ```
 
-This works! It may seem like the `sum_to` isn't doing anything, but if you run
-it you'll see it does return the 1 + 2 + ... + n as promised.
+This works! It may seem like `sum_to` isn't doing anything, but if you run it
+you'll see it does return the `1 + 2 + ... + n` as promised.
 
 To get a better intuition for how `sum_to` works, here is a modified version
-that with prints statements when the function is called and when it returns:
+that prints when the function is called and when it returns:
 
 ```python
 def sum_to_mod(n):
@@ -457,14 +500,15 @@ sum_to_mod(5) returned 15
 Notice a couple of things:
 
 - The first function call, `sum_to_mod(5)`, is the *last* one to return.
-- No function calls return until all the functions have been called.
-- The first 6 functions calls need to be stored in memory, and that takes up
-  extra space (and time). So just after `sum_to_mod(0) called ...` is printed, a
-  copy of all the numbers from 1 to n are stored inside the function calls. If
-  `n` is big, this could be a significant waste of time and memory.
+- All the functions are called, and then after that they all return (in reverse
+  order to which they were called).
+- The first 6 function calls are stored in memory, and that takes up memory
+  space (and time). So just after `sum_to_mod(0) called ...` is printed, a copy
+  of all the numbers from 1 to n are stored, as parameters, inside the function
+  calls. If `n` is big, this could be a significant waste of time and memory.
 
-In *practice*, recursion is *not* a common technique because it often uses more
-time and memory than equivalent loop versions. Recursion can be a useful
+In *practice*, recursion is *not* a common technique because it typically uses
+more time and memory than equivalent loop versions. Recursion can be a useful
 problem-solving tool in some situations, e.g. we saw that *mergesort* used
 recursion in a pretty efficient way.
 
@@ -472,3 +516,36 @@ In *theory*, however, recursion is an extremely important idea, and in fact can
 be used as the basis for pretty much all computation. Any program that uses
 loops can be rewritten using just recursion instead --- although the resulting
 code might be slower, or use more memory, or be harder to understand.
+
+## **Try These #2**
+
+6. Write a recursive function called `sum_squares(n)` that returns the sum of
+   the squares of the numbers from 1 to `n`, e.g. $$1^2 + 2^2 + \ldots + n^2$$:
+   
+   ```
+   >>> sum_squares(3)    
+   14
+   >>> sum_squares(5)
+   55
+   >>> sum_squares(100)
+   338350
+   ```
+
+   If `n` is less than, or equal to, 0, return 0.
+
+7. Write a recursive function called `range_string(n)` that returns a *string*
+   containing the numbers from 1 to `n` separated by commas:
+   
+   ```
+   >>> range_string(0)
+   ''
+   >>> range_string(1)
+   '1'
+   >>> range_string(5)
+   '1, 2, 3, 4, 5'
+   >>> range_string(10)
+   '1, 2, 3, 4, 5, 6, 7, 8, 9, 10'
+   """
+   ```
+
+   If `n` is less than, or equal to, 0, return the empty string.

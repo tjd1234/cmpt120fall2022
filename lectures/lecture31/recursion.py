@@ -191,6 +191,43 @@ def sum_to_mod(n):
         print(f'sum_to_mod({n}) returned {result}')
         return result
 
+def sum_squares(n):
+    """Returns the sum of the squares of the numbers from 1 to n, inclusive.
+
+    >>> sum_squares(0)
+    0
+    >>> sum_squares(1)
+    1
+    >>> sum_squares(3)
+    14
+    >>> sum_squares(100)
+    338350
+    """
+    if n <= 0:
+        return 0
+    else:
+        return sum_squares(n-1) + n*n
+
+
+def range_string(n):
+    """Returns the string '1, 2, 3, 4, 5'.
+   
+    >>> range_string(0)
+    ''
+    >>> range_string(1)
+    '1'
+    >>> range_string(5)
+    '1, 2, 3, 4, 5'
+    >>> range_string(10)
+    '1, 2, 3, 4, 5, 6, 7, 8, 9, 10'
+    """
+    if n <= 0:
+        return ''
+    elif n == 1:
+        return '1'
+    else:
+        return range_string(n - 1) + ', ' + str(n)
+
 
 if __name__ == "__main__":
     import doctest
