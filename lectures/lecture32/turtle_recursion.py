@@ -4,6 +4,13 @@
 # Recursive trees using turtle graphics.
 #
 
+#
+# One way to draw a tree by hand is to start with a V and then, and then add
+# slightly smaller Vs on the top end points of it. Then on those smaller Vs, add
+# even smaller ones. If you keep repeating this process, adding variation as you
+# go, then you will end up with something that looks like a tree. 
+#
+
 import turtle
 import random
 
@@ -11,6 +18,8 @@ import random
 # helper functions
 #
 def jump_to(x, y):
+    """Move the turtle to (x, y) without drawing anything.
+    """
     turtle.penup()
     turtle.goto(x, y)
     turtle.pendown()
@@ -74,30 +83,53 @@ def draw_fork(x, y, size):
     return [left, right]
 
 
+def draw_rand(x, y, size):
+    """Draw a random V or fork.
+    """
+    if random.random() > 0.5:
+        return draw_V(x, y, size)
+    else:
+        return draw_fork(x, y, size)
+
+
 def canopy(x, y, size, scale = 3.0):
     """Draw the leafy top of the tree.
 
     - size is the starting thickness of the branches.
-    - scale is overall size of the canopy
+    - scale is the overall size of the canopy
 
     The draw_V function is assumed to return a 2-element list with the positions
     and headings of the next branches. You can get different looking trees by
-    changing draw_V, e.g. try replacing it with draw_fork.
+    changing draw_V, e.g. try replacing it with draw_fork, or draw_rand.
     """
+    #
+    # add a bit of randomness to give some variety
+    #
     turtle.left(random.randint(-5, 5))
     if size > 3:
+        #
+        # draw a V, and get the position and heading of the two points at the
+        # top
+        #
         left, right = draw_V(x, y, size * scale)
+        
+        #
+        # recursively draw a V on the left point
+        #
         turtle.setheading(left[1])
         left_size = random.uniform(0.8, 0.9) * size
         turtle.pensize(5 * left_size / 20)
         canopy(left[0][0], left[0][1], left_size)
 
+        #
+        # recursively draw a V on the right point
+        #
         turtle.setheading(right[1])
         right_size = random.uniform(0.7, 0.9) * size
         turtle.pensize(5 * right_size / 20)
         canopy(right[0][0], right[0][1], right_size)
     else:
-        if random.random() > 0.9:    # sometimes and an orange at the end of a branch
+        if random.random() > 0.9:    # sometimes put an orange at the end of a branch
             turtle.dot(10, 'orange')
 
 def draw_tree(x, y, size, draw_fast=True):
