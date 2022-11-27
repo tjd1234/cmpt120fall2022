@@ -71,15 +71,6 @@ to draw lots and lots of *V* shapes.
 
 ```python
 def canopy(x, y, size, scale = 3.0):
-    """Draw the leafy top of the tree.
-
-    - size is the starting thickness of the branches.
-    - scale is the overall size of the canopy
-
-    The draw_V function is assumed to return a 2-element list with the positions
-    and headings of the next branches. You can get different looking trees by
-    changing draw_V, e.g. try replacing it with draw_fork, or draw_rand.
-    """
     #
     # add a bit of randomness to give some variety
     #
@@ -119,20 +110,20 @@ Notice a few things:
 - The `scale` parameter controls how big the canopy is overall. Using it, you
   could, for instance, make a small-sized tree that is drawn large on the
   screen.
-- Randomness is used in a couple of places to add variety, which gives different
-  trees each time it runs.
-- There are lots of concrete numbers scattered throughout this function. They
+- Randomness is used in a couple of places to add variety, making the tree look
+  different each time.
+- There are lots of concrete numbers scattered throughout the function. They
   were chosen by hand, based on what looked good. You could change them and get
   very different looking trees.
-- The `draw_V` function can be replaced by any function that draws a shape and
+- The `draw_V` function can be replaced by *any* function that draws a shape and
   returns a list of two turtle states. For instance, if you replace it with a
   different function, such as the `draw_fork` or `draw_rand` (also in
-  [turtle.py](turtle.py)), you'll get quite different looking trees. 
+  [turtle.py](turtle.py)), you'll get quite different looking trees.
 
 
 ## Drawing the Entire Tree
 
-With the `canopy` function in hand, he can now create a function that draws an
+With the `canopy` function in hand, we can now create a function that draws an
 entire tree:
 
 ```python
