@@ -66,7 +66,8 @@ gives us the exact information at what position and angle to start drawing.
 ## The Canopy of the Tree
 
 Trees have at least two parts: a trunk at the bottom, and a leafy *canopy* at
-the top. The trunk is a simple rectangle, but for the canopy we'll use recursion
+the top. The trunk is a simple rectangle, but 
+[for the canopy we'll use recursion](https://en.wikipedia.org/wiki/Fractal_canopy)
 to draw lots and lots of *V* shapes.
 
 ```python
