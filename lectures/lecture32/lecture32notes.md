@@ -169,7 +169,7 @@ def draw_tree(x, y, size, draw_fast=True):
         turtle.Screen().update() # refresh the screen to see what was drawn
 ```
 
-Here is a the final result:
+Here is the final result:
 
 ```python
 draw_tree(   0, -300, 20, 2)
