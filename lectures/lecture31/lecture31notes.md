@@ -265,10 +265,10 @@ This works, although not perfectly:
 1. hello!
 ```
 
-The numbers are in *reverse* order: we want them to start small and get big. How
-can we fix that?
+The numbers are in *reverse* order. But we want them to start small and get big.
+How can we fix that?
 
-There turns out that swapping the two lines in the if-statement work:
+It turns out that swapping the two lines in the if-statement work:
 
 ```python
 def f5_better(n):
@@ -287,10 +287,11 @@ For example:
 ```
 
 This works because the *first* time `f5_better` is called, `n` is 3. That means
-the `n` in the print statement is 3. So we can't print it right away: we have to
-recursively print all the other numbers first.
+the `n` in the print statement is 3. So we shouldn't print it right away: we
+should do all the other print statements first.
 
-Finally, we want to start at 1, not 0:
+Finally, we want to start at 1, not 0. This is a small change to the print
+statement:
 
 ```python
 def f5(n):
@@ -393,10 +394,10 @@ It should work like this:
 5050
 ```
 
-> **Note** In practice, you would never use a recursive function, or a loop, to
-> calculate $$1 + 2 + 3 + \ldots n$$. Instead, you would use the formula
-> $$\frac{n(n+1)}{2}$$. So take this example for what it is, an example to help
-> learn recursion.
+> **Note** In practice, you would never use a recursive function, or even a
+> loop, to calculate $$1 + 2 + 3 + \ldots n$$. Instead, you would use the
+> formula $$\frac{n(n+1)}{2}$$. So take this example for what it is, an example
+> to help learn recursion.
 
 To make this function, lets use the strategy of starting with an existing
 function, and then modifying it step-by-step. The function we'll start with is
@@ -518,6 +519,8 @@ loops can be rewritten using just recursion instead --- although the resulting
 code might be slower, or use more memory, or be harder to understand.
 
 ## **Try These #2**
+
+See [recursion.py](recursion.py) for sample solutions to these exercises.
 
 6. Write a recursive function called `sum_squares(n)` that returns the sum of
    the squares of the numbers from 1 to `n`, e.g. $$1^2 + 2^2 + \ldots + n^2$$:
