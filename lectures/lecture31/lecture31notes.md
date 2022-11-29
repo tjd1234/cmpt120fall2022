@@ -14,7 +14,7 @@ each one those is made of three smaller copies, and so and so on.
 
 Here's another example called the [Barnsley fern](https://en.wikipedia.org/wiki/Barnsley_fern):
 
-![Barnsley Fern](barnsley_fern_small.png)
+![Barnsley Fern](Barnsley_fern_small.png)
 
 Each leaf of the fern is made of smaller copies of the fern, again and again
 until it gets so small you can't see it. This looks impressively similar to real

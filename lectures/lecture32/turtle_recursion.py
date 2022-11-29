@@ -1,4 +1,4 @@
-# turtle_recursion2.py
+# turtle_recursion.py
 
 #
 # Recursive trees using turtle graphics.
@@ -8,7 +8,7 @@
 # One way to draw a tree by hand is to start with a V and then, and then add
 # slightly smaller Vs on the top end points of it. Then on those smaller Vs, add
 # even smaller ones. If you keep repeating this process, adding variation as you
-# go, then you will end up with something that looks like a tree. 
+# go, then you will end up with something that looks like a tree.
 #
 
 import turtle
@@ -112,7 +112,7 @@ def canopy(x, y, size, scale = 3.0):
         # top
         #
         left, right = draw_V(x, y, size * scale)
-        
+
         #
         # recursively draw a V on the left point
         #
@@ -153,7 +153,7 @@ def draw_tree(x, y, size, draw_fast=True):
     # draw the trunk
     #
     # done after the canopy so it looks like it sprouts from the trunk
-    # 
+    #
     turtle.setheading(90)        # trees grow upwards
     turtle.pensize(15)           # trunk is thicker than the rest of the tree
     turtle.color('brown')
@@ -167,6 +167,6 @@ def draw_tree(x, y, size, draw_fast=True):
 #
 # draw three trees
 #
-draw_tree(   0, -300, 20, 2)
-draw_tree(-250,  100, 20, 2)
-draw_tree( 350,  200, 20, 2)
+draw_tree(   0, -300, 20)
+draw_tree(-250,  100, 20)
+draw_tree( 350,  200, 20)
