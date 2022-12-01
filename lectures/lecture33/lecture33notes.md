@@ -58,14 +58,15 @@ def test_contains(contains):
 
 Note a couple of things:
 
-- `test_contains` does **unit testing**, i.e. it tests a single function at a
-  time, *contains*. Many of the test test cases are "edge" cases, i.e. they test
-  values near the start/end of the list. Bugs often hide in such places.
+- `test_contains` does **unit testing**, i.e. it tests the single function
+  *contains* on its own, and not inside some larger program. Many of the test
+  test cases are "edge" cases, i.e. they test values near the start/end of the
+  list. Bugs often hide in such places.
 
-- It's possible that the function could return "passed" for a contains function
-  that has a bug in it. That's because no reasonable *finite* amount of testing
-  can prove that a function like this works correctly. It's always possible that
-  it fails for a case we didn't think of.
+- It's possible that `test_contains` could return "passed" for a `contains`
+  function that has a bug in it. That's because no reasonable *finite* amount of
+  testing can prove that a function like this works correctly. It's always
+  possible that it fails for a case we didn't think of.
 
 - In Python, if `f` is a function then `f.__name__` is the name of the function
   when it was defined. This is a neat trick that makes it easy to print which
