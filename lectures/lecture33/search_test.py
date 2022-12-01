@@ -109,8 +109,8 @@ def test_performance():
     amount of work.
     """
     #
-    # contains_recursive_linear is excluded because it is recursive and is stopped by Python's
-    # recursion limit
+    # contains_recursive_linear is excluded because it makes more recursive
+    # calls than is permitted by Python's recursion limit
     #
     contains_functions = [#contains_recursive_linear,
                           contains_builtin,
