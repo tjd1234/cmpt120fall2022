@@ -1,4 +1,4 @@
-# binary_search.py
+# search_test.py
 
 import time
 
@@ -112,8 +112,11 @@ def test_performance():
     # contains_recursive_linear is excluded because it is recursive and is stopped by Python's
     # recursion limit
     #
-    contains_functions = [contains_builtin, contains_for_each, contains_for_range, contains_while, 
-                          #contains_recursive_linear,  
+    contains_functions = [#contains_recursive_linear,
+                          contains_builtin,
+                          contains_for_each,
+                          contains_for_range,
+                          contains_while,
                           contains_recursive_binary]
 
     lst = list(range(1000000))
@@ -121,9 +124,9 @@ def test_performance():
     for contains in contains_functions:
         print(f'testing:  {contains.__name__:25}  ', end='')
         start = time.time()
-        for i in range(10):
+        for i in range(100):
             contains(-1, lst)
         elapsed_time = time.time() - start
         print(f'{elapsed_time:.2f} seconds')
-    
+
 test_performance()
