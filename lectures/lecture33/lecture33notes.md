@@ -1,6 +1,3 @@
-For now, please see [lecture 31](../lecture31/lecture31notes.md) and
-[lecture32](../lecture32/lecture32notes.md).
-
 In these notes, we are doing an experiment to test what is the most efficient
 way to do linear in Python. [search_test.py](search_test.py) contains all the
 functions and test code.
