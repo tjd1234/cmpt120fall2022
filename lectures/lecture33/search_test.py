@@ -119,13 +119,13 @@ def test_performance():
                           contains_while,
                           contains_recursive_binary]
 
-    lst = list(range(1000000))
+    test_data = list(range(1000000))
     print()
     for contains in contains_functions:
         print(f'testing:  {contains.__name__:25}  ', end='')
         start = time.time()
         for i in range(100):
-            contains(-1, lst)
+            contains(-1, test_data)
         elapsed_time = time.time() - start
         print(f'{elapsed_time:.2f} seconds')
 
