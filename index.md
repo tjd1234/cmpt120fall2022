@@ -24,6 +24,9 @@ you'll need for this course.
 - [Zero marks quiz on dictionaries](lectures/lecture30/lecture30Quiz.pdf) ([solutions](lectures/lecture30/lecture30Quiz_sol.pdf))
 - [Sample final exam programming questions](exams/120-D400final_coding_sample_fall2022.pdf) ([solutions](exams/120-D400final_coding_sample_fall2022_sol.pdf))
 
+- [Final exam practice quiz](exams/120-D400final_practice_quiz.pdf)
+([solutions](exams/120-D400final_practice_quiz_sol.pdf)) during class.
+
 Here is an [exam timer](https://tjd1234.github.io/examclock/examclock.html)
 that shows the remaining time in an exam.
 
@@ -124,8 +127,11 @@ that shows the remaining time in an exam.
 - Wed Nov 30: [lecture 33](lectures/lecture33/lecture33notes.md)
 
 ### Week 14
-- Mon Dec 5: [lecture 34](lectures/lecture34/lecture34notes.md), 
-             [lecture 35](lectures/lecture35/lecture35notes.md)
+- [Practice quiz](exams/120-D400final_practice_quiz.pdf)
+([solutions](exams/120-D400final_practice_quiz_sol.pdf)) and review during
+class.
+- Mon Dec 5: [lecture 34](lectures/lecture34/lecture34notes.md)
+
 - Tue Dec 6: last day of SFU classes for Fall 2022
 
 
